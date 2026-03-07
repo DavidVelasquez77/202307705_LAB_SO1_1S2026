@@ -6,6 +6,7 @@
 #include <linux/mm.h>
 #include <linux/sysinfo.h>
 #include <linux/sched/signal.h>
+#include <linux/sched/cputime.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Josue David Velasquez Ixchop");
@@ -28,29 +29,35 @@ static int al_leer_archivo(struct seq_file *m, void *v)
     free_ram_kb  = (i.freeram * i.mem_unit) / 1024;
     used_ram_kb  = total_ram_kb - free_ram_kb;
 
-    seq_printf(m, "=== Memoria del Sistema ===\n");
-    seq_printf(m, "Total RAM: %lu KB\n", total_ram_kb);
-    seq_printf(m, "Free RAM: %lu KB\n", free_ram_kb);
-    seq_printf(m, "Used RAM: %lu KB\n\n", used_ram_kb);
-
-    seq_printf(m, "=== Procesos ===\n");
-    seq_printf(m, "PID\tPPID\tNOMBRE\t\tVSZ(KB)\tRSS(KB)\n");
+    seq_printf(m, "RAM_TOTAL_KB:%lu\n", total_ram_kb);
+    seq_printf(m, "RAM_FREE_KB:%lu\n", free_ram_kb);
+    seq_printf(m, "RAM_USED_KB:%lu\n", used_ram_kb);
 
     for_each_process(task) {
         unsigned long vsz_kb = 0;
         unsigned long rss_kb = 0;
+        unsigned long mem_pct = 0;
+        unsigned long long cpu_time = 0;
 
         if (task->mm) {
             vsz_kb = (task->mm->total_vm * PAGE_SIZE) / 1024;
             rss_kb = (get_mm_rss(task->mm) * PAGE_SIZE) / 1024;
+
+            if (total_ram_kb > 0) {
+                mem_pct = (rss_kb * 100) / total_ram_kb;
+            }
         }
 
-        seq_printf(m, "%d\t%d\t%s\t\t%lu\t%lu\n",
+        cpu_time = (unsigned long long)task->utime + (unsigned long long)task->stime;
+
+        seq_printf(m, "PROC:%d|%d|%s|%lu|%lu|%lu|%llu\n",
                    task->pid,
                    task->real_parent->pid,
                    task->comm,
                    vsz_kb,
-                   rss_kb);
+                   rss_kb,
+                   mem_pct,
+                   cpu_time);
     }
 
     return 0;

@@ -1125,6 +1125,7 @@ deps_continfo.o := \
   /usr/src/linux-headers-6.14.0-29-generic/include/linux/vm_event_item.h \
     $(wildcard include/config/MEMORY_BALLOON) \
     $(wildcard include/config/BALLOON_COMPACTION) \
+  /usr/src/linux-headers-6.14.0-29-generic/include/linux/sched/cputime.h \
 
 continfo.o: $(deps_continfo.o)
 
