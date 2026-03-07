@@ -115,7 +115,7 @@ func handleCall(w http.ResponseWriter, r *http.Request) {
 
 	targetURL, exists := apiMap[targetName]
 	if !exists {
-		respondCall(w, currentAPI, "ERROR: API desconocida en el mapa", false)
+		respondCall(w, targetName, "ERROR: API desconocida en el mapa", false)
 		return
 	}
 
@@ -125,7 +125,7 @@ func handleCall(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		msg := fmt.Sprintf("ERROR: The %s located on the remote VM is not working", targetName)
-		respondCall(w, currentAPI, msg, false)
+		respondCall(w, targetName, msg, false)
 		return
 	}
 	defer resp.Body.Close()
@@ -137,10 +137,10 @@ func handleCall(w http.ResponseWriter, r *http.Request) {
 	// Validar Status UP
 	if healthData.Status == "UP" {
 		msg := fmt.Sprintf("The %s located on the %s is working", targetName, healthData.VM)
-		respondCall(w, currentAPI, msg, true)
+		respondCall(w, targetName, msg, true)
 	} else {
 		msg := fmt.Sprintf("ERROR: The %s located on the remote VM is not working (Status: %s)", targetName, healthData.Status)
-		respondCall(w, currentAPI, msg, false)
+		respondCall(w, targetName, msg, false)
 	}
 }
 
