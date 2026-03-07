@@ -4,8 +4,10 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const procFile = "/proc/continfo_pr2_so1_202307705"
@@ -133,28 +135,100 @@ func readProcFile(path string) (*SystemInfo, error) {
 	return info, nil
 }
 
+type CPUResult struct {
+	PID      int
+	Name     string
+	DeltaCPU uint64
+	RSSKB    uint64
+	VSZKB    uint64
+	MemPct   uint64
+}
+
+func topByRSS(processes []ProcessInfo, n int) []ProcessInfo {
+	copied := make([]ProcessInfo, len(processes))
+	copy(copied, processes)
+
+	sort.Slice(copied, func(i, j int) bool {
+		return copied[i].RSSKB > copied[j].RSSKB
+	})
+
+	if len(copied) < n {
+		n = len(copied)
+	}
+	return copied[:n]
+}
+
+func topCPUBetweenSamples(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
+	oldMap := make(map[int]ProcessInfo)
+	for _, p := range oldInfo.Processes {
+		oldMap[p.PID] = p
+	}
+
+	var results []CPUResult
+
+	for _, newProc := range newInfo.Processes {
+		oldProc, exists := oldMap[newProc.PID]
+		if !exists {
+			continue
+		}
+
+		if newProc.CPUTime >= oldProc.CPUTime {
+			results = append(results, CPUResult{
+				PID:      newProc.PID,
+				Name:     newProc.Name,
+				DeltaCPU: newProc.CPUTime - oldProc.CPUTime,
+				RSSKB:    newProc.RSSKB,
+				VSZKB:    newProc.VSZKB,
+				MemPct:   newProc.MemPct,
+			})
+		}
+	}
+
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].DeltaCPU > results[j].DeltaCPU
+	})
+
+	if len(results) < n {
+		n = len(results)
+	}
+	return results[:n]
+}
+
 func main() {
-	info, err := readProcFile(procFile)
+	fmt.Println("Leyendo primera muestra...")
+	first, err := readProcFile(procFile)
 	if err != nil {
 		fmt.Println("Error:", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("=== RESUMEN DEL SISTEMA ===")
-	fmt.Printf("RAM Total: %d KB\n", info.RAMTotalKB)
-	fmt.Printf("RAM Free : %d KB\n", info.RAMFreeKB)
-	fmt.Printf("RAM Used : %d KB\n", info.RAMUsedKB)
-	fmt.Printf("Procesos : %d\n\n", len(info.Processes))
+	fmt.Println("Esperando 5 segundos para segunda muestra...")
+	time.Sleep(5 * time.Second)
 
-	fmt.Println("=== PRIMEROS 10 PROCESOS ===")
-	limit := 10
-	if len(info.Processes) < limit {
-		limit = len(info.Processes)
+	fmt.Println("Leyendo segunda muestra...")
+	second, err := readProcFile(procFile)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
 	}
 
-	for i := 0; i < limit; i++ {
-		p := info.Processes[i]
-		fmt.Printf("PID=%d PPID=%d NAME=%s VSZ=%d RSS=%d MEM=%d CPU_TIME=%d\n",
-			p.PID, p.PPID, p.Name, p.VSZKB, p.RSSKB, p.MemPct, p.CPUTime)
+	fmt.Println()
+	fmt.Println("=== RESUMEN DEL SISTEMA ===")
+	fmt.Printf("RAM Total: %d KB\n", second.RAMTotalKB)
+	fmt.Printf("RAM Free : %d KB\n", second.RAMFreeKB)
+	fmt.Printf("RAM Used : %d KB\n", second.RAMUsedKB)
+	fmt.Printf("Procesos : %d\n\n", len(second.Processes))
+
+	fmt.Println("=== TOP 5 POR RSS ===")
+	for _, p := range topByRSS(second.Processes, 5) {
+		fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
+			p.PID, p.Name, p.RSSKB, p.VSZKB, p.MemPct, p.CPUTime)
+	}
+
+	fmt.Println()
+	fmt.Println("=== TOP 5 POR DELTA CPU ENTRE MUESTRAS ===")
+	for _, p := range topCPUBetweenSamples(first, second, 5) {
+		fmt.Printf("PID=%d NAME=%s DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
+			p.PID, p.Name, p.DeltaCPU, p.RSSKB, p.VSZKB, p.MemPct)
 	}
 }
