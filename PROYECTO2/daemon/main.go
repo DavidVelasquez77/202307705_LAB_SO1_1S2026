@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"os"
 	"sort"
@@ -11,22 +12,41 @@ import (
 )
 
 const procFile = "/proc/continfo_pr2_so1_202307705"
+const logFile = "monitor_logs.jsonl"
 
 type ProcessInfo struct {
-	PID     int
-	PPID    int
-	Name    string
-	VSZKB   uint64
-	RSSKB   uint64
-	MemPct  uint64
-	CPUTime uint64
+	PID     int    `json:"pid"`
+	PPID    int    `json:"ppid"`
+	Name    string `json:"name"`
+	VSZKB   uint64 `json:"vsz_kb"`
+	RSSKB   uint64 `json:"rss_kb"`
+	MemPct  uint64 `json:"mem_pct"`
+	CPUTime uint64 `json:"cpu_time"`
 }
 
 type SystemInfo struct {
-	RAMTotalKB uint64
-	RAMFreeKB  uint64
-	RAMUsedKB  uint64
-	Processes  []ProcessInfo
+	RAMTotalKB uint64        `json:"ram_total_kb"`
+	RAMFreeKB  uint64        `json:"ram_free_kb"`
+	RAMUsedKB  uint64        `json:"ram_used_kb"`
+	Processes  []ProcessInfo `json:"processes"`
+}
+
+type CPUResult struct {
+	PID      int    `json:"pid"`
+	Name     string `json:"name"`
+	DeltaCPU uint64 `json:"delta_cpu"`
+	RSSKB    uint64 `json:"rss_kb"`
+	VSZKB    uint64 `json:"vsz_kb"`
+	MemPct   uint64 `json:"mem_pct"`
+}
+
+type CycleLog struct {
+	Timestamp string        `json:"timestamp"`
+	RAMTotal  uint64        `json:"ram_total_kb"`
+	RAMFree   uint64        `json:"ram_free_kb"`
+	RAMUsed   uint64        `json:"ram_used_kb"`
+	TopRSS    []ProcessInfo `json:"top_rss"`
+	TopCPU    []CPUResult   `json:"top_cpu_delta"`
 }
 
 func parseLine(line string, info *SystemInfo) error {
@@ -135,15 +155,6 @@ func readProcFile(path string) (*SystemInfo, error) {
 	return info, nil
 }
 
-type CPUResult struct {
-	PID      int
-	Name     string
-	DeltaCPU uint64
-	RSSKB    uint64
-	VSZKB    uint64
-	MemPct   uint64
-}
-
 func topByRSS(processes []ProcessInfo, n int) []ProcessInfo {
 	copied := make([]ProcessInfo, len(processes))
 	copy(copied, processes)
@@ -194,41 +205,77 @@ func topCPUBetweenSamples(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
 	return results[:n]
 }
 
+func appendJSONLog(path string, entry CycleLog) error {
+	f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	enc := json.NewEncoder(f)
+	return enc.Encode(entry)
+}
+
 func main() {
-	fmt.Println("Leyendo primera muestra...")
-	first, err := readProcFile(procFile)
-	if err != nil {
-		fmt.Println("Error:", err)
-		os.Exit(1)
-	}
+	for {
+		fmt.Println("======================================")
+		fmt.Println("Leyendo primera muestra...")
+		first, err := readProcFile(procFile)
+		if err != nil {
+			fmt.Println("Error:", err)
+			os.Exit(1)
+		}
 
-	fmt.Println("Esperando 5 segundos para segunda muestra...")
-	time.Sleep(5 * time.Second)
+		fmt.Println("Esperando 10 segundos para segunda muestra...")
+		time.Sleep(10 * time.Second)
 
-	fmt.Println("Leyendo segunda muestra...")
-	second, err := readProcFile(procFile)
-	if err != nil {
-		fmt.Println("Error:", err)
-		os.Exit(1)
-	}
+		fmt.Println("Leyendo segunda muestra...")
+		second, err := readProcFile(procFile)
+		if err != nil {
+			fmt.Println("Error:", err)
+			os.Exit(1)
+		}
 
-	fmt.Println()
-	fmt.Println("=== RESUMEN DEL SISTEMA ===")
-	fmt.Printf("RAM Total: %d KB\n", second.RAMTotalKB)
-	fmt.Printf("RAM Free : %d KB\n", second.RAMFreeKB)
-	fmt.Printf("RAM Used : %d KB\n", second.RAMUsedKB)
-	fmt.Printf("Procesos : %d\n\n", len(second.Processes))
+		topRSS := topByRSS(second.Processes, 5)
+		topCPU := topCPUBetweenSamples(first, second, 5)
 
-	fmt.Println("=== TOP 5 POR RSS ===")
-	for _, p := range topByRSS(second.Processes, 5) {
-		fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
-			p.PID, p.Name, p.RSSKB, p.VSZKB, p.MemPct, p.CPUTime)
-	}
+		fmt.Println()
+		fmt.Println("=== RESUMEN DEL SISTEMA ===")
+		fmt.Printf("RAM Total: %d KB\n", second.RAMTotalKB)
+		fmt.Printf("RAM Free : %d KB\n", second.RAMFreeKB)
+		fmt.Printf("RAM Used : %d KB\n", second.RAMUsedKB)
+		fmt.Printf("Procesos : %d\n\n", len(second.Processes))
 
-	fmt.Println()
-	fmt.Println("=== TOP 5 POR DELTA CPU ENTRE MUESTRAS ===")
-	for _, p := range topCPUBetweenSamples(first, second, 5) {
-		fmt.Printf("PID=%d NAME=%s DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
-			p.PID, p.Name, p.DeltaCPU, p.RSSKB, p.VSZKB, p.MemPct)
+		fmt.Println("=== TOP 5 POR RSS ===")
+		for _, p := range topRSS {
+			fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
+				p.PID, p.Name, p.RSSKB, p.VSZKB, p.MemPct, p.CPUTime)
+		}
+
+		fmt.Println()
+		fmt.Println("=== TOP 5 POR DELTA CPU ENTRE MUESTRAS ===")
+		for _, p := range topCPU {
+			fmt.Printf("PID=%d NAME=%s DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
+				p.PID, p.Name, p.DeltaCPU, p.RSSKB, p.VSZKB, p.MemPct)
+		}
+
+		entry := CycleLog{
+			Timestamp: time.Now().Format(time.RFC3339),
+			RAMTotal:  second.RAMTotalKB,
+			RAMFree:   second.RAMFreeKB,
+			RAMUsed:   second.RAMUsedKB,
+			TopRSS:    topRSS,
+			TopCPU:    topCPU,
+		}
+
+		if err := appendJSONLog(logFile, entry); err != nil {
+			fmt.Println("Error writing JSON log:", err)
+		} else {
+			fmt.Printf("\nLog guardado en %s\n", logFile)
+		}
+
+		fmt.Println()
+		fmt.Println("Esperando 10 segundos para el siguiente ciclo...")
+		time.Sleep(10 * time.Second)
 	}
 }
