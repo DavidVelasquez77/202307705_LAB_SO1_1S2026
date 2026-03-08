@@ -227,8 +227,43 @@ func saveToValkey(rdb *redis.Client, entry CycleLog) error {
 		return err
 	}
 
-	key := "monitor:logs"
-	return rdb.RPush(ctx, key, data).Err()
+	if err := rdb.RPush(ctx, "monitor:logs", data).Err(); err != nil {
+		return err
+	}
+
+	if err := rdb.Set(ctx, "monitor:ram_total", entry.RAMTotal, 0).Err(); err != nil {
+		return err
+	}
+
+	if err := rdb.Set(ctx, "monitor:ram_free", entry.RAMFree, 0).Err(); err != nil {
+		return err
+	}
+
+	if err := rdb.Set(ctx, "monitor:ram_used", entry.RAMUsed, 0).Err(); err != nil {
+		return err
+	}
+
+	if err := rdb.Set(ctx, "monitor:last_update", entry.Timestamp, 0).Err(); err != nil {
+		return err
+	}
+
+	topRSSJSON, err := json.Marshal(entry.TopRSS)
+	if err != nil {
+		return err
+	}
+	if err := rdb.Set(ctx, "monitor:top_rss", topRSSJSON, 0).Err(); err != nil {
+		return err
+	}
+
+	topCPUJSON, err := json.Marshal(entry.TopCPU)
+	if err != nil {
+		return err
+	}
+	if err := rdb.Set(ctx, "monitor:top_cpu", topCPUJSON, 0).Err(); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func main() {
