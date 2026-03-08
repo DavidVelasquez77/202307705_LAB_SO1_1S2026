@@ -210,6 +210,30 @@ func topCPUBetweenSamples(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
 	return results[:n]
 }
 
+func candidateProcessesByCPU(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
+	results := topCPUBetweenSamples(oldInfo, newInfo, len(newInfo.Processes))
+	var filtered []CPUResult
+
+	protected := map[string]bool{
+		"grafana":     true,
+		"valkey":      true,
+		"systemd":     true,
+		"gnome-shell": true,
+	}
+
+	for _, p := range results {
+		if protected[p.Name] {
+			continue
+		}
+		filtered = append(filtered, p)
+		if len(filtered) == n {
+			break
+		}
+	}
+
+	return filtered
+}
+
 func appendJSONLog(path string, entry CycleLog) error {
 	f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -299,6 +323,7 @@ func main() {
 
 		topRSS := topByRSS(second.Processes, 5)
 		topCPU := topCPUBetweenSamples(first, second, 5)
+		candidates := candidateProcessesByCPU(first, second, 5)
 
 		fmt.Println()
 		fmt.Println("=== RESUMEN DEL SISTEMA ===")
@@ -316,6 +341,13 @@ func main() {
 		fmt.Println()
 		fmt.Println("=== TOP 5 POR DELTA CPU ENTRE MUESTRAS ===")
 		for _, p := range topCPU {
+			fmt.Printf("PID=%d NAME=%s DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
+				p.PID, p.Name, p.DeltaCPU, p.RSSKB, p.VSZKB, p.MemPct)
+		}
+
+		fmt.Println()
+		fmt.Println("=== POSIBLES CANDIDATOS A ELIMINAR ===")
+		for _, p := range candidates {
 			fmt.Printf("PID=%d NAME=%s DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
 				p.PID, p.Name, p.DeltaCPU, p.RSSKB, p.VSZKB, p.MemPct)
 		}
