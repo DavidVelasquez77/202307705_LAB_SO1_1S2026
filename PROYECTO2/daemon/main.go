@@ -48,12 +48,15 @@ type CPUResult struct {
 }
 
 type CycleLog struct {
-	Timestamp string        `json:"timestamp"`
-	RAMTotal  uint64        `json:"ram_total_kb"`
-	RAMFree   uint64        `json:"ram_free_kb"`
-	RAMUsed   uint64        `json:"ram_used_kb"`
-	TopRSS    []ProcessInfo `json:"top_rss"`
-	TopCPU    []CPUResult   `json:"top_cpu_delta"`
+	Timestamp        string        `json:"timestamp"`
+	RAMTotal         uint64        `json:"ram_total_kb"`
+	RAMFree          uint64        `json:"ram_free_kb"`
+	RAMUsed          uint64        `json:"ram_used_kb"`
+	TopRSS           []ProcessInfo `json:"top_rss"`
+	TopCPU           []CPUResult   `json:"top_cpu_delta"`
+	DeletedContainer string        `json:"deleted_container"`
+	DeletedReason    string        `json:"deleted_reason"`
+	ActionTaken      string        `json:"action_taken"`
 }
 
 type DockerContainer struct {
@@ -501,6 +504,10 @@ func main() {
 			containerCandidates = candidateContainersByPolicy(first, second, containers, 5)
 		}
 
+		deletedContainer := ""
+		deletedReason := ""
+		actionTaken := "none"
+
 		fmt.Println("=== TOP 5 POR RSS ===")
 		for _, p := range topRSS {
 			fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
@@ -538,30 +545,46 @@ func main() {
 			if strings.HasPrefix(target.Name, "highcpu_") || strings.HasPrefix(target.Name, "highram_") {
 				if highCount <= 2 {
 					fmt.Printf("No se elimina %s porque ya solo quedan %d contenedores high\n", target.Name, highCount)
+					deletedContainer = target.Name
+					deletedReason = target.Reason
+					actionTaken = "skipped_min_high_limit"
 				} else {
 					fmt.Printf("Eliminando contenedor candidato: %s (motivo: %s)\n", target.Name, target.Reason)
 
 					if err := removeContainer(target.Name); err != nil {
 						fmt.Println("Error al eliminar contenedor:", err)
+						deletedContainer = target.Name
+						deletedReason = target.Reason
+						actionTaken = "remove_error"
 					} else {
 						fmt.Printf("Contenedor eliminado correctamente: %s\n", target.Name)
+						deletedContainer = target.Name
+						deletedReason = target.Reason
+						actionTaken = "removed"
 					}
 				}
 			} else {
 				fmt.Printf("No se elimina %s porque no es un contenedor high válido\n", target.Name)
+				deletedContainer = target.Name
+				deletedReason = target.Reason
+				actionTaken = "skipped_invalid_target"
 			}
 		} else {
 			fmt.Println()
 			fmt.Println("No hay contenedores candidatos para eliminar.")
+			actionTaken = "no_candidates"
 		}
 
 		entry := CycleLog{
-			Timestamp: time.Now().Format(time.RFC3339),
-			RAMTotal:  second.RAMTotalKB,
-			RAMFree:   second.RAMFreeKB,
-			RAMUsed:   second.RAMUsedKB,
-			TopRSS:    topRSS,
-			TopCPU:    topCPU,
+			Timestamp:        time.Now().Format(time.RFC3339),
+			RAMTotal:         second.RAMTotalKB,
+			RAMFree:          second.RAMFreeKB,
+			RAMUsed:          second.RAMUsedKB,
+			TopRSS:           topRSS,
+			TopCPU:           topCPU,
+			DeletedContainer: deletedContainer,
+			DeletedReason:    deletedReason,
+			ActionTaken:      actionTaken,
 		}
 
 		if err := appendJSONLog(logFile, entry); err != nil {
