@@ -121,6 +121,16 @@ func getRunningContainers() ([]DockerContainer, error) {
 	return containers, nil
 }
 
+func countHighContainers(containers []DockerContainer) int {
+	count := 0
+	for _, c := range containers {
+		if strings.HasPrefix(c.Name, "highcpu_") || strings.HasPrefix(c.Name, "highram_") {
+			count++
+		}
+	}
+	return count
+}
+
 func parseLine(line string, info *SystemInfo) error {
 	line = strings.TrimSpace(line)
 	if line == "" {
@@ -521,12 +531,24 @@ func main() {
 		if len(containerCandidates) > 0 {
 			target := containerCandidates[0]
 			fmt.Println()
-			fmt.Printf("Eliminando contenedor candidato: %s (motivo: %s)\n", target.Name, target.Reason)
 
-			if err := removeContainer(target.Name); err != nil {
-				fmt.Println("Error al eliminar contenedor:", err)
+			highCount := countHighContainers(containers)
+			fmt.Printf("Contenedores high activos: %d\n", highCount)
+
+			if strings.HasPrefix(target.Name, "highcpu_") || strings.HasPrefix(target.Name, "highram_") {
+				if highCount <= 2 {
+					fmt.Printf("No se elimina %s porque ya solo quedan %d contenedores high\n", target.Name, highCount)
+				} else {
+					fmt.Printf("Eliminando contenedor candidato: %s (motivo: %s)\n", target.Name, target.Reason)
+
+					if err := removeContainer(target.Name); err != nil {
+						fmt.Println("Error al eliminar contenedor:", err)
+					} else {
+						fmt.Printf("Contenedor eliminado correctamente: %s\n", target.Name)
+					}
+				}
 			} else {
-				fmt.Printf("Contenedor eliminado correctamente: %s\n", target.Name)
+				fmt.Printf("No se elimina %s porque no es un contenedor high válido\n", target.Name)
 			}
 		} else {
 			fmt.Println()
