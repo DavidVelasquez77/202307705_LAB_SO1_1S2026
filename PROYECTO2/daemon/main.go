@@ -63,6 +63,16 @@ type DockerContainer struct {
 	PID   int
 }
 
+type ContainerCandidate struct {
+	Name     string
+	Image    string
+	PID      int
+	DeltaCPU uint64
+	RSSKB    uint64
+	VSZKB    uint64
+	MemPct   uint64
+}
+
 func getRunningContainers() ([]DockerContainer, error) {
 	cmd := exec.Command("docker", "ps", "--format", "{{.ID}}|{{.Names}}|{{.Image}}")
 	out, err := cmd.Output()
@@ -290,6 +300,53 @@ func candidateProcessesByCPU(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
 	return filtered
 }
 
+func candidateContainersByCPU(oldInfo, newInfo *SystemInfo, containers []DockerContainer, n int) []ContainerCandidate {
+	processCandidates := topCPUBetweenSamples(oldInfo, newInfo, len(newInfo.Processes))
+
+	containerMap := make(map[int]DockerContainer)
+	for _, c := range containers {
+		containerMap[c.PID] = c
+	}
+
+	protectedContainers := map[string]bool{
+		"grafana_so1": true,
+		"valkey_so1":  true,
+	}
+
+	var results []ContainerCandidate
+
+	for _, p := range processCandidates {
+		c, exists := containerMap[p.PID]
+		if !exists {
+			continue
+		}
+
+		if protectedContainers[c.Name] {
+			continue
+		}
+
+		if strings.HasPrefix(c.Name, "low_") {
+			continue
+		}
+
+		results = append(results, ContainerCandidate{
+			Name:     c.Name,
+			Image:    c.Image,
+			PID:      c.PID,
+			DeltaCPU: p.DeltaCPU,
+			RSSKB:    p.RSSKB,
+			VSZKB:    p.VSZKB,
+			MemPct:   p.MemPct,
+		})
+
+		if len(results) == n {
+			break
+		}
+	}
+
+	return results
+}
+
 func appendJSONLog(path string, entry CycleLog) error {
 	f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -377,10 +434,6 @@ func main() {
 			os.Exit(1)
 		}
 
-		topRSS := topByRSS(second.Processes, 5)
-		topCPU := topCPUBetweenSamples(first, second, 5)
-		candidates := candidateProcessesByCPU(first, second, 5)
-
 		fmt.Println()
 		fmt.Println("=== RESUMEN DEL SISTEMA ===")
 		fmt.Printf("RAM Total: %d KB\n", second.RAMTotalKB)
@@ -397,6 +450,15 @@ func main() {
 				fmt.Printf("NAME=%s IMAGE=%s PID=%d\n", c.Name, c.Image, c.PID)
 			}
 			fmt.Println()
+		}
+
+		topRSS := topByRSS(second.Processes, 5)
+		topCPU := topCPUBetweenSamples(first, second, 5)
+		candidates := candidateProcessesByCPU(first, second, 5)
+
+		var containerCandidates []ContainerCandidate
+		if err == nil {
+			containerCandidates = candidateContainersByCPU(first, second, containers, 5)
 		}
 
 		fmt.Println("=== TOP 5 POR RSS ===")
@@ -417,6 +479,13 @@ func main() {
 		for _, p := range candidates {
 			fmt.Printf("PID=%d NAME=%s DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
 				p.PID, p.Name, p.DeltaCPU, p.RSSKB, p.VSZKB, p.MemPct)
+		}
+
+		fmt.Println()
+		fmt.Println("=== CONTENEDORES CANDIDATOS A ELIMINAR ===")
+		for _, c := range containerCandidates {
+			fmt.Printf("NAME=%s IMAGE=%s PID=%d DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
+				c.Name, c.Image, c.PID, c.DeltaCPU, c.RSSKB, c.VSZKB, c.MemPct)
 		}
 
 		entry := CycleLog{
