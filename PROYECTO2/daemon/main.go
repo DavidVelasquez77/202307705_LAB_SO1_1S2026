@@ -10,6 +10,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"os/exec"
+	"bytes"
 
 	"github.com/redis/go-redis/v9"
 )
@@ -52,6 +54,60 @@ type CycleLog struct {
 	RAMUsed   uint64        `json:"ram_used_kb"`
 	TopRSS    []ProcessInfo `json:"top_rss"`
 	TopCPU    []CPUResult   `json:"top_cpu_delta"`
+}
+
+type DockerContainer struct {
+	ID    string
+	Name  string
+	Image string
+	PID   int
+}
+
+func getRunningContainers() ([]DockerContainer, error) {
+	cmd := exec.Command("docker", "ps", "--format", "{{.ID}}|{{.Names}}|{{.Image}}")
+	out, err := cmd.Output()
+	if err != nil {
+		return nil, err
+	}
+
+	lines := bytes.Split(bytes.TrimSpace(out), []byte("\n"))
+	var containers []DockerContainer
+
+	for _, line := range lines {
+		if len(line) == 0 {
+			continue
+		}
+
+		parts := strings.Split(string(line), "|")
+		if len(parts) != 3 {
+			continue
+		}
+
+		id := parts[0]
+		name := parts[1]
+		image := parts[2]
+
+		inspectCmd := exec.Command("docker", "inspect", "-f", "{{.State.Pid}}", id)
+		pidOut, err := inspectCmd.Output()
+		if err != nil {
+			continue
+		}
+
+		pidStr := strings.TrimSpace(string(pidOut))
+		pid, err := strconv.Atoi(pidStr)
+		if err != nil {
+			continue
+		}
+
+		containers = append(containers, DockerContainer{
+			ID:    id,
+			Name:  name,
+			Image: image,
+			PID:   pid,
+		})
+	}
+
+	return containers, nil
 }
 
 func parseLine(line string, info *SystemInfo) error {
@@ -331,6 +387,17 @@ func main() {
 		fmt.Printf("RAM Free : %d KB\n", second.RAMFreeKB)
 		fmt.Printf("RAM Used : %d KB\n", second.RAMUsedKB)
 		fmt.Printf("Procesos : %d\n\n", len(second.Processes))
+
+		containers, err := getRunningContainers()
+		if err != nil {
+			fmt.Println("Error obteniendo contenedores Docker:", err)
+		} else {
+			fmt.Println("=== CONTENEDORES ACTIVOS ===")
+			for _, c := range containers {
+				fmt.Printf("NAME=%s IMAGE=%s PID=%d\n", c.Name, c.Image, c.PID)
+			}
+			fmt.Println()
+		}
 
 		fmt.Println("=== TOP 5 POR RSS ===")
 		for _, p := range topRSS {
