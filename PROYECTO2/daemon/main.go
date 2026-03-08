@@ -347,6 +347,15 @@ func candidateContainersByCPU(oldInfo, newInfo *SystemInfo, containers []DockerC
 	return results
 }
 
+func removeContainer(name string) error {
+	cmd := exec.Command("docker", "rm", "-f", name)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("error removing container %s: %v - %s", name, err, string(output))
+	}
+	return nil
+}
+
 func appendJSONLog(path string, entry CycleLog) error {
 	f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -486,6 +495,21 @@ func main() {
 		for _, c := range containerCandidates {
 			fmt.Printf("NAME=%s IMAGE=%s PID=%d DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
 				c.Name, c.Image, c.PID, c.DeltaCPU, c.RSSKB, c.VSZKB, c.MemPct)
+		}
+
+		if len(containerCandidates) > 0 {
+			target := containerCandidates[0]
+			fmt.Println()
+			fmt.Printf("Eliminando contenedor candidato: %s\n", target.Name)
+
+			if err := removeContainer(target.Name); err != nil {
+				fmt.Println("Error al eliminar contenedor:", err)
+			} else {
+				fmt.Printf("Contenedor eliminado correctamente: %s\n", target.Name)
+			}
+		} else {
+			fmt.Println()
+			fmt.Println("No hay contenedores candidatos para eliminar.")
 		}
 
 		entry := CycleLog{
