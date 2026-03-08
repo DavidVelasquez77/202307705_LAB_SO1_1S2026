@@ -71,6 +71,7 @@ type ContainerCandidate struct {
 	RSSKB    uint64
 	VSZKB    uint64
 	MemPct   uint64
+	Reason   string
 }
 
 func getRunningContainers() ([]DockerContainer, error) {
@@ -300,7 +301,7 @@ func candidateProcessesByCPU(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
 	return filtered
 }
 
-func candidateContainersByCPU(oldInfo, newInfo *SystemInfo, containers []DockerContainer, n int) []ContainerCandidate {
+func candidateContainersByPolicy(oldInfo, newInfo *SystemInfo, containers []DockerContainer, n int) []ContainerCandidate {
 	processCandidates := topCPUBetweenSamples(oldInfo, newInfo, len(newInfo.Processes))
 
 	containerMap := make(map[int]DockerContainer)
@@ -313,7 +314,8 @@ func candidateContainersByCPU(oldInfo, newInfo *SystemInfo, containers []DockerC
 		"valkey_so1":  true,
 	}
 
-	var results []ContainerCandidate
+	var highCPU []ContainerCandidate
+	var highRAM []ContainerCandidate
 
 	for _, p := range processCandidates {
 		c, exists := containerMap[p.PID]
@@ -329,7 +331,7 @@ func candidateContainersByCPU(oldInfo, newInfo *SystemInfo, containers []DockerC
 			continue
 		}
 
-		results = append(results, ContainerCandidate{
+		candidate := ContainerCandidate{
 			Name:     c.Name,
 			Image:    c.Image,
 			PID:      c.PID,
@@ -337,14 +339,33 @@ func candidateContainersByCPU(oldInfo, newInfo *SystemInfo, containers []DockerC
 			RSSKB:    p.RSSKB,
 			VSZKB:    p.VSZKB,
 			MemPct:   p.MemPct,
-		})
+		}
 
-		if len(results) == n {
-			break
+		if strings.HasPrefix(c.Name, "highcpu_") {
+			candidate.Reason = "high_cpu"
+			highCPU = append(highCPU, candidate)
+		} else if strings.HasPrefix(c.Name, "highram_") {
+			candidate.Reason = "high_ram"
+			highRAM = append(highRAM, candidate)
 		}
 	}
 
-	return results
+	sort.Slice(highCPU, func(i, j int) bool {
+		return highCPU[i].DeltaCPU > highCPU[j].DeltaCPU
+	})
+
+	sort.Slice(highRAM, func(i, j int) bool {
+		return highRAM[i].RSSKB > highRAM[j].RSSKB
+	})
+
+	var results []ContainerCandidate
+	results = append(results, highCPU...)
+	results = append(results, highRAM...)
+
+	if len(results) < n {
+		n = len(results)
+	}
+	return results[:n]
 }
 
 func removeContainer(name string) error {
@@ -467,7 +488,7 @@ func main() {
 
 		var containerCandidates []ContainerCandidate
 		if err == nil {
-			containerCandidates = candidateContainersByCPU(first, second, containers, 5)
+			containerCandidates = candidateContainersByPolicy(first, second, containers, 5)
 		}
 
 		fmt.Println("=== TOP 5 POR RSS ===")
@@ -493,14 +514,14 @@ func main() {
 		fmt.Println()
 		fmt.Println("=== CONTENEDORES CANDIDATOS A ELIMINAR ===")
 		for _, c := range containerCandidates {
-			fmt.Printf("NAME=%s IMAGE=%s PID=%d DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d\n",
-				c.Name, c.Image, c.PID, c.DeltaCPU, c.RSSKB, c.VSZKB, c.MemPct)
+			fmt.Printf("NAME=%s IMAGE=%s PID=%d DELTA_CPU=%d RSS=%d KB VSZ=%d KB MEM=%d REASON=%s\n",
+				c.Name, c.Image, c.PID, c.DeltaCPU, c.RSSKB, c.VSZKB, c.MemPct, c.Reason)
 		}
 
 		if len(containerCandidates) > 0 {
 			target := containerCandidates[0]
 			fmt.Println()
-			fmt.Printf("Eliminando contenedor candidato: %s\n", target.Name)
+			fmt.Printf("Eliminando contenedor candidato: %s (motivo: %s)\n", target.Name, target.Reason)
 
 			if err := removeContainer(target.Name); err != nil {
 				fmt.Println("Error al eliminar contenedor:", err)
