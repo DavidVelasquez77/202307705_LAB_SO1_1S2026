@@ -154,3 +154,57 @@ low_2         alpine                   Up Less than a second
 low_1         alpine                   Up Less than a second
 grafana_so1   grafana/grafana:latest   Up 10 hours
 valkey_so1    valkey/valkey:7.2        Up 10 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+4e81079140e35fd2a79b44096aa7dd15f2025548425bfc5fb260f1a34f4914fc
+7f528f08bd9279f6d0ca7fc91d4fcc47c55462e8f6eac05188397cf875c65f68
+57473b3fcead9e14cb79c33396189e3ec0399726f2acd54959f6021313f135fc
+Creando contenedores de alto consumo CPU...
+7ed4e3f2aa36022c43c322658a17418b37f9e9ea2e350fba176762f8b6e2e487
+466b433203e7d8155a456ba6bb2f17c23418042375f47b40714a9f02257bb2f4
+Creando contenedor de alto consumo RAM...
+653b6d92544a839db70abb95ad6c030f9ae61e64fb66bd0fe7b20f3f6963c8f7
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 10 hours
+valkey_so1    valkey/valkey:7.2        Up 10 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+ebbf5bdad904b4df17cfdcf6d7008447f691d16c1089a0f8f37fea780060cadd
+c21b3df487b852edbf6408a490d95eb7e41ac4ecf78f94721fe8dc2a9a6b3ea7
+903eba426132f32ba72c8a5f7627353b7c5c459974f08c143e43dbac09c1fb15
+Creando contenedores de alto consumo CPU...
+a0116e366c88c42aff1ca21a5ab7ef6396e7ac4bf353df0ddcdc3843eaf2600f
+22c58a5469783c274fe10efff1737ff67173647f421085ccb5c19024f21b554f
+Creando contenedor de alto consumo RAM...
+76a256b35576a207fcd0a4157b3ec45af4366a9577a74dfc3a29ec3c8c275758
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 10 hours
+valkey_so1    valkey/valkey:7.2        Up 10 hours
