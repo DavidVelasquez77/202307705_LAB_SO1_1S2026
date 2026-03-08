@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -9,10 +10,14 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/redis/go-redis/v9"
 )
 
 const procFile = "/proc/continfo_pr2_so1_202307705"
 const logFile = "monitor_logs.jsonl"
+
+var ctx = context.Background()
 
 type ProcessInfo struct {
 	PID     int    `json:"pid"`
@@ -216,7 +221,28 @@ func appendJSONLog(path string, entry CycleLog) error {
 	return enc.Encode(entry)
 }
 
+func saveToValkey(rdb *redis.Client, entry CycleLog) error {
+	data, err := json.Marshal(entry)
+	if err != nil {
+		return err
+	}
+
+	key := "monitor:logs"
+	return rdb.RPush(ctx, key, data).Err()
+}
+
 func main() {
+	rdb := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+
+	if err := rdb.Ping(ctx).Err(); err != nil {
+		fmt.Println("Error connecting to Valkey:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Conectado a Valkey correctamente")
+
 	for {
 		fmt.Println("======================================")
 		fmt.Println("Leyendo primera muestra...")
@@ -272,6 +298,12 @@ func main() {
 			fmt.Println("Error writing JSON log:", err)
 		} else {
 			fmt.Printf("\nLog guardado en %s\n", logFile)
+		}
+
+		if err := saveToValkey(rdb, entry); err != nil {
+			fmt.Println("Error saving to Valkey:", err)
+		} else {
+			fmt.Println("Log guardado en Valkey (lista monitor:logs)")
 		}
 
 		fmt.Println()
