@@ -416,6 +416,26 @@ func topByRSS(processes []ProcessInfo, n int) []ProcessInfo {
 	return copied[:n]
 }
 
+func topByVSZ(processes []ProcessInfo, n int) []ProcessInfo {
+    copied := make([]ProcessInfo, len(processes))
+    copy(copied, processes)
+    sort.Slice(copied, func(i, j int) bool {
+        return copied[i].VSZKB > copied[j].VSZKB
+    })
+    if len(copied) < n { n = len(copied) }
+    return copied[:n]
+}
+
+func topByMemPct(processes []ProcessInfo, n int) []ProcessInfo {
+    copied := make([]ProcessInfo, len(processes))
+    copy(copied, processes)
+    sort.Slice(copied, func(i, j int) bool {
+        return copied[i].MemPct > copied[j].MemPct
+    })
+    if len(copied) < n { n = len(copied) }
+    return copied[:n]
+}
+
 func topCPUBetweenSamples(oldInfo, newInfo *SystemInfo, n int) []CPUResult {
 	oldMap := make(map[int]ProcessInfo)
 	for _, p := range oldInfo.Processes {
@@ -690,6 +710,8 @@ func main() {
 		}
 
 		topRSS := topByRSS(second.Processes, 5)
+		topVSZ := topByVSZ(second.Processes, 5)      
+        topMEM := topByMemPct(second.Processes, 5)   
 		topCPU := topCPUBetweenSamples(first, second, 5)
 		candidates := candidateProcessesByCPU(first, second, 5)
 
@@ -707,6 +729,20 @@ func main() {
 			fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
 				p.PID, p.Name, p.RSSKB, p.VSZKB, p.MemPct, p.CPUTime)
 		}
+
+		fmt.Println()
+        fmt.Println("=== TOP 5 POR VSZ ===") 
+        for _, p := range topVSZ {
+            fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
+                p.PID, p.Name, p.RSSKB, p.VSZKB, p.MemPct, p.CPUTime)
+        }
+
+		fmt.Println()
+        fmt.Println("=== TOP 5 POR % MEMORIA ===") 
+        for _, p := range topMEM {
+            fmt.Printf("PID=%d NAME=%s RSS=%d KB VSZ=%d KB MEM=%d CPU_TIME=%d\n",
+                p.PID, p.Name, p.RSSKB, p.VSZKB, p.MemPct, p.CPUTime)
+        }
 
 		fmt.Println()
 		fmt.Println("=== TOP 5 POR DELTA CPU ENTRE MUESTRAS ===")

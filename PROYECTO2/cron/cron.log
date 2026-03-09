@@ -25,3 +25,1607 @@ low_2         alpine                   Up Less than a second
 low_1         alpine                   Up 1 second
 grafana_so1   grafana/grafana:latest   Up 14 hours
 valkey_so1    valkey/valkey:7.2        Up 14 hours
+Limpiando contenedores anteriores de prueba...
+highcpu_2
+Creando contenedores de bajo consumo...
+5d73b0d1a72ba79cbe812ed71281330168e8ee16c2b5c409abd69ebf9a5d6f71
+8988a8fdddde63371c704d4b60fdb7dda32b632b3de33007d5d9bf77d49f0894
+1b2b7618b6b076154ce884c7ca574e488c2b41bd7a89f0cb2d0ee33a09f074b1
+Creando contenedores high aleatorios...
+144ec9eb91d303f227e848062bf57c745b0ba19a65ecaf5156da586b20a33cc5
+461da85690f33b9a0e3b49355c26e78882fbc625206d1e4238681006fd430c07
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 54 minutes
+json_api      python:3.12-alpine       Up 54 minutes
+valkey_so1    valkey/valkey:7.2        Up 54 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+9e7b84e3ea7eeaba43a4c2b1dff77698a4199179052a8f8f32294c92fdab37ae
+5d7d96d2836ed28fb845f7fc31877cd1d1c6e51f8b0f923aee62f6ba615d383c
+820d1f4b91bcd30469fe4fbb9e6ca9851e79fbcc9472d2835a22b8310e340795
+Creando contenedores high aleatorios...
+4e0dc8c21503e5b17b8d935e1e4d38f40e0fe6937c18d98d233233cf14728d2e
+a0005effe494388a7df4c0b0a6b0ef71b5792fcc2b68c3915b94746a824e5034
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 56 minutes
+json_api      python:3.12-alpine       Up 56 minutes
+valkey_so1    valkey/valkey:7.2        Up 56 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+6f2e22e7046da51ecf449568effe02ecc27b01df04527bd4043ac220fca8dad5
+d53b548b64659d7404d273917dfec03fde9c962ae1af245931a1890cd2c0bf97
+81deef96e3d7caecce05b4867d303545138bdb4be4580f7a432af8fbf39fb3fc
+Creando contenedores high aleatorios...
+0a4efa71d4c226883be643d1095ca78e2a21e10dee243f9202fc11d809909e87
+f47d18825d66d62603d76d563547c6774341602f49e5d242fa71b864a018df97
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 58 minutes
+json_api      python:3.12-alpine       Up 58 minutes
+valkey_so1    valkey/valkey:7.2        Up 58 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+f26a147ff250f3755ad81d4f9409aed5bc024dd266d12066e7d9a40f57fb4c68
+beeae07f1ef9061d6b574d894b3780048556f5df6771f536aca943563429e603
+dd65e2c3b045ab92bf0900e65d8a8cea279c5e7d555282b9eb5421d17fc22fca
+Creando contenedores high aleatorios...
+1cf17da886ae5b1557715ec3ac84a7087e68136f2572048b3c6fd6e45c4cb815
+b37fc0dd7d5d2a8f571e4253cad35107fbaa403257785ff32c9b3c864ce286bb
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+dace7d9f64aa9426214b5315ecc264f0875a2a8795d8a3fff33bb97f21655624
+f3c7d93da8a9492b975f5ec19001e3a88aaa2102beed5bcf27238ef5a8275e11
+a751d6ba4bac26d66929aa717226fee5b528923edd9a9dea28e0fe156c8efb6c
+Creando contenedores high aleatorios...
+b1bfc4f7da9d9175f5a4ac557254a3aecc4f38db0c4d064cc690aab6dfc434aa
+4a57a769663f4cde98452215214f4d89683308c0ed68ee5011d19acd8cd3cb6e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+2b07a76455df75b462e0475006c529e5ac4e31628bd7022191404575aad65207
+6d42e583594e19f5a036bd6a5aa0b12393a29c5e0e1be5bb3e4418708d0b87a1
+a1d9722c3eacdad88ca0cbc092faf86f4e40878c3f1278d199d0834b1a676f80
+Creando contenedores high aleatorios...
+13f62d8f8198565866b4d886a1949b5bf5b455206287ebff6be290a77eb06ea1
+dca9f91e973c58ddb343b52b336e4838c2786cc6f72f2fd02527b07ed33aec7e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+379e1cbe509cb8718298e90597dcfd626a089307f0f403fe4d158d399e5bae13
+05b68810b95e32c7691bbe18bdcc4006daa9126be442a1add8bd3d7325459cc5
+93fba648621bba2652a54d2554e3dbf1bf36dab13a10ce444639623a9be1e6e3
+Creando contenedores high aleatorios...
+1614e61cdac8894562b0ab0ece8d002205e4f319b2ab45beabb7b7dfad803f2f
+4aa62fe7db6aab3017bb791462734c7f65b38b3c943334a696345609ca3653e9
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+ba83d22fc6a221a451ff51d62ec38dc3aa453c5a1075b7e49a4d6ab89e16bbcc
+0804002a8e8baa88791bfb9f4c34efefd05c49b33c54a36e694227c8e0e279a8
+c55b13ebf3063bd39f6b5e4bca8c57d576eae947b9f06255fea075c231976f75
+Creando contenedores high aleatorios...
+89148fe252609c2073660f5f3eda596e62d5a333065932d4699d191ddf534dc2
+a304f0e4d861d5b81632bac34bfead661c0d8c5c69e699dab887a52af9f915dc
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+66f8df0272e220e33995c29cf4ec8243ab09e9dbcc79fa40a249039a175e4fd4
+916500d6336dbf959cfe8e625efde25ae7692e6639256fb8d272c58ecc723db4
+1523ba6a9567dc64d9da96c6498a066f1ca77d87bb7867b3ff398062fc95cccf
+Creando contenedores high aleatorios...
+c1a33a23546086de82338ab1f474b9e13b96d3a0f05b4f387eef9b1dfc40da5f
+cf784b9b3eff0310bf6bb554a8266a6798b0eb52abee0289fba03f0799ac53ce
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+57fde81673bb0c400956308ce48f1955450f2438a5638465a1b2fad17a75bc8e
+b61e868f19550e5c7d3fb9f680780c697b4082e996dc505cfaa4a81f5b0f0d2b
+4faf869877ba55d398de9440f2b755d24ccac780bc2515b9271237cbcda5d5c0
+Creando contenedores high aleatorios...
+8e8185cd8e943c2d00b3562cbeb70f32d4ad7dc40396f138905150773f0c9a83
+42f000bbe6abbf53b175ef41024cb2ea72db90a3b4694c390c15211a029ee691
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+18a29b0c101658d0a4af580dbb835994573968489507f9ea258bb9a86cc2ad23
+c1138a8e530bab1f18ac54d58a3ef488ef4f37a7cec827d19809c042fd49802d
+4f05ccef3fe7c177c9328f34cd0bc3f3ff703467a04ea2e67665411c9fe24cf3
+Creando contenedores high aleatorios...
+9c39cd4b1047de7cc0f62471bd34f62fdb900513e5b8f7cf1b7a85443aa21fe2
+3450a3772e4faf75fd5d7d46b659e4f0a77b775747dc109e5c94a750a3915948
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+c5db56804ea17edddde132d607e35eab5ee0a51d31d7c022988fa972f3edbd3d
+d34d4911e1ad937246ad722885e7b1b38bef33408e8c58bee9be159b7208da1d
+4b1f245d7d574964fc3c8b370136325591b9521f7c846d0c68b733ee5c39ff10
+Creando contenedores high aleatorios...
+2489a9804d0c3eaac9b7dc9aae0f4870b85c8297d48a7f187b8f66c99b3c721c
+672e40dee476dc78537d98fdc8da5d06ae8b2c91f220b921446d6d1089987a70
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+fa6f53ed64b564a792c82c0458f00076d093bd65dac5a177fa0c52c306a15184
+5fbc9d5d6f65c5fbf234997c8a288b7aaca4172fa5319bd3cddd1c21cc46a6f3
+4654722687d11eff468214bb84a7002037628a5eb8ee00c3e3be98ec2bade27b
+Creando contenedores high aleatorios...
+14abeaa2eba38db6cc33da08142fdf3ad96d45764f3e082449d5cc6ca8cc2877
+36b2084ee06f56436fef33932e16e7e21d3e1466ed566e122253ff7537040ecf
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+c0cf3dae29862bd9a7338fc539c01121b5a1271d45609b36f8b0e7a0bc287a02
+bb85f832607a75ef90288c196545f26b7421936eb27bf655b3bb04cd49fa25f2
+ffd978c54341ed8ede3edcdce8d93bcda7663293bf83f12ca990b29773aa0d34
+Creando contenedores high aleatorios...
+c1c47de786bf0e69546501b60914642ea438eb5e775b47bee7af655109773d73
+0248b9418bcd87d2a3101351378a7e11ce1e35006a245a60aab3825d96136fba
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+8ee1e6d06ba254c87068884ef8bf57aef220592730849fef7ab02d5b3b7a7628
+e33bea657e4d4994ef8ea209ec1c7bd3cd6ce07cc02340473264e4d59f7f8571
+a5cf4d044a8b76e748c8c236c637f7187bfa59bc90ccbd83b4e87d5a0a362182
+Creando contenedores high aleatorios...
+15ef125b33e6e8095adfe232fe4487db11cec79969405c6c0eb2d746b4f9c83c
+98aadf4c72928e4d00bcb0230155dedc790b9bf0e96afbf634178d69a05c7b7a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+3d7c9ac09df9c0db44e36aeda2a016544c571b7042fbd9f6f257d44c0d06d7ce
+157866f26c778472d653d5b78845fabf531a1d62b704825385137f312ac48318
+8c04a28e20dad63e71c23e47054f48cb55e7f85a877310ca51090173ccdf28d5
+Creando contenedores high aleatorios...
+e0473f28416da64d3bc6f8e4f48d364a17d83f718b5bc02fdaedc5b926e8d11f
+06b51971dec94471338a60fb9e675975d0219d3ef14413bf96ac0b9859adf474
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+b5d4906354ea953c5f0df88382380b619f3ae4e7297ce7734bcb05db48812cfc
+1e692b86b91811777e5d4a7db3fbb66904074ac366ee510c88a587df06f45082
+3368bf5fd83f8e8317a2c53299fcb368464b1aa948ae630ecf0a609739585572
+Creando contenedores high aleatorios...
+2497d65376528971301571a76800e4e6e5b7338046517d874e1ff454e6ed0c3d
+dfd371d6f3afee607638622d75e1493ab3ae5e9bcae4f092ab14f03042caeb2f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+892e1154db2597e7aa6ce8d9fed15e716c43b43450994f2a0e56dca7f04d9737
+447c898a7ba0609f2769938450a594ddf68f7cec1db0ff90d54b141e7e767905
+20c6a5dbb452834ff4785d5834354e8db361fd6a3c9f8bc09d30ea915986b2d4
+Creando contenedores high aleatorios...
+542cc89c5161747ed308f0119df9794eac7b3143e3f9186c2a3a2afd990cb346
+be30cabddc390bd70ba3da517cb7ab2628d975f0841216894bfd895735e96ba9
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+74129df80bd1b4c773258e2a54680fb0df6308b22698de854a70a3831099aff5
+f58eb5cdc57fdaba088042d9ccd5405f2daf563867b361bbf14d1ea7d50085fb
+7fd70acd72346321803f71ceb84f46c9f68e951e796182cf312824d7e6b65567
+Creando contenedores high aleatorios...
+167698d16bc3c6694077b70da26baee82bfe0be3ca18c8c0e89531ebd437f897
+d58c7c1d535efecd15ebf0d981bacfb304ad082d86064617faabcb4fff47accc
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+7ef3880b9df4ed048a4a2e07e60b30f7a43cb5fe936d1c81008cc7bd67e037a3
+1e352da74196e07fd41336d87dbc0dbe5aa00363f9821122eb976ec34df5953b
+77475cc6397863cb977ffb88f32c481e4fa39a54892deafea07f607815f009b0
+Creando contenedores high aleatorios...
+aba6ee0cd91c93bbf894d2c820b8c1e5c59253a0558f13638351c312536f0258
+e2b6bc5fb25a596126a99f5df12422f899a043780138f22ead98d43828e5c1a4
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+68fa8958609694a683d88d55b55070574bcce624de9f3ec789c826851e0005e1
+6f899e9c190d0d50d357cfaccaec80b34e0c7590d5401eeb825eac98dbfefae7
+c3a483f2f3e8a37585df05ec5aabaa14b3dcaf1a50f13307e154594243a2ede1
+Creando contenedores high aleatorios...
+756686271e13b2628ca5679a30c4de0a1950ff00903445c0e572f0626dc37ab1
+a703ec77f12819503a36279bf877700e884117cc6633a1e0079a9b8029477af3
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+20c1fe1ddc3429a365d28cad8fea0df68ed97832ac68b5a6912479616048a818
+5adbe4c9cdd4ed206622c205d37f20f3be860dca0dc5f8c230efc573cfc15eaa
+052eee9c3b187e480258f73523c04acd75e2bddd4ca8b26ff68d36fb7844ac73
+Creando contenedores high aleatorios...
+edd38c77305320634f3c5095b1649901f6dc5d97fd0a0ffbedc11e4ae637cad9
+0e96bd2e76593535317f950a080a13b3480336eeeeacb30d3c0dc5bebe73bdb5
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+cc15eb399644dddc559cf416026280fcdc74f7ccf82e845da0483958dbcc70fb
+c772a2288ac4258463810d8d6ed0908948f3f6280f260799d661e864577e3742
+feae1eed61dadda3b5680b01a1f53f08065452b6cc9e25e855eec9be73f89468
+Creando contenedores high aleatorios...
+e7157a6579c764cb02627914b4c633fdfb7a041183a37eeace03d8b920b84f99
+92090dd58b97c27b4c100663e63b8e576a582324e7d070bd076a1cc8365a5329
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+d2453a6ff0674de35a65035544014d1cf04733b549aceb7dbbeaa1ea98c6656a
+dccfaf4a0e89b5996f0e7ced5833c559bed238f2fa42e13794a8e20661d38186
+eb59ea69f9f6263b8c42f43b44d898991dc14a524a37af8919d36c2bc3e40c85
+Creando contenedores high aleatorios...
+70d3f4854e0fb2813dd322fc711dd444745d9035c8eea247fe162579f607a191
+fcc5b9c8211abea04a043c17c65db8bc15ac46f7c08a45bd7782aeb842f7224d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+2f8945cd851be4d69b1fab8ea94405196a5e80ea410d83bafb1eba221b206323
+91d3c5330f5db0c67b2631018b8cf5f1b01f1aaac859d0eb015914cf38a62dcc
+6dd89061b28899597b02bbe625b20b930251d89ab2de0bebeacd07798cb244ab
+Creando contenedores high aleatorios...
+441cde52c6e76645d24e53e0a9ebcd561feb192e376f9812c8744aa9622a32f2
+1d2ff8388d3673f91f3d6021933cff0d44cc958fc57c24023a4059c3a4197eb5
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+38997f16ff638dd565ab136df93417cb6872f11738ce0852066b17a10578553d
+f408e5637b80f40a9ba26d8a986c8bfcaaaae23bcc9f6a55b6e1ea44ccd79e68
+3b83372577e6f2f6d3d7b78f6f80330863b90329e8fa752cbe7844ef11825fe7
+Creando contenedores high aleatorios...
+a3cb986aef0850cc9dd202b771dec248137bd4740fe9ae69de7c8e6f35b4c8c5
+222a7029ac937934ef518a690e85ea95e10075e10ae71c35c073ec7553206d29
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+e6e6cfced2ea3dd9d242f8260b8c574616241e00db5f5ade85ad66785c05be11
+5f16e2dd52a73ae07ba4576db7772d296e48ea0254fb44671c7d0df28daeeecc
+bfae146f9c3a2a457c648f96c332a51117ab6470130a0557c47133df6afc88c8
+Creando contenedores high aleatorios...
+ba63e6dc8af06e7d321fac7d869fc7e168c684173408f433795d362ade7dad6f
+32f5acd865c010c75e3ecdc329ded1a95493d3374e3d25355c167f0f4e65beab
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+954225a71b0c7ab8dc11d9fae9f65f7f2b6b264b982c402eaa7c6bb71beed6c6
+8ae6b77ae90c34e663a56bcbcd0bb4a24b92d31e4e7731ac98f9337ae01aa91a
+4fbbc0b90319b8bfc9d16681095d590e059f77541abb2ceffeda66b91d663b14
+Creando contenedores high aleatorios...
+0ab3455374ef511c210e665bbf4a1710dfeadda3381e4318792573bcfb53cfbc
+fcee59719b06b018be737db0024b3551711956b4fed31665d040463ec661ac88
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+7b07bee93300c68edd9ec49ca197756b49c9c810d6870d2da9f777447823cd23
+ad430dd3d4ed31aab7ab0860994fa58ced0b03602f03d36a1ae3ffcb50e8a7d3
+31eb464a7f6aa8f0097a864142404845f02d6a855ecf1a359856ded19ef66eb3
+Creando contenedores high aleatorios...
+3cb90391037f51c6fef3134b0c1bce654cfe4689d3f80b26bcc4cb2b9fbd5a56
+d63b890a05056f3d1c689b3672f2f018bd8ebaf7883f1306f4d32cca3bd85a77
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+6edfecedd1b573449bed952024cc7519c54b8768c2153ac5cbd8e7edea9fd198
+8b0d8536a163d8d95eeeb622af4fb9bc3b034806d29866a4f844b91252140c8a
+6089e255b84df78dba3d1aa06adc2521072157c5c7b7407ddfa2c35bdb4c886d
+Creando contenedores high aleatorios...
+22751e1e85200c1039b21b4c0ac7ee202cc9df5d92e904287497ae1a610c676f
+9046215c12144983da1ffdbc5c01cd3d6c4c38f7308d76e9bc16f7da132d3f21
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+9d5709c097f4aa8376d48bc9d8ba0aa10fbcdf026d5d19713bee80a845e2a040
+90c63fedbb73e594e6e82acf3e3b0f7e9a98bd8d39af78130822e873e9eadd6a
+b46df169fd63673f907cbe20c97fa91444949b24358e0d703d152c8bf88ad828
+Creando contenedores high aleatorios...
+849b4ee2621210090898f75df9388bd7753774e94c1b930a74debf9c445de079
+c6a564b94bffa80c7c7e44855c2d311ba1cc4c690c915fd753142f8dc7c1b8cc
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+cd9199007d37fa31e41543c867642b5333e0e7bde2591d9adf0c07e70a3c1be4
+34ea5699974fb44a50db701419bc08138659a429594dccf674f3919bada2cd27
+16f4646da682f96b3e5e1141491afe607505a6665f0601b7e776f5c4237ada2a
+Creando contenedores high aleatorios...
+a27f1c6de24675f945fdf208ce01290034e72a2dc7938480501fbec06264801a
+8e84ea8d4f82dabfd1db30a3ef8d24e3f6ebde9062c3dd825df053a1b18cdcd4
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+f02ee95b97e1436dea655b529cfb377cfa314da5d17a2804d43d2c554fd397c0
+c59c2f9981bf9625eed1466abfb151313337eccede095c429b5ceace8416def0
+948d2bbbe0a96f1750f75ffd797e236fd8c8dccb72d867de5795f6d1192a7161
+Creando contenedores high aleatorios...
+8d69da275645123d441d310e47a7d716c14961ceccd2146a6baa6b0e5989f754
+0986e89c2f55c4d3f84eb85bef1dda92f51b6faa59a5566740cad01b31fe4b7e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+1afde26af7a274dbf061c63159598970642f1b87d159ef806ce271f5ced57959
+2bad4ea761b5d878062c4ebf4056784b3deae87e7aca93894f21e2bb917d577d
+84406ae35a0b1c70994b091d326c87ba51b2091e060671dfd76717c5a92449b3
+Creando contenedores high aleatorios...
+572057bfec4d2f913380e3665ab323f9bb444a90f71d7d01608d532a7926d65e
+ff260bba79405f3c28a2df75efe2c3778392140613aa6522310868e105dac2b5
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+eaacc0b46626d2f42c970c583f6379a4a6b1e4e62aa5c5c33e1328c254ffad8c
+36a8815513cadbae0cd00dcd3eab1ee2cec5d2e5b9309b79f8d0aa8d124ef4d0
+c4441bc01d3a19fedf694d41bd2edb2f8aa4230b9049dafadb18d3ef799637d9
+Creando contenedores high aleatorios...
+ea1c5d851c39b3c0eb512634060da0cd2b6645b467874f9ce9b9b6717ce1b85e
+380af888333ba6d5201e1db10d61ee5826bcda24f2e847a90401b6e09120c6b4
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+e672dedb60bf48680745e54b87c51e24a89e5d722bd095b9b80591f1837cc51a
+3ddd5e1d3bd47d5536293cc66a1b15c14f41b6349e74712d23d47506eec94485
+f796750681e515b67dd346e7569224c1edba07249066ad3d9f5502248bf7594d
+Creando contenedores high aleatorios...
+25e00d163dcc272660c98598e1ba123dd0a06185fa1c291c8ce11b08c06fb06d
+1bbb6bf2ff59e528d9ad996ee5d4be49acea45d18fd3360ea256835585fa539e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+d086cc96e37dd28a27504b5fb2aa69db92e0866d331f9bfee3c706d2685bd33f
+57a53c6331657976de5150969a9c44800c7427a74b933e7add4b751e81de0c1f
+f4cfca0af3d4a5f75d282002a6011c89436b894d841d3930fc4738c359cabab5
+Creando contenedores high aleatorios...
+05475b1a45df674d9a19c278f67465494d97a4a15a044a626134663bf8250da7
+f867ed132562a1ccab86becc77c17f1a2ebffa03c0e51fda70dba87fd7a8f03c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+dfb1888d48acee2b6122bd5e9d5bae7af93f853d5211139c892d233f702e5334
+6d09adbd29d39e2edff21da4e9ce8e65b75923bd3f59e5502e4c98d65aa3bde2
+c8a759c9b206912e06b81b7f420a0d890570f86eae1648ddf56323d152df0408
+Creando contenedores high aleatorios...
+fc82e89834d2fe49d8266d81721db080dc305ce25fdf5f4ee98022ce1bd1b09e
+ca5404aa0f687ace5eae7142e5efc2d11af81a77f9f1df130438efd69e08dc46
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+511a8cd945581342bd5d8124634726a1fcd748ccb64d64a8e1b047bcd05a41e0
+c015baa5ee9e83bbc92650baa7ec356049cd26eb239b862ec06964fc83ae1754
+6c0fc89f8739fcd9c1abf2be3aad16a0d03a8d5223e6ed596a524da9536ee59a
+Creando contenedores high aleatorios...
+8e6ec0db1a41f6b4231a6ef702e972e3aa2f0980cb761bdb54969da8b4e671e7
+5fe0dc9fa74a913c98cce900c7639647d2bd4355e6673a5c2b59a365631f4c61
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+c12f4fc4c21872ad68c9f6b8895e2365c7d685a26ebef2af5e0bcd40be7803dc
+c8d0e2c08eee473c3a949df417184da470cf25ad4f2f2738d0bb8b3af234e5bb
+1b6d8f696387e5f9b0f26ca2385709c4952f1ae2275ce32d4c14daed28cc057f
+Creando contenedores high aleatorios...
+6cb299cb0ed600f0336f056477a1205a5b8f7cadb0296747563a57607570141e
+4cb7f78d86bc3029cc67fcd2e179dc2042a64912d2383895122c2a76716b500c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+546ece373694f7219b23553a949dec3dc239db98f0db67ca04bf7ae890fbadbd
+8291a5a09e49b87ba8f6f3fb92738cfc9168aeafd40d71b4160c5bb914ae7eb7
+a81922862a3f037fd1eb8dcd87acc3380e20f3b4641f5a7b3e722d942c243d47
+Creando contenedores high aleatorios...
+b90d0553f05c7928467483ee1232a1068da14dec56fcb0bd27ec485cd04bb27a
+05a5ecc4d319414cc67dd5f818c1f83120fe8559564943f91d9564ee7a2e3062
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+e5e7a0eb35894601aef89f55541fd30de55d894eab53308d42cf4b2ce7941d15
+20a9290db8e2e10d16d7e9504b14fd1df9a463a585cacb51cb629c4a1adc4a39
+d747fd52e98cec994c84be6b9a43563b7f731d6dc275daeea535eccc47c97aa4
+Creando contenedores high aleatorios...
+e3ba146b1dc8c59d3e166d28f72dad34fb5afafa62bc34f77f10864d3f59113a
+95b229e50bcb7aa6cf4a25e558d5b4748a8db4550a7159bb58386cbea86e7e16
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+3e5665d12153626cf6eb78434be4ee952d02a1938ddf1d2b94ac680ac8553bc6
+b10285852770f40bc066c02584ae7c656e29ad0910112bcb1680558562328db7
+014f8508ceaef3976322afb43bcbf46ca8ca6e6dfa28c761055cec7a0dc70922
+Creando contenedores high aleatorios...
+9eda74d03be5f1cc9db16a3fd3c2f45d4cce935173dacf1dbe9aa7ccdbd2147c
+88e653549ddfefca33f62a0285a54c75992e2d8ac7c9540aa1d7cf65f434f489
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+e884cabef19b8fa875290ade74bd664431e245c4ecf8387864a28e979025837f
+79c0c292ea20f643ec7281d394cfd1963547989a8c8f7e8a7d8700ae5cf9b659
+ba67e9039b3e83089bd23af41c51180c8219dd1250e18a298262927e508a216b
+Creando contenedores high aleatorios...
+16c071f43038f1c040bc5644a2a3f1e0a55a908a7b1777b752ff215d150ef3d0
+5759e39e68add093e91904c4f1fee48b7c25aeb4168324315520ee57a1a47283
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+b5681cce833dfd82d277b42680aeabfa822e1f698c814d0b0a1c1848de35ed62
+3d1e224abbd3a8fb2a45d1e3e4ec2907ac2ac288a2eaa8871a4a8b4c334bb9db
+6eabb3fc9535cb4e3754475923510e5721df35a05cef26d77bd61cda7efded72
+Creando contenedores high aleatorios...
+18fafe8f9d9627dca3ad6a90aa4c662f49dc5604a1d9fafcf9a1635f91086d75
+b2fc9e55033d7328016b99c1734bf8cb2f3587bd62d2a6f74f31eb10bc9685b5
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+0238e07d75ebbac586d150d88ecf114defe84ed9aaf9c5a2cc5160ad37b0cd37
+cadcecfa3e86474efcbea0fe8d9936b041396853720954aa36f3ccbdc4ff3acd
+f4677c4a0a4ff6192bb93a8d1e652ff3afda926693b684f6eedb1367c60209b4
+Creando contenedores high aleatorios...
+c63401cb6440963da5bb93f8f119190e2111a53181b7b6e32b64ecf74bbd607f
+57150372c552405000b81e4997b052f856ba1248388f7353003d474d41096f26
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+e63e1f97bf540e6879c95e16dd6065752bd36236a2243498adffa0e295a77513
+9862ae7a975b4e44f7fdb90ed647d7c8932e4e9e8e5459ab271a7c94ece940a6
+c45e3db7003839215e569f858f1c709ac9d71f8355be146e861c2d6ad74ce58e
+Creando contenedores high aleatorios...
+a8526a70b186401ed1e11cd5ca0fae35d0342027d65d360d352636dc49787d3c
+be5f67230b7af4ed546fb7741b9f776397c998d0b407eb8d93fcae66dffab412
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+df18b23b32a2ec040d8a6f9b1fac0d2e2d7510b8537c044413d17bde7a21dfeb
+5e1510b58a93d6159e8e3e79e484cd0a6118681742b7d96bd003968c25ffdb5c
+9fd4d72bb5c03edc14820384c3b9a41927d270eba40d1ae1e62e9aa94b677312
+Creando contenedores high aleatorios...
+a9195ce5f7bc077ce3f18bb4db077c9d1a3dad8011610822f097ea6b5e78bc25
+a6f3ce3400a80277bc47453cc7d6ba36884a3e44a059d5bc02afee1e115c4a1d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+026dfce696e10f1aa03d716391fb39af4f83c4342bf4fb1fcbef99317fc76ce4
+70ea144a10fe01db4a41c33a4e771f816623aef305fab63d8c07b8e12eba273f
+0b76dedc8ffbd470cd7c2196eb3db0a6f5be8ec12e6471a894d9f34023b117b3
+Creando contenedores high aleatorios...
+f530d8dca6837cd145511677335853b74eb11c9b8d0190218f60e36a98b44459
+94341e4d1841bf317c9a8bf1293b26314f1fb536025fdb28062f42a094e6f0fe
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+8da70c08835df8ad207e3c9e4318e886ffac105af35ed6cb41a3746278f84a01
+0b9104a51affa2d79acdb97317f6d643ef3538a9322cac5fce573f45e87304d1
+6df9dab702c3b0f1944548fdd9a0def18db0e1d91e62f3181b3603da49a69d30
+Creando contenedores high aleatorios...
+f7d8b06848710016566fc9ecc885d967b6cdb0b0e7abae4c346460e32c10247d
+ce400bbe438733cab4f86e1ea7755bd36b2a005a53a472ff77d34df85b9cb433
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+c0b35aafe752aad1c2b40122a604ed89c7a53a112e2373f8872d313c4d2a4141
+d1b53a0a569928d7073fe2cbeec57c43715c4f3dc100ddc7009ec247696e8079
+701707f18053fcf42e62726ad74e3cf089fc086a7339a89785e9030ca65c3b26
+Creando contenedores high aleatorios...
+2a6cc433a3cf6d6c19105053d58ac39d4c892e6cf1367d7b3f5b946470aeb97d
+f64dcd80eeb62315466ce7e47cca5e34ec1f01c164556e2c212c340496b18cb1
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+950166be835f13005cee428417f53b98f5f5014b683eeac20fdf33ecce4f124f
+d6f55450cdda9f12b4995b7df164951eec0749ff837eaf917b699d07e74afb73
+0a4415e622239c189ec8feb8242b2fd420e204bd881f17279b6f57fc3244dea8
+Creando contenedores high aleatorios...
+f43d2369bd9099d4d4283126fedea29ae6aaec412e2e52a5112025a690a3d92e
+868a228636b3ce4fa0c30a11b40198f77a0e1f52d2825209b8e6c0bd0c517f28
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+747bb494b106dd8d2e937fd0275cb874c1f7d395124de7a9ce7d0c81389ea3eb
+c1bacb36dd419725987c9ffe29eddbbffe58acf9eb5aa7a402c24f7ffb1dabe2
+d4ec5c7b848af535a41a2796609f816e91b8efbe1c542e320ab76c803021d85e
+Creando contenedores high aleatorios...
+360a6cbcdfd7f8ad6afa4c4821f0eade1a6d357e74e96446a226324ab90592a2
+ec1e3205861fe4c29ae6e5f11ec34e6cbb2785500a04426d7d8fcbf81adc3849
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+95427b26e92ec869c1703c265efd2f50174b0fbe20af8a6d8219ffc4d40137e0
+b269a3a932069ce5a3f64221ef63ae43827e3fb96a4d6e2e5df14c7009e6efb2
+45e47d50e57c8a57d59bfb933c6a41c6ba088792d659d593c1e8d9b671b50a8e
+Creando contenedores high aleatorios...
+2c06137c2a5bfeaabe55650203ac15b7597cd712c770621dd24d3d0acae21a44
+c8150a0454eeab28f096ed8d58681301c4f82f09774d3d0fc8bc10831a905306
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+4e5af3c4289c1af13dccc0df4fda7b0700e6a13344ec69898217862cf6382ddd
+ca92a2075efd4939978d6caaca15436113cfd3a8b7d7faf48794353fedb0403a
+51a2d2ea18471e523caadc2b04f522d0ee593bfd40ffcfdabde2c39d572e38f2
+Creando contenedores high aleatorios...
+c3a0b9ca24ea1d0553a09a50e3d6512c0556ad6043b9c475ea1c74fddaa22d2b
+ef92ad1f00297dce604aa4d2d64cfe9c8befdec810daf63cfde3af7b94ae7045
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+27302f91b1c4aaaaf39d2846d553c8e7b5dda1038cd83edb9a611cb9a3f253d8
+92b47d5792d0b6b908aa89bd3655a36414502e097f7dad2785979f78c4b87e7e
+bddd12a1766d5935258ac8f851275aa466d7bb684f650adc7fb0b0373f1cfa7f
+Creando contenedores high aleatorios...
+fa9c54c27d32e17f608b8d3aab8e9434b9cac1ffb4c144beb6e41b1ca55106d7
+f55d77b32e83618264993813e61ad2f89ffd47235539d2d5aeaf5cd28f249127
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+2623715d8f04c1092b38a1ea73c8929db4dd52bbd2d2dd44d54e0ffc2c789f8a
+3102be9d383022d3525eef5781bf9390f3d07aed45c212499628a2e72e513992
+3e98745fdf668d6736b0f2303fba3770f7666172e600e3092d47c200ac9deb62
+Creando contenedores high aleatorios...
+7d5c67dade037d634670b6bfb6454e6e04b45056a46adaa04ce26938b4fd388f
+4ac7f1a494a3a0e2bf2f5b1a1ba4c1723ae7e33cf3a3ad5f8dcf419fb7074c2f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+886487d5c6e16f2aac7b080e243d9a25c38cebe561aa2db72844d9937d3abfc6
+c23faf82a60fb135d1d1fc7b36c3b581dcbc47b7742aaa6de6008c77d54c5a36
+4b784ba119284283c2ccfbbb3912779f5fb189d0662f5da2fac7b563859d044d
+Creando contenedores high aleatorios...
+b8f7de8e78993af659e15041ca78c89415559c40b9bed71fdc73681d43c709b7
+af793f617e0a4c7d0780ea69471e7989e1a905a094f18305b797406bd66d7b18
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+3e6b887f76da7b42e8a5c5acd5c8120c81d5d7dbbfc4d5d0f55b69929fc5e198
+a15d20c8108e41176b029ae423ef73b02dd87af953be4785635da8b6c5093321
+2d3144816a59d41aabce1cc99a9452867443150cdd67717b34032c704c4fe251
+Creando contenedores high aleatorios...
+d3ae7126b379430292c9140aa29709e4e5858a5f0c22657ced852b401766a02b
+54bcd21af29ab1f0a7b46f777d728b6e5461dd492c84e151b79194095b655c53
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+9f5804501c609e4f16cfad1fb3b3f29963c9268a6d3d4af7eac7a5bd81b27438
+93eac88c9d38d253ce3d998a4bbabc271cc343c9f9f35d32da52952b0c8075f3
+a87e67dc0c5673be4352445eacd99480ae12a0151bedd5d1bb7708672491e2e4
+Creando contenedores high aleatorios...
+5ab383d931629ff878b04c00404c061a255eca9f8b7c8ffb00600eea59aacf23
+bc26a976b017c897d071d7253c612e013c1ca7e02552b86ee7d7636381daff84
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+2b08eb5d52e1fb9c4d7095d4124919ab4887a23b4cf99459182c40cf83765208
+6a041018bc47e84ab84cbcdcd25ba93ee190797664b6ec079980137c010c9642
+b8f90dfefbeaa16edf4c0a886e8aa4d653c80cb5556a3cf7bdbd02e9577fa718
+Creando contenedores high aleatorios...
+40a63f8d50b35c66add2908c88c0f782e75aa04fa70ac566156c10ab1ddeb301
+52bc642287dafaa2a0f65d31d11f8d352abbef7127dd31d52c7ffad6a42ef8d9
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+556bca83a5a553a30bcc72f89b7a8259e1aa949840de984a223c9d13e2d1619a
+585a0745e26b4c8aa56dec42cd57cd8d987641b4dfdc3826ae152ec124098ea9
+a9e5caded7f78d6a4c7fbd35ee64aedf48130ad287b07a7f92a3189ad7ba20d1
+Creando contenedores high aleatorios...
+e5ac526544367dabaf08a778fed5558b485d1f8e202feffbef105889ec535105
+290b0350236d091986b6a30bb427c2d8acef956dc26e6397efaf83b875e4523b
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+36a35dbb2c263f62e08a6acb5db19185458ac44f62780eba5911f53658028823
+96f32391e037fa7bbff1360da7b873035deef33e5942b8f3be7d763b6a1e4c68
+6899beaf289a442ad2fd5d7a6babb72aaccd359470d78b9da722c8480652c57c
+Creando contenedores high aleatorios...
+e37b97d11ceebb1ea3124500487f4312e45e9f2b14fec7900b6e81fd075fb4c0
+a4456f4b183597684f2ce5a446dc966cf41a535dfc16bb1fd4e6ef3e11bc7e83
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+3088c6dfca37fe8f7963a9cbc1b2549b55921e5e50384dde89b6f1a97b72c839
+ab1cd4d72a1296594b4a12d47338ec83e4314e2861f3e0e0c3baec840cbdd76a
+94c3b523df1719e0828a8657e0fdbaa76ccd265fb79af1c4e4ce784aa2febe15
+Creando contenedores high aleatorios...
+e7c341c8cc637f48bb9e61680b9371d83daf9f21ac87015e3920b233217e341a
+6c7fc36218e8ec847fa4798e3c965b4eaad33727b297ef11068231ac18b6cc80
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+8ac4a8ec6fa2c3c3fc6d8e6b821d5502f14af65b17705b40f8bbb4885e9273e9
+90c526e4f64a2a409a2013998219ca5b798025f2686485b045e0d9ef9ff2b8cc
+aa7d5df8bd89000a38d9bbdcad445288697486298fc68e02f472b513a059f7b6
+Creando contenedores high aleatorios...
+9499beebe60f83e5a9f89e9711554125d81f6f75240065fce906bd775887061b
+a26209653ed959d6d5ecb44ed14ebd27303df7f760438c81889c701a2f9a61ea
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+4f59c32b385067ffc041ef1ed36b26134ee108332a06b6673438f52cad9cfa45
+98867f124ffffadfd71906dc2e2380896dac0a475bdf3fdefc7b193a8bb2a8b9
+d54e0269ed79a4bc429ea7dc0997063d02e03ad9482c2be9135009bb379444fd
+Creando contenedores high aleatorios...
+483de8d291d076238f21138dd9eb137be76cfd49b29969fb66796427ebe32b67
+80359ff402c612d7a312532946d649c02af682f42f741ec7d61f629fa9f2750a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+48af95e41147dd1018c3fd6814a9aefa494e648ee1dfd1819e16e0c5601d8bf9
+c75a2d82fd20e4b735ec3be67b10c6ed3ee8be9782c134e9e5bfae5134fcadad
+733fa64fd1e6308751e227cdaf9c5193f2891cd2cb09c13120c64dddb930db5d
+Creando contenedores high aleatorios...
+ec4d2f48ff6a5f1a43b72e0efa6565138e05bacd8a20ea8f31401e2f5e602dee
+356fd46ffb9b53301241396fa0ea1e267bd3a22920627baa100ac2792d48dbe7
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
