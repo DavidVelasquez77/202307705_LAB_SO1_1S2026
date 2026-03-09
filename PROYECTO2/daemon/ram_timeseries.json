@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2026-03-08T15:47:45-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 19478036,
+    "ram_used_kb": 13159768
+  },
+  {
+    "timestamp": "2026-03-08T15:48:05-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 19467964,
+    "ram_used_kb": 13169840
+  },
+  {
+    "timestamp": "2026-03-08T15:48:26-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 19472332,
+    "ram_used_kb": 13165472
+  },
+  {
+    "timestamp": "2026-03-08T18:30:30-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 18846724,
+    "ram_used_kb": 13791080
+  },
+  {
+    "timestamp": "2026-03-08T18:52:40-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 18641516,
+    "ram_used_kb": 13996288
+  },
+  {
+    "timestamp": "2026-03-08T19:15:14-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 18877540,
+    "ram_used_kb": 13760264
+  },
+  {
+    "timestamp": "2026-03-08T19:28:11-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 18729096,
+    "ram_used_kb": 13908708
+  },
+  {
+    "timestamp": "2026-03-08T19:54:47-06:00",
+    "ram_total_kb": 32637804,
+    "ram_free_kb": 18519356,
+    "ram_used_kb": 14118448
+  }
+]

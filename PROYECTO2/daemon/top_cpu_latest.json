@@ -1,0 +1,42 @@
+[
+  {
+    "pid": 250465,
+    "name": "sh",
+    "delta_cpu": 10010000000,
+    "rss_kb": 804,
+    "vsz_kb": 1640,
+    "mem_pct": 0
+  },
+  {
+    "pid": 3477,
+    "name": "gnome-shell",
+    "delta_cpu": 124000000,
+    "rss_kb": 422332,
+    "vsz_kb": 5672892,
+    "mem_pct": 1
+  },
+  {
+    "pid": 225715,
+    "name": "brave",
+    "delta_cpu": 59000000,
+    "rss_kb": 540448,
+    "vsz_kb": 1461585596,
+    "mem_pct": 1
+  },
+  {
+    "pid": 6789,
+    "name": "code",
+    "delta_cpu": 36000000,
+    "rss_kb": 612008,
+    "vsz_kb": 1463245256,
+    "mem_pct": 1
+  },
+  {
+    "pid": 4627,
+    "name": "brave",
+    "delta_cpu": 24000000,
+    "rss_kb": 1157140,
+    "vsz_kb": 1459868348,
+    "mem_pct": 3
+  }
+]

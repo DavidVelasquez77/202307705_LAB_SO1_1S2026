@@ -6,6 +6,17 @@ services:
       - "6379:6379"
     restart: unless-stopped
 
+  json_api:
+    image: python:3.12-alpine
+    container_name: json_api
+    working_dir: /data
+    command: sh -c "python3 -m http.server 8080"
+    volumes:
+      - /home/vela/Documentos/SOPES1/PROYECTO2/daemon:/data:ro
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
   grafana:
     image: grafana/grafana:latest
     container_name: grafana_so1
@@ -14,3 +25,5 @@ services:
     restart: unless-stopped
     depends_on:
       - valkey
+    environment:
+      - GF_INSTALL_PLUGINS=yesoreyeram-infinity-datasource
