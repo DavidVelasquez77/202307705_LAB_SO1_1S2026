@@ -7,6 +7,9 @@
 #include <linux/sysinfo.h>
 #include <linux/sched/signal.h>
 #include <linux/sched/cputime.h>
+#include <linux/uaccess.h>
+#include <linux/slab.h>
+#include <linux/mm.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Josue David Velasquez Ixchop");
@@ -16,6 +19,48 @@ MODULE_VERSION("1.0");
 #define PROC_NAME "continfo_pr2_so1_202307705"
 
 static struct proc_dir_entry *proc_entry;
+
+static void obtener_cmdline(struct task_struct *task, char *buffer, size_t size)
+{
+    int res;
+    unsigned long arg_start, arg_end, len;
+    int i;
+
+    if (!buffer || size == 0)
+        return;
+
+    buffer[0] = '\0';
+
+    if (!task->mm) {
+        snprintf(buffer, size, "%s", task->comm);
+        return;
+    }
+
+    arg_start = task->mm->arg_start;
+    arg_end   = task->mm->arg_end;
+
+    if (arg_start == 0 || arg_end == 0 || arg_end <= arg_start) {
+        snprintf(buffer, size, "%s", task->comm);
+        return;
+    }
+
+    len = arg_end - arg_start;
+    if (len >= size)
+        len = size - 1;
+
+    res = access_process_vm(task, arg_start, buffer, len, 0);
+    if (res <= 0) {
+        snprintf(buffer, size, "%s", task->comm);
+        return;
+    }
+
+    buffer[res] = '\0';
+
+    for (i = 0; i < res; i++) {
+        if (buffer[i] == '\0')
+            buffer[i] = ' ';
+    }
+}
 
 static int al_leer_archivo(struct seq_file *m, void *v)
 {
@@ -38,6 +83,8 @@ static int al_leer_archivo(struct seq_file *m, void *v)
         unsigned long rss_kb = 0;
         unsigned long mem_pct = 0;
         unsigned long long cpu_time = 0;
+        char cmdline[256];
+        char container_hint[64];
 
         if (task->mm) {
             vsz_kb = (task->mm->total_vm * PAGE_SIZE) / 1024;
@@ -50,14 +97,19 @@ static int al_leer_archivo(struct seq_file *m, void *v)
 
         cpu_time = (unsigned long long)task->utime + (unsigned long long)task->stime;
 
-        seq_printf(m, "PROC:%d|%d|%s|%lu|%lu|%lu|%llu\n",
-                   task->pid,
-                   task->real_parent->pid,
-                   task->comm,
-                   vsz_kb,
-                   rss_kb,
-                   mem_pct,
-                   cpu_time);
+        obtener_cmdline(task, cmdline, sizeof(cmdline));
+        snprintf(container_hint, sizeof(container_hint), "%s", task->comm);
+
+        seq_printf(m, "PROC:%d|%d|%s|%s|%s|%lu|%lu|%lu|%llu\n",
+                task->pid,
+                task->real_parent->pid,
+                task->comm,
+                cmdline,
+                container_hint,
+                vsz_kb,
+                rss_kb,
+                mem_pct,
+                cpu_time);
     }
 
     return 0;

@@ -22,13 +22,15 @@ const logFile = "monitor_logs.jsonl"
 var ctx = context.Background()
 
 type ProcessInfo struct {
-	PID     int    `json:"pid"`
-	PPID    int    `json:"ppid"`
-	Name    string `json:"name"`
-	VSZKB   uint64 `json:"vsz_kb"`
-	RSSKB   uint64 `json:"rss_kb"`
-	MemPct  uint64 `json:"mem_pct"`
-	CPUTime uint64 `json:"cpu_time"`
+	PID           int    `json:"pid"`
+	PPID          int    `json:"ppid"`
+	Name          string `json:"name"`
+	CmdLine       string `json:"cmdline"`
+	ContainerHint string `json:"container_hint"`
+	VSZKB         uint64 `json:"vsz_kb"`
+	RSSKB         uint64 `json:"rss_kb"`
+	MemPct        uint64 `json:"mem_pct"`
+	CPUTime       uint64 `json:"cpu_time"`
 }
 
 type SystemInfo struct {
@@ -168,7 +170,7 @@ func parseLine(line string, info *SystemInfo) error {
 	case strings.HasPrefix(line, "PROC:"):
 		value := strings.TrimPrefix(line, "PROC:")
 		parts := strings.Split(value, "|")
-		if len(parts) != 7 {
+		if len(parts) != 9 {
 			return fmt.Errorf("invalid PROC line: %s", line)
 		}
 
@@ -182,22 +184,22 @@ func parseLine(line string, info *SystemInfo) error {
 			return fmt.Errorf("error parsing PPID: %w", err)
 		}
 
-		vsz, err := strconv.ParseUint(parts[3], 10, 64)
+		vsz, err := strconv.ParseUint(parts[5], 10, 64)
 		if err != nil {
 			return fmt.Errorf("error parsing VSZ: %w", err)
 		}
 
-		rss, err := strconv.ParseUint(parts[4], 10, 64)
+		rss, err := strconv.ParseUint(parts[6], 10, 64)
 		if err != nil {
 			return fmt.Errorf("error parsing RSS: %w", err)
 		}
 
-		memPct, err := strconv.ParseUint(parts[5], 10, 64)
+		memPct, err := strconv.ParseUint(parts[7], 10, 64)
 		if err != nil {
 			return fmt.Errorf("error parsing MemPct: %w", err)
 		}
 
-		cpuTime, err := strconv.ParseUint(parts[6], 10, 64)
+		cpuTime, err := strconv.ParseUint(parts[8], 10, 64)
 		if err != nil {
 			return fmt.Errorf("error parsing CPUTime: %w", err)
 		}
@@ -206,6 +208,8 @@ func parseLine(line string, info *SystemInfo) error {
 			PID:     pid,
 			PPID:    ppid,
 			Name:    parts[2],
+			CmdLine: parts[3],
+			ContainerHint: parts[4],
 			VSZKB:   vsz,
 			RSSKB:   rss,
 			MemPct:  memPct,
@@ -490,7 +494,7 @@ func main() {
 		} else {
 			fmt.Println("=== CONTENEDORES ACTIVOS ===")
 			for _, c := range containers {
-				fmt.Printf("NAME=%s IMAGE=%s PID=%d\n", c.Name, c.Image, c.PID)
+				fmt.Printf("ID=%s NAME=%s IMAGE=%s PID=%d\n", c.ID, c.Name, c.Image, c.PID)
 			}
 			fmt.Println()
 		}
