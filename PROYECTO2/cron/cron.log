@@ -1,0 +1,27 @@
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+92c1d04ee3d15d905a2843f6bfe4b326ffded8fc60ba680915b894e1d557cf2c
+796ae6daafd2eefa2e5ac7cf1a56f04f48658113f00c7e1b742f61a9324d6905
+4ceb1c63f123db52182515a54ae74f15abaa9d4014888f16e8ec02c295efbd9d
+Creando contenedores de alto consumo CPU...
+c119c02d818f9c2d0a3c2bf7e406c8330239e27bd515bbe14b07d68f65f64358
+7239d48d0e961c84c6dce04b4378cbb258027b54c444c753e34fb54fa267764d
+Creando contenedor de alto consumo RAM...
+e4a0eb2ed51205bdfc35bea727daba78f2b7a9dc5e681d1136f3398b9e8ed621
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 14 hours
+valkey_so1    valkey/valkey:7.2        Up 14 hours
