@@ -1629,3 +1629,27 @@ low_1         alpine                   Up Less than a second
 grafana_so1   grafana/grafana:latest   Up 3 hours
 json_api      python:3.12-alpine       Up 3 hours
 valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+3b71c4ab07a347ed10353307585260d5a1026a7cac070ae0cb73645897fbdec1
+826a19db36f74c227de7f379ebbfa022e5f73dc24e18929287597a081478750e
+31eba589563bbb28db4fb9d882092c3535bc025a4ad97bc67705a1793abca08d
+Creando contenedores high aleatorios...
+4157afe61a5fa3abca7c8c2399b9053667c14c6bc42163b44232262912f0b26c
+151361e3ee14ad6669a6e02a35f4419cca9c713335b2bf0b95cc710969948b6e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
