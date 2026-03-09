@@ -12,12 +12,24 @@ import (
 	"time"
 	"os/exec"
 	"bytes"
+	"os/signal"
+	"syscall"
 
 	"github.com/redis/go-redis/v9"
 )
 
 const procFile = "/proc/continfo_pr2_so1_202307705"
 const logFile = "monitor_logs.jsonl"
+
+const kernelDir = "/home/vela/Documentos/SOPES1/PROYECTO2/kernel"
+const cronDir = "/home/vela/Documentos/SOPES1/PROYECTO2/cron"
+const grafanaDir = "/home/vela/Documentos/SOPES1/PROYECTO2/grafana"
+
+const kernelModuleName = "continfo"
+const kernelModuleFile = "/home/vela/Documentos/SOPES1/PROYECTO2/kernel/continfo.ko"
+const cronScript = "/home/vela/Documentos/SOPES1/PROYECTO2/cron/spawn_containers.sh"
+const cronLog = "/home/vela/Documentos/SOPES1/PROYECTO2/cron/cron.log"
+const cronLine = "*/2 * * * * /home/vela/Documentos/SOPES1/PROYECTO2/cron/spawn_containers.sh >> /home/vela/Documentos/SOPES1/PROYECTO2/cron/cron.log 2>&1"
 
 var ctx = context.Background()
 
@@ -450,7 +462,188 @@ func saveToValkey(rdb *redis.Client, entry CycleLog) error {
 	return nil
 }
 
+
+func runCommand(name string, args ...string) error {
+	cmd := exec.Command(name, args...)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("error running %s %v: %v - %s", name, args, err, string(output))
+	}
+	return nil
+}
+
+func runCommandOutput(name string, args ...string) (string, error) {
+	cmd := exec.Command(name, args...)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return "", fmt.Errorf("error running %s %v: %v - %s", name, args, err, string(output))
+	}
+	return strings.TrimSpace(string(output)), nil
+}
+
+func ensureDockerComposeUp() error {
+	cmd := exec.Command("docker", "compose", "up", "-d")
+	cmd.Dir = grafanaDir
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("error levantando docker compose: %v - %s", err, string(output))
+	}
+	return nil
+}
+
+func ensureKernelModuleLoaded() error {
+	out, _ := runCommandOutput("bash", "-c", "lsmod | grep '^"+kernelModuleName+" '")
+	if out != "" {
+		return nil
+	}
+
+	if err := runCommand("sudo", "insmod", kernelModuleFile); err != nil {
+		return err
+	}
+	return nil
+}
+
+func unloadKernelModule() error {
+	out, _ := runCommandOutput("bash", "-c", "lsmod | grep '^"+kernelModuleName+" '")
+	if out == "" {
+		return nil
+	}
+
+	if err := runCommand("sudo", "rmmod", kernelModuleName); err != nil {
+		return err
+	}
+	return nil
+}
+
+func ensureCronJob() error {
+	current, err := runCommandOutput("crontab", "-l")
+	if err != nil {
+		current = ""
+	}
+
+	if strings.Contains(current, cronLine) {
+		return nil
+	}
+
+	newCron := current
+	if strings.TrimSpace(newCron) != "" {
+		newCron += "\n"
+	}
+	newCron += cronLine + "\n"
+
+	cmd := exec.Command("crontab", "-")
+	cmd.Stdin = strings.NewReader(newCron)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("error configurando cronjob: %v - %s", err, string(output))
+	}
+
+	return nil
+}
+
+func ensureCronScriptExecutable() error {
+	return runCommand("chmod", "+x", cronScript)
+}
+
+func runCronScriptOnce() error {
+	return runCommand("bash", cronScript)
+}
+
+func removeCronJob() error {
+	current, err := runCommandOutput("crontab", "-l")
+	if err != nil {
+		return nil
+	}
+
+	lines := strings.Split(current, "\n")
+	var filtered []string
+	for _, line := range lines {
+		if strings.TrimSpace(line) == "" {
+			continue
+		}
+		if strings.TrimSpace(line) == cronLine {
+			continue
+		}
+		filtered = append(filtered, line)
+	}
+
+	newCron := strings.Join(filtered, "\n")
+	if newCron != "" {
+		newCron += "\n"
+	}
+
+	cmd := exec.Command("crontab", "-")
+	cmd.Stdin = strings.NewReader(newCron)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("error removiendo cronjob: %v - %s", err, string(output))
+	}
+
+	return nil
+}
+
+func setupSignalHandler() {
+	sigChan := make(chan os.Signal, 1)
+	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
+
+	go func() {
+		<-sigChan
+		fmt.Println("\nSeñal recibida, limpiando recursos...")
+
+		if err := removeCronJob(); err != nil {
+			fmt.Println("Error removiendo cronjob:", err)
+		} else {
+			fmt.Println("Cronjob removido correctamente")
+		}
+
+		// Opcional: descargar módulo al salir
+		// Si no quieres que el daemon toque esto, deja este bloque comentado.
+		/*
+		if err := unloadKernelModule(); err != nil {
+			fmt.Println("Error descargando módulo:", err)
+		} else {
+			fmt.Println("Módulo descargado correctamente")
+		}
+		*/
+
+		os.Exit(0)
+	}()
+}
+
 func main() {
+
+	setupSignalHandler()
+
+	fmt.Println("Levantando Grafana y Valkey...")
+	if err := ensureDockerComposeUp(); err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Asegurando permisos del script de cron...")
+	if err := ensureCronScriptExecutable(); err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Cargando módulo del kernel si hace falta...")
+	if err := ensureKernelModuleLoaded(); err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Configurando cronjob si hace falta...")
+	if err := ensureCronJob(); err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Ejecutando script de contenedores una vez al inicio...")
+	if err := runCronScriptOnce(); err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+
 	rdb := redis.NewClient(&redis.Options{
 		Addr: "localhost:6379",
 	})
