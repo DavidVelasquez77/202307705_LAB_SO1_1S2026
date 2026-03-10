@@ -1,10 +1,10 @@
 [
   {
-    "timestamp": "2026-03-08T19:54:47-06:00",
-    "ram_total_kb": 32637804,
-    "ram_free_kb": 18519356,
-    "ram_used_kb": 14118448,
-    "deleted_container": "highcpu_2",
+    "timestamp": "2026-03-09T19:49:37-06:00",
+    "ram_total_kb": 32637776,
+    "ram_free_kb": 16290868,
+    "ram_used_kb": 16346908,
+    "deleted_container": "highcpu_1",
     "deleted_reason": "high_cpu",
     "action_taken": "skipped_min_high_limit"
   }

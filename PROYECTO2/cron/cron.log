@@ -1653,3 +1653,3116 @@ low_1         alpine                   Up Less than a second
 grafana_so1   grafana/grafana:latest   Up 3 hours
 json_api      python:3.12-alpine       Up 3 hours
 valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "36ced9a70af578f14472dfba06b8f3743c4268c104345c07d4396cf0ebbb24c7". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "f94201aafea569e8e3f7f65f3e7735df4189f3bc7f9e79a63d4cd8881e00b0d5". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "c8ed69d9cfd4f3e74bf9b755caae565d31d612f95a084647c28817bef52349ab". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "35171815f2b44caf15867d5c44319616f474afad42a199fcca4bcd555d6a4e62". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "2d1f27db6aa48b8abffcf9f71430c2fca3fc61df810afe950c81eb3789be764a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up 42 seconds
+highcpu_2     alpine                   Up 42 seconds
+low_3         alpine                   Up 42 seconds
+low_2         alpine                   Up 42 seconds
+low_1         alpine                   Up 42 seconds
+grafana_so1   grafana/grafana:latest   Up 7 minutes
+json_api      python:3.12-alpine       Up 7 minutes
+valkey_so1    valkey/valkey:7.2        Up 7 minutes
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+f7527571a0d3ee239bac88b346b619e82fba68a84696043203206357d88a4794
+47ccca0e620e35973b7aa6d677d156f22682826930912385ca9f8d42ea2f90ff
+f0555771a7dc6c03b04daaeb9b4cd63d19b1d32fe7b8ad180a9d14fd42ee1875
+Creando contenedores high aleatorios...
+592a85986a9cadcf3492ba15a34f49e0b0b6e626f2ecb8898e5e74e51fb607a9
+9243832d4285279fc65a27d60acd6d68bbd17fa3d5acab3be8789be66bdd46b9
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 7 minutes
+json_api      python:3.12-alpine       Up 7 minutes
+valkey_so1    valkey/valkey:7.2        Up 7 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+be1334333d29875e4edd8c98e4b840f490cd041e697147afbaa9340189acdf97
+cc43fc60deb7f2cafd69456a87aba7493236b2a3a782ca8ce9991003c97b0ddd
+ac90a8af43cf44a620fa6bc96d8a616bf32709ba573ec15528bcd7184205cfea
+Creando contenedores high aleatorios...
+2bf9a39449e22aed66c1d01ade9a7560de47fbc382f282b0f13e666f868a5860
+c9edcf24150bab52360fb30d274b35f0a80f7553009856b6c4a43d2f16dd21c6
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 9 minutes
+json_api      python:3.12-alpine       Up 9 minutes
+valkey_so1    valkey/valkey:7.2        Up 9 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+166112cba6d88547a079ed0df1d2f4ebd83b71658c5efee58dc3407cca0bd86f
+895d65a0f0601ada73e6538df8afd16327eb76a4b790dc98ecec7f64238e0d9e
+fd251de79184197b61486bd4a27ae5cb90839125a1b4f439d57d49114858be20
+Creando contenedores high aleatorios...
+3a60cc9e324103f97668c2ee72c9212d155c05a3181849f5786b6a0f9b6c5b1a
+1c90cdb3bc3dcbde259d3189e0dcf5c225263d780f3c65489504500e9f09a36e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 11 minutes
+json_api      python:3.12-alpine       Up 11 minutes
+valkey_so1    valkey/valkey:7.2        Up 11 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+7095133c3f796187ecef6c4c68bca2274fcf834a565eb3039cec4b64e01c4701
+78a33f995ff5a49ee23b7d38f6f8bb6fc4fa8b20c936273e8b473ea774278bc8
+d2b31f2222999dbe4e3c27dcd81e840025fb4f4511f0172696eb52ed80322171
+Creando contenedores high aleatorios...
+dd92744099aebcf83ccfd092d074b0a6d9d4839304ec40cca6d2d0dd9f8e80f0
+ce41720bf0cd671a17e89b4a67b7ad0c398484d294f37b0688f91b9b102e1cfe
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 13 minutes
+json_api      python:3.12-alpine       Up 13 minutes
+valkey_so1    valkey/valkey:7.2        Up 13 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+81913b2d9d91c58ed274b613fceb77747a8c1d093cb80ef6a4ba82fba88f7be0
+3be8dc45599b16086679ca959821ec4e4a49b28983d4de46d16e3d3fd27be3d7
+3d5cdd2d4c81daf1899a46610dcb8cf31500165d1463478144f9311982b7dfea
+Creando contenedores high aleatorios...
+38c851645758dc8243b911c32950d267e08dcbc6114ea411ad8537ef19e21906
+79a8ba1aad961dd26cd12e0187d656be894f9b21324adbf72e645df44499e336
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 15 minutes
+json_api      python:3.12-alpine       Up 15 minutes
+valkey_so1    valkey/valkey:7.2        Up 15 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+324eb73f0f6c5b55f49e0b77ac01846222facc9f73c753195dd81b594ddfee12
+e21f9546f996d9f9f37554563b645493596dab6865aea7af19b50a43470e1a7a
+7efa3b0e293afdf8c5f420b9b0630070c7e09b53fbf129692f9381527bb995f7
+Creando contenedores high aleatorios...
+aa678ccf0e7b50d4f91831f548ab22c92af59771750e896d6f988b60fc862f6b
+44ccf4dc13e6865b9de98f2ae5a2f936c3cea98f2bcaae0a98e510917cfd0556
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 17 minutes
+json_api      python:3.12-alpine       Up 17 minutes
+valkey_so1    valkey/valkey:7.2        Up 17 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+ef336f059bd59af59964886aa00fc333793cdbd9e858aabf34cad79a5029f043
+5bfb719ccda6bc191369f7aee026bef0a281646183455b35503d60fe569aefee
+dada08c4f370152d8bda2afb887a4530114258930972b11f3ab48fa16eb94a78
+Creando contenedores high aleatorios...
+a3a9d18c347b4da0ae2ca677673c7d7cf6998b97d9a25379c10c4f030d500f87
+2d58af201f0b89be2770b24796fe1297852da9e8a356ebd717fe86f1e0165880
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 19 minutes
+json_api      python:3.12-alpine       Up 19 minutes
+valkey_so1    valkey/valkey:7.2        Up 19 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+5b4440684bc55d791f918d93368beead6723801675912bec38b26663488fc9b2
+908d843e7b36ac5d527b57574681b5e04c97dfbae42162cad1af48a56ed8bc30
+f09fb6bf0017a27658ef4aab63cced72b4d47824600b2c85cc66043ef3b6ef68
+Creando contenedores high aleatorios...
+822f88a5536bc8d6a190e25735bf286c0c418a40b087392dcb78d23ad2c42423
+b0d3d019294e792954408fc893e41170ec04bd28450c5cae7a0ac468021ece3f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 21 minutes
+json_api      python:3.12-alpine       Up 21 minutes
+valkey_so1    valkey/valkey:7.2        Up 21 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+40dd218868b1c5ab6a983270096e9df7aa1e93e2415d6c11570d30436c15a953
+062b0491697883a5e8ffd36882c262edf64a103d9add82ebee29ac0ec7ab47a0
+6b434e53d6e86e3dfedabfc500105e5636c100d4316af7659a0c36607708f099
+Creando contenedores high aleatorios...
+7ca18ae4e237e8e4a8d8641c236d3261fd54482676f2f982972dc7cb053d7e88
+c984fb9daac2960c82fb265b782063da64e87fa95042dd1bb86a4ce6a9082a9c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 23 minutes
+json_api      python:3.12-alpine       Up 23 minutes
+valkey_so1    valkey/valkey:7.2        Up 23 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+d172aa61106970202db837b53cb3374fd4d57057820e02c77ebf9072e89d55ae
+65f238650a449b40865b362c3198573bbcaa23acba16acc3f67eaa6a619b5931
+4933f173cc0aadc4c2df0a87e75ddc16027725b2a4b1b38c2fcb5cee34d95e10
+Creando contenedores high aleatorios...
+bbd1e0383b435fa1dd338acd3b13079c68d19a4d064829d89ddf3df72829beb0
+9293a63bc6418a7be8148a07552e8709f58570021ed502bfad9f4232fa8de9f7
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 25 minutes
+json_api      python:3.12-alpine       Up 25 minutes
+valkey_so1    valkey/valkey:7.2        Up 25 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+55838217f32aada9c8e06d82444ff0148f7837dfb40e75ede76fb6c8ed22faf0
+406d3501ac1a5dc871ac37bd590208bdf80e990c5949c89685a884ecf4dcaf6d
+7a6b34dc32a2dde4e2f67ad12cf4723caeceb19a47eb3459ab3840ac228d4545
+Creando contenedores high aleatorios...
+011bdc1f7a12c8377d5232dd41ab118b6a2740269eb05fedb956ff9f9655c785
+18fa16ad1d27f2831bcc1251d43031c659ba821ec2848ea25cf8b5993609bd81
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 27 minutes
+json_api      python:3.12-alpine       Up 27 minutes
+valkey_so1    valkey/valkey:7.2        Up 27 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+27a32704abc3ba27b7fc0581c392c7d40524bf62d115a65b9db063ef5738f457
+c6be83848f0f59cee495cfe0e640851332322cd3c0c2d89a6b8ee6c4c1da7510
+36c4a064f060e4b3fee07b41877eedd9b19eee3c8abb7ca242e769d96980f9d2
+Creando contenedores high aleatorios...
+70f483ef13fbcd6d0276682ed131267f1b43bfc84bdb683b3a92543078c9fb33
+b1fe5561eb9d0116f3119324c253cee996fe78a37798b21fc2b61cbfd255a47f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 29 minutes
+json_api      python:3.12-alpine       Up 29 minutes
+valkey_so1    valkey/valkey:7.2        Up 29 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+91e7912f450195e3ddbb5e760653ed0eab1a7078bf1b7ff30267c71180b36cb1
+cebbc150d2089bbfdb3e6063ed1d0f73a16c0ca88fae540a5600e9b3a4ff74a4
+fd19b642eb11ddc83292c6c2dcf4537c74abff28817743dc9027740004311fbc
+Creando contenedores high aleatorios...
+b35e5d4046d010fc75e8c8b8aaee7f912d9451a0b4a756d3f9197c3a243edc9a
+3ea9c25657c0cd0fcc35549987e6f6d48274aee6c2d09966c9585cb39e3f33ea
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 31 minutes
+json_api      python:3.12-alpine       Up 31 minutes
+valkey_so1    valkey/valkey:7.2        Up 31 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+326ead56f55815fdfd8872ed10297f2f0d23fbd539a1af3299116b652faaf7f3
+d4da4ef206808178d572ad2e2af505366504a23f95e11154d21ba059f55e2d3b
+4268112a2964d6764ef79662dca7c39b07bb6f356810e18ec65602735c2d9dff
+Creando contenedores high aleatorios...
+31fb571d7925b26a45a5d5c77f93b7f0075642f0f4d662df9c467883a85ad7c5
+ed279954fe4e80ec4d530a9aa60b415748772578b8a759400fe76ba763e58454
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 33 minutes
+json_api      python:3.12-alpine       Up 33 minutes
+valkey_so1    valkey/valkey:7.2        Up 33 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+9646eae7fa57d243e75cd5ddfc57f698ccd7079a5bfb18794cef729f38150aaa
+863fa0f7c5dc1e7ee26ee992472a47937dc2495df668749dc879e043f3c59ea1
+c142eda10eaf39cbf39137203f2d7b8a1ea804a69be76487859588c726ea41e8
+Creando contenedores high aleatorios...
+910d914ce6e53474e1e958f8bc84009a5d3b4fc56100a3f0ac8b7aae94b26073
+41d86670078c4b2e91ff4c47cf159ca25f6e5f68933ed5f9198070d6f33709cd
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 35 minutes
+json_api      python:3.12-alpine       Up 35 minutes
+valkey_so1    valkey/valkey:7.2        Up 35 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+477d8d8c83cbcf2ac05ae24c2162b050aeddfd45723c0c0a859a653831c6fc8e
+dbf7efe99a9452b77ddba56eecbaf0764505c8c87eec93b371c9f9b356587f97
+3e1abcbed1478561bd359c9b4b3a9ed2f10567c74179c3f10bfdcda5d42506f2
+Creando contenedores high aleatorios...
+2720115fe0e9ba09804a5c40ab26c259423bf5209c3c9f482d4818783b2c1de2
+9a275dffeab7ed6b6cd2fe1ac990a9057909d69bc8ae01a612f654792193ae8f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 37 minutes
+json_api      python:3.12-alpine       Up 37 minutes
+valkey_so1    valkey/valkey:7.2        Up 37 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+67a96bf09ba9b719708c9d93bd1be5ad47918464b5724cdc70adf1f2d037c19f
+d13b5235376c92d1593b2ae516c9a076c37ef83b7b8671e153da0e2015b480e3
+a13f8ad3b5f4fc6d5b51e21395dbd95947f6bf18f982aaf39352faa835e1f816
+Creando contenedores high aleatorios...
+c9e49e6490fc3ac095aeebbeceb88e4a84ffae5baa747bf02775167c0dea34d8
+e56063faf0cc99742f0c91a11dfaae97b13c956ee93f750c1eb329c14acb8345
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 39 minutes
+json_api      python:3.12-alpine       Up 39 minutes
+valkey_so1    valkey/valkey:7.2        Up 39 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+f47528eb69d5d7e7e9d119ec6e6c2ede562a717bb274e3149a0b776e9c82fa39
+49949ddd2e94592b60a30a5101b3a7bf94c03de878f0b55a5318251afd3ee9c0
+dc941452dcfb8ca002b08b24c2cf9bb7aac65811c54892f9c5d5e5247a989e89
+Creando contenedores high aleatorios...
+9dbaa74367877cf4ef5d2abab98da3f5d7e2fb9a97ed940193705d7171a1b740
+1ffb1af10229d4b52dadc548bde6642db54a8b066eb3e4a9d8b0107b13a6c5b2
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 41 minutes
+json_api      python:3.12-alpine       Up 41 minutes
+valkey_so1    valkey/valkey:7.2        Up 41 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+25a2b9f7e36598fdaf6004da043be85ac98e685fa9e54c1d0793e0d67990d031
+2e45a05caeb1c15b75544f1fbcc3140a9b07ab9dd99c72e85c0691ce397d0aee
+6a1b10778d6bb76ad3ff786c32632c5bba31e0f57746cce5456cd411c1efd50d
+Creando contenedores high aleatorios...
+cb55e92d6731ab0dc54365dc72d0d1cdb13f944b9b42d4ce6353bd2cc216942f
+a9cd42bde1218fc35957990f37d3e0b69d6250484e67e3ac1e0edd20bfccace3
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 43 minutes
+json_api      python:3.12-alpine       Up 43 minutes
+valkey_so1    valkey/valkey:7.2        Up 43 minutes
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "cfe5141f5a03118352ee62b0ccd23022a5f2c63526b3b178fe0a45dbd89565ad". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "27ac0e39c7ab046fea4533c5b33436d0c1d5613290ce08065f757c559ade00e3". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "55845460fe296256bac2a67bd8c9d302b83fdd4f13164efe680ad1ef8f40cb62". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+e03827c02d98be5c621c271e3e3358355bf2eb062110e8aced74435b62466f14
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+3ffd28d06ddde81f3bc70d9d4f03eafafcb7999c90fce792ada6850332b8ef51
+731df2cb8c301353e690b7e8d945dc19d68ea8da9c55242ad6cf840f050d1552
+6b3ff7434d83e5ef2bed294e92745c17bd1c5d21d74f5645ff67c70371b6f759
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 45 minutes
+json_api      python:3.12-alpine       Up 45 minutes
+valkey_so1    valkey/valkey:7.2        Up 45 minutes
+59f01039b5bfdfe2e1ae15d2347c0b4d6c30d60228c795615aee3099ad8daefe
+Creando contenedores high aleatorios...
+1deca0f7c61cdbb8ef50b3dd5f740f1387b5041d0c2bb2bd10d41c49e3ead7fc
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "731df2cb8c301353e690b7e8d945dc19d68ea8da9c55242ad6cf840f050d1552". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up 1 second
+grafana_so1   grafana/grafana:latest   Up 45 minutes
+json_api      python:3.12-alpine       Up 45 minutes
+valkey_so1    valkey/valkey:7.2        Up 45 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+6f74fa8192c6d0887b7d0c8c4f645b89e8bbd121092d2c88a3a2fbe6adb56f2f
+d6d338eb9d7d071272df54d4f141394e565e8d18a800e1e0fe3619b6ef15b7e3
+a98636cfc440046b593258f39fc8bd40703dc26e60ea1581afedc5f6e1089d26
+Creando contenedores high aleatorios...
+781d8a188c11dcf106127b77c3f60b0ebcb96c9d948f53a481cb20e536c6bfa1
+1b9cc7ccc2f3e19e132ea5e91093ca95f5d22dbd166a182f1afdc3eb69ec3d36
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 47 minutes
+json_api      python:3.12-alpine       Up 47 minutes
+valkey_so1    valkey/valkey:7.2        Up 47 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+60292b1d1cfb7f691c925eb0f9c598aec9a9fc4b4d177a2e8036106eef1af8db
+88d65ad43b31d675e263de62bd27fef931c8603527c135f0d7ea14457735d902
+ec14c477f4dfa46b3f17e5c3e8f5d361c0ec2da20dbddad96d8f57bdb701ed5b
+Creando contenedores high aleatorios...
+95a0c61eb45720eb1ac94053d31d0e3ae65d0d10d0dbbb12b4d92951382f8fa2
+c4bf0671c94618350d155764e9af500dfaf8666ebebd21c3a3288ea465471344
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 49 minutes
+json_api      python:3.12-alpine       Up 49 minutes
+valkey_so1    valkey/valkey:7.2        Up 49 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+f5a5323c7c0e0c2a455e40e124e669d534ff5a92fb3ef1f5d4a6b16e75eed871
+fa09ced6a41c16e9e92349286f7ed6d5c68103044f66fe9f259a779c12c2495f
+b532b952cea4629f8805a4207af8e664a16ed58ecfe454399997a34412e31d06
+Creando contenedores high aleatorios...
+b22c0c4d3e2bae0ce02041badae0179227cfbea930e48878ae4cc969af120e6a
+5dc18a080dc7530da791c29865da36efb5cc4d721879de090f182d0841d83858
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 51 minutes
+json_api      python:3.12-alpine       Up 51 minutes
+valkey_so1    valkey/valkey:7.2        Up 51 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+929f87a8295b78212b9c53e1f37fcb9fe7f4529ac73a198cb679e80c1b9ac26b
+cf92c4c4d976952c2ac6624f17a4c2545452cbb586d0a8022c6b07d781e1d957
+494a267016c6cab38ac9be8e541ff19d6dd6d435cf03a55e87e84c5e25842d4f
+Creando contenedores high aleatorios...
+fcc2bdb606fa3e756b53552f896eb528df6ecfe1bd200fb60c3fccc0fb124272
+de326c1d71548aecf53c08610ad3f311aa81abf591f88260245b9a3016eec35c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 53 minutes
+json_api      python:3.12-alpine       Up 53 minutes
+valkey_so1    valkey/valkey:7.2        Up 53 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+a5037d506123439d4ac5ad2f4a354b0d6d7b046d9e0b58587ec2140167cffbe7
+d07dc396a1a3a79f3a29d9e6a5a3608a9cbbaf9411c4713d8fad5ced727e6dfb
+9091147858e366a8fbfc432e1cb28c005a66e95b75df9a2cdb5c342cc30d0daf
+Creando contenedores high aleatorios...
+8839ba10c34381e9a14ad4aa002736cc8aae24651fef9894a6bc728a3480f6b9
+7fd6294f1ca57436e26182d0058fcdc61f11dd16638ee4b367a2ec37fc2741c2
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 55 minutes
+json_api      python:3.12-alpine       Up 55 minutes
+valkey_so1    valkey/valkey:7.2        Up 55 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+a587003ea707c12606374c5db13c00d7a3df613bed5af3857866f38dd38e2349
+f358866992e4e76dbc00264c9e6dd501cf5b53f9ea0b82060e4900eb1ff64050
+2aa346feecff0b4079469fa597da00d3bdadee538d110a2c81f214370aa01f82
+Creando contenedores high aleatorios...
+35d5a678a7eb10ccf2e72244b9690268c3b6574e2842827f8cf973430ce007e3
+c1e3414c69c938c6901ecd8fb2d8e97e63dd74efafd0267440c6616f819fc580
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 57 minutes
+json_api      python:3.12-alpine       Up 57 minutes
+valkey_so1    valkey/valkey:7.2        Up 57 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+912746de634a7ba175c69f27f4f37b508ba14778570956d9e86eb3ccaaf41241
+4b34dd7c3996f0a0624af4e0685a70f6b7550a8b9560d8626f850dabc1cb4787
+99276086d6f536d3cce77ba0772cbc9015d6a46f3e93c7084bc4f43f11a67c5c
+Creando contenedores high aleatorios...
+a00e6c95c259679c3427c0861206ccb62435a3bf5d53f900a172cd4e2c3cef54
+7f8b824be8e90805bc1308f383086c7698a16bada374354776eb994cedb5b544
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 59 minutes
+json_api      python:3.12-alpine       Up 59 minutes
+valkey_so1    valkey/valkey:7.2        Up 59 minutes
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+016b4709cce74e6296e382ba300a02eac33debc06fcda644c49f4d358cfaa751
+8666d446a513db60681e3fdb4a597a8cfa00cff49dfa0c7aa7c691d9a6f1b6c3
+3bae51fe26373ed97d27f0314469af670abb85a1e420df577832bcab20605ef3
+Creando contenedores high aleatorios...
+a2e8160643e71827cc13f2f4ad91862f0567d1dda611c4ee59a3d66dec6e65b1
+31246f0922ce569caa2a96c290d2493f3c51aabb759dab43b674ad86087ef9a4
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+24e2b6c16f6ed1b8431aae3272c10128386d452e7f71d22d5ff930370a0a6758
+dbee6f43fc72d41fb9ca9b1cb99de73ec6bf2f1586eb375a8805bfd760debcac
+128765a5738c21733531004cf902977332ecb197934dadfcfcfa153a184ecc73
+Creando contenedores high aleatorios...
+8a08a21a910834e89ed37b628c7915bcd588912121a4754e99af740940df57c5
+f762e8cf39ce99b3f821c06390a340d9253e0807f93184551d3d8543628dced6
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+65f4a29c5dc746c8ef9fa18ea69a5798d01858a1d5b5af106bb438048807a290
+cf0e610a30fb33542860744689d4957b6450c2dae2dd7878766579fd71a6880f
+94ccf44329fd2693453e713f90fefec4929741bbea94a5ae5f8ede3ca8d1e915
+Creando contenedores high aleatorios...
+e3e6adfd657920e9ed5f577c0eab9066c30b15b1578d6572e71acb23ef324226
+44997cc70cea021bce087d88b5ecd3b19c021f75f797d40aa14d97a3dda00f83
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+f4febf73416d8b64a3f3bf78515fa6817e6b47835a7bf4dc2c04344f086d9594
+9418e0f3086fb4cdd28d41f580a2ce2a3a0bdef9f8653fb0fbfacb959626e08a
+5e9b33e4960f5a253c8b6cebd30aae45723e28259731a31d4264781e1ccdd711
+Creando contenedores high aleatorios...
+a8453aa785ccf8a52812d3e8af6c3bbcf19bef1d6c2eedfb7929524144e87bd3
+6bcc9b2636e5270f59ee4cb481aab2038812a9b6f9c4cb9f9f5a17527df13baa
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+6d0bd2f9f1c1e0524a5318e7c2e737951646b1ef6cd48592539e396cdeaa1e20
+96f3dcc1825ec05dab32ebbafd939b5c4542b772a47c773e786f190321df3fd1
+73f838c01bd258c433208316beb51b617ffb81fb5f4212fd9a6e97ae2deaa1b4
+Creando contenedores high aleatorios...
+4b935a86758305231740e2c5d8cb504686471cda3eb69616d5f963b5e276c333
+6ccb93fa873e93d70260e4155d15297ec83036a6223ef09d92d037f7f6d39d28
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+47057e3a06cbcd18b74a2d6f74dc0d578fa7314af6b53c88369d3651ccb872c9
+05984457c7b70ae5115594b08b072954f97cdf8f649991e3dd8f1e3edccf9baa
+62c73d4cad2df51d3803abf4acaef04aaa951bec7e2bb56094db374b26980c5b
+Creando contenedores high aleatorios...
+ca2057b6cf592711ef5f434c1b91d92c4e6467cb2e78c74d1941461d8e5ae9ec
+108ab70c34388545f8f483fee38affebc8b78a4c4cce294e86dbade404988476
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+2160d027e36f650357b1c8a69deb5ecb50da9e38a51b3240e82b7cfb5f71d2f7
+6eee3d2a702c6d8cb4bef02e1b8c61cfcb722299fa9d0fb17cb497d3f80e0b8b
+69a3bf3850710da8ad9f3c7c7c4b76f7a6f7bc8b466e3bfe0b7839b3d21bc02d
+Creando contenedores high aleatorios...
+ab2e526a21664ac6deb22ddec6460496e4079385c9f4ff95a14fe334be90b6e0
+fc6f8201e58e1f71afc438ece53b6296e1380ed28b9edd791b1f3de89739a10f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+7a21e276406b68d8779a7fc62e0bd86f5b8d5e9286758b65778fe08f831b5c65
+0f201f50cba42ab9c1ea863c7b04fc278009ecbcc17fffe0bb7bba8e0658dd67
+37e3e7d480994785e2b679ce0830b177bae4274824b1ddd0feb5e484baf2c621
+Creando contenedores high aleatorios...
+223c6f6c56ea4cdd14b11c8669dc7342b3192ca468302b10b47952086d3681a1
+5a16ede5e8692a8aa7ba17a1b2e482370afd0349a7d180054fcc72b5bc9b3f2c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+cd4e6ec2b01bcebc9841778543ad1ee8b18644006c3795fb012fe4f290866618
+eefe3560ee7af5fba9adc3d459e84191f1d8193d544b61a9164a6cb573fbb271
+9d909066aa0735ccc79fa0a13bc0fb0ad8fccd2a0fe1982585d76ab24ab03694
+Creando contenedores high aleatorios...
+c674f52f4f140e45709d215ba5219fde44e8977b47eee3db1b1cd4252eec5d77
+7f721e447148b31f4a6987aea56865ff41f023aa733ced3a04e04fa30597ea66
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+283124ab96fae1c3bc1fcb1d119796a9043a4659676ce1f03e90b9b813ff95cd
+f7b18ccb242df7299c3504b9dcddd1cc4e5dc3ac2c6efdbb8226a5348d488e3e
+813a8365368286759b2efc7f56dd580427397048da70162cf529123657ee3c51
+Creando contenedores high aleatorios...
+7146e4b01cdb14c6bd93e2369912d8ef7670b2505402222e6da353cc46d4329b
+85e57013356e772ed78f3966042bd381ad7971ce250711d8aa6e39298b3dd1a5
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+5bbb687325452d8f2668d01bda09d3b74a97e5a4adfd239d8fcf60f8f5b4f7ea
+f44e041527897158744b16c79e65c94ea97671a9f87ab66c32a5a1a413a9abe0
+99dfdb0698244ac9cdfa5e0c856c5d687273c4275c0bfcf83d5ac676b798ee8c
+Creando contenedores high aleatorios...
+6eefdbf06e6453866628a51a054f1cc89d3877c5f468630b4ba2fcccbf21f554
+9c5934379a842f281acded3eb8a85cb9ec9c512a7267232fd945300849712c1f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+455f762c452b3372cc4577d36e751980e67fc3beefb669335ffa304e02fc49e9
+e845abe64d7e431398896e2df76b081cc8b62f812927af47b7a3e5dcd4d9d47d
+f8a4f03810cc3b997df1eb3fffe1b9d6cee6178804221df35e4d1a07e7f3678f
+Creando contenedores high aleatorios...
+3e9179f4c296866a8af33a1556557ca9b96c7ec0534cb209491084af7e493d6d
+7209509f8b303a14d08981095bd5727b33688adf8fd43ca8a573e3b8234b30f8
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+c6c07f52877f207db7d31c704e529a0b15c76a1e581f5311a1ec4b918235a36d
+4cc9d302d05f7f613b43c47499233fedc3f5f385fec921fef85e88c85c58e81d
+878268fffcb4fda44b9598db1d948e63a84575e10937c60be8535d78265db25b
+Creando contenedores high aleatorios...
+f8423883214f8e12fd95d5e5abc87fd94ae20406a2a469f77de293ae05e8527d
+b67108992a5cfeeb5150825f37296e3018c094b7321b95db8800817f004d5101
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+bdd05ca22979528708d08871e449aefa2357387663bc8ebcae108edc88ba99c0
+89cfd7e50b949a836a48fdb42cc7333e8041cf35f39c3403cb0b79ee392d7ba1
+798665688beca173d5bdf8e00731cdaf1e8bdde6e586fb931d45265b8dfec37e
+Creando contenedores high aleatorios...
+0005cfab5a339d3586c516a2ae03b7f0db7dec0cc65e798363e7c6ec60808857
+07823a1d0d776ef26c1e69bee984abb5b63ad1494c3ea8d2e85ee1ea8f4dc534
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+64f98c92de629322d9e630e02d5111ee7dd3870d4a6ae0df74f2e2a11bce802d
+07cc65fb46a39efd40adb26b1adfdc2ef45195fa0f2d7582b8348f8b8ad904f8
+a43081070b1c68450300e330afeb3a7f9d9630d033463a6a9262d87d16325f77
+Creando contenedores high aleatorios...
+b562c9e4bf552ea78577d5aa903a3482d32163886bf2705d6e36b92cb900f266
+eb585644dabf2aeb23d6d5d5d541d1a4861a227c72f9e9c9ac540ed8d43684e3
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up About an hour
+json_api      python:3.12-alpine       Up About an hour
+valkey_so1    valkey/valkey:7.2        Up About an hour
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+cfbf51b6eb3cd477993adf61eb1d27b628715b8947ac1a803e91b8d584b0a1ab
+0e73458a310bcfdf27ff195c0af2614f3f33e7dc2db73e4cc8d5a52187d8d446
+357682f46d4de8b58a180bca07623ac9377f800997f5bb5717ac9935a17c0d9f
+Creando contenedores high aleatorios...
+caf4e079f26bc64935a5a1c3a6f7dfd1cc7aa89798313b454401d8e3e015fba0
+91374b3c25ca08ee8289c7223192303437573deb57d63acba500060f6146f0ee
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+07ea0915bec984ff0da10cdb2bf150a396f596f23f162f339e23912c31bda542
+d52f44b7b0c843a422f6411948e71ae936135c637c51479805703a564495d8f6
+7560e70be9a538411779aae4b5464b760d481de2e0d7b1a0cf3649d4affafc53
+Creando contenedores high aleatorios...
+000995ce815b65ad47e4e7d78fb71bf47465e6debb0c0724984a072939465833
+514727c7471fc65f07070ffdec0746914ea200e4fd39e878a9168e1b4bb96e60
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highram_1         python:3.12-alpine       Up Less than a second
+highcpu_2         alpine                   Up Less than a second
+low_3             alpine                   Up Less than a second
+low_2             alpine                   Up Less than a second
+low_1             alpine                   Up 1 second
+elated_bhaskara   golang:1.24-bookworm     Up About a minute
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+ee9fa871bd04b05c2f93a1b5e311bd59e5770a06c11acf38a86c8692e59ab638
+3530d8a21784e90d3174d4847ff4cec646a0b8df3e8eb31585378b1ce014c015
+b6fa17c2a5084874548994adcd8e8ac40a87203e65b389000d532e1828a0b6ff
+Creando contenedores high aleatorios...
+ab85bb114f40f70795317de14890ccf60a649dcafcbe8bcf1631c862e4ba45da
+ba301cfdf367d8aac705fa9599019a12012476449d276c103c8c898ef16164e5
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highram_2         python:3.12-alpine       Up Less than a second
+highcpu_2         alpine                   Up Less than a second
+low_3             alpine                   Up 1 second
+low_2             alpine                   Up 1 second
+low_1             alpine                   Up 2 seconds
+elated_bhaskara   golang:1.24-bookworm     Up 3 minutes
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+7dc2a336212593445d15a1e1326751ca6766da32bce187bab7a8e8c21f1f00ca
+4baf32ca47b79f9e086add80764ed1bccc40185f0dec4fa96c33288dfdfa8d1c
+f1641e6dda735678b2df63706d95576af32fbdd0b6321b61a088740256885d3f
+Creando contenedores high aleatorios...
+3e1dcdac83e3db07f352f31ad0bdfce5a0f5fc91e16ed760b638fb0f807e73a3
+14d4acbe9cac9a593c2162c54150223681c89471498b31327e75e057db30b66a
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highram_2         python:3.12-alpine       Up Less than a second
+highcpu_1         alpine                   Up Less than a second
+low_3             alpine                   Up Less than a second
+low_2             alpine                   Up Less than a second
+low_1             alpine                   Up Less than a second
+elated_bhaskara   golang:1.24-bookworm     Up 5 minutes
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+fe884e99b195753215faef7b51fb972f7483436466c9f37342a07634c4df8309
+347428f9b7a427c69f5e60e85149627beb0686f0bae8651d6cbc55c8667c5c70
+9bf2ba74b963c8fd0a382f1a35cceb667bd9f307f2ddaf777f83ca0dfcd6a23c
+Creando contenedores high aleatorios...
+3bf3b1d99409fabc5267d87f0823df4d92563bf86d87f3b56d7f7acb829326f6
+1f00f596b3142c5f298b0e114bb47a295e06904594f9f76fd5b555b3e99b1ab9
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highram_2         python:3.12-alpine       Up Less than a second
+highcpu_1         alpine                   Up Less than a second
+low_3             alpine                   Up Less than a second
+low_2             alpine                   Up Less than a second
+low_1             alpine                   Up Less than a second
+elated_bhaskara   golang:1.24-bookworm     Up 7 minutes
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+43dbe0ec78e09ea3c7d6efe7c59d37027b1dedcbee73542483025279c47c28ee
+87649591d952dd6c82a708066d97a8a6c9547dee096fd4f1faad828cfe063387
+af3af35034ba35f3584f0a50888916de38986534aee81125723b2a92546afad4
+Creando contenedores high aleatorios...
+f4bded1ca528035d7a33103016ff832ec5fb9f52c990acc1ad2c389c104cb08f
+0babc7213d51b2d6285f228be635458b58697d23b1023799313811cff3615dbb
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highcpu_1         alpine                   Up Less than a second
+highram_1         python:3.12-alpine       Up Less than a second
+low_3             alpine                   Up Less than a second
+low_2             alpine                   Up 1 second
+low_1             alpine                   Up 1 second
+elated_bhaskara   golang:1.24-bookworm     Up 9 minutes
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+982be37fad2d38b9a06fff5f2fcd32e3c5427191702898f842e3b2e89f603c93
+c043b324df64fadd358e992dbae1d4f12f1c3d2a0b9260aa78ff7b5731faf0a4
+34af1bf84cb67b5fd60a0fdbe703039ae96fc431ee9f76353dbf0a3e27d7a3b9
+Creando contenedores high aleatorios...
+f4510768c4930c5959ede1765564d14f3664ea4c1c09df2c67fce6cee6263007
+f03e85a549ca3e0fcdf992a664c421a1d2d5f2736d46cd1edfd615c684bc9bd3
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highcpu_1         alpine                   Up Less than a second
+highram_1         python:3.12-alpine       Up Less than a second
+low_3             alpine                   Up Less than a second
+low_2             alpine                   Up Less than a second
+low_1             alpine                   Up 1 second
+elated_bhaskara   golang:1.24-bookworm     Up 11 minutes
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+b43a96df30672c4bd1beaa6ab289b0dd6a3138a0a19dd0b7a18e334f5a54cd78
+ae5dbc9412b0cecda1c8d0ee28dd3fd916515df5828a987c8e04ae4353a8b3f5
+b56948f11f6b253025a8b9325d62ef79b01a41ad8dcc61184d9da4b0d49ad6fb
+Creando contenedores high aleatorios...
+fe325133c5a4ecab6a133ee4051afe5631752f5d9149bf3f899e495db014e608
+85326dffbb6de422af319cf618021ad7f4f88637c58c1d7338c2bf356d738ddf
+
+Contenedores activos:
+NAMES             IMAGE                    STATUS
+highcpu_1         alpine                   Up Less than a second
+highcpu_2         alpine                   Up Less than a second
+low_3             alpine                   Up Less than a second
+low_2             alpine                   Up 1 second
+low_1             alpine                   Up 1 second
+elated_bhaskara   golang:1.24-bookworm     Up 13 minutes
+grafana_so1       grafana/grafana:latest   Up 2 hours
+json_api          python:3.12-alpine       Up 2 hours
+valkey_so1        valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+7349fefb8568f369331e86ff4b2cc51da9fcb8f9527e6d79be86e105cb5e7bac
+729262dcbd7a1c743459de399044dcedce85abc5ac01392950a50dc857578675
+59af1f3ffa3d2a3fbddfc520c4e58bcf8e3b173939aaf25a2ea33ce1d2f8ab8c
+Creando contenedores high aleatorios...
+22116e428f8bb806149a6451f0b6b25f2d430d5dfee3d95d67173f87327af282
+2d1667f6929eb05add8822a9a90783c1db8dc6bcc6e29bf0415cd79bfdf2db0d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+56a5112029235838bb2f5531399d05ac1287d004bb43f967b3f18fbf8d5c0f7f
+bbd6a5732b2904e70dbf1095d2d681cea963263abbef2421747095720367c787
+19e968f55ad11a4e0834da60af9b517e1bf1e870b64bd3d28fa96f3e0c23bcbd
+Creando contenedores high aleatorios...
+66a40c389e0ccdfbcfbac71173a975a1fc884d45ab2d2cd0f15790de5fb45953
+1bb36b8a8125da8c365bf8a8032cc2c5f89fc15be7a6eb3f2f88f3787c4f5908
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+43e8e21be2c32f0c221859b95821da1a84f7f5de6c7676f961cac1c9683d6c66
+a1f825c71b445d5e8ac1db10e0290f8a06310fc0ea8887bc4ea40b8ade6e8857
+54a2b742a7e56e63fb7b5d3bffc1f37ee5c45140fd4ad6a6e2448c5a1f99c60c
+Creando contenedores high aleatorios...
+5be211a9ae32b39f76ca528ac7c0269853b2f29f966e53a51487c43b4425bad2
+a3144ad01c4be069a85b078efa7976172b3b7d492e39de1d0553beb4a7091371
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+3d8327c70230ac54b2df9b793717b76370ad4d15f4037f8bea46df167003b4b8
+c54648a278d132632f292012c5a1203e311ea26bf70ef2f49d0a561f795264f6
+794fd68d7029a09f6a603cdbaa494b780113466c40a61e410ed60ea5a2e37fdf
+Creando contenedores high aleatorios...
+9ba4381ec49dfd65b6b4781770e78f2d523fc404b711f217e63081221cd7be2e
+2a1165874a72ebc19b42b587a6d8ed4b931489a239c040e14925575455e04204
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+eaf0c05c6f4397eb71f31bc14e9b1e2ff80597682ef4c6a2aca38576d54afe4a
+13349bb5011f78047709a927b30c8d55a46259447442ae35d84cf2f26652bacc
+c2fecfe666646ae7cc5087f224ef14016ca5a9bc5159e57c01e3004e9cd36a32
+Creando contenedores high aleatorios...
+f2a489597936f924dc5498998864cb10d3c337d5fe298d2c4bf6474c73bcf501
+c5bc073a53e2945dee409a3576478d93866677f7d59e9802280db5f2212f52ac
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up 1 second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+9d5f350cab05800e64d69516542d765d3ffe2526e3a2e8bfb7008d6b1dccc5b5
+10b24bea97852c29f0a11ff1821ebebb25149cc3a5a3ba7d491d43da04552f79
+2ba05db6109423606999bfd6c882cef01216064e4de290cddedfbe1c7fe29fc2
+Creando contenedores high aleatorios...
+789d6d4607adacb0fd3767b5e530bbda5a4e07bbedeb2e8647053e14ccfe4f0e
+568fbaa7145b88dc5e61c802821701dcbb6a3f1476177806135f4886c85c8bb2
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+45223f3bb08bfd72289864b772ffb5e066e8940f0d4f5e1031dda6c5c84fc6e4
+55318af21fd6c4a6e5b6bca371e709fbdb58d83d566b008fc60367719f111540
+aa33e556c2411391a48194620d526b25920d8699b83fb1006ca230d5f2c93554
+Creando contenedores high aleatorios...
+4b7b11c9f02fe54c0bb60c6a5d0c033263048f9ae1e7936015207f6eb6568917
+df82daa2701aabd253deec683c27a209bd2204612cf15cc20743ed56733d3a2a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+196d6ab37cd2c343cfaaeea20bfadd5710ed0b96a07d54ba318cd17cb3015791
+6709ee24cae3d9835cf0146e0038f8e9bac2ca3adafdc82936526a5eb114c53d
+e6b4a69dbbbcae7188f031520eb8a3d9cf807e1c5b575740402432bb7c82b791
+Creando contenedores high aleatorios...
+6b9bc4306ae6462e7ce11503a9a77abcfe517bafdb8ba46fc3c5e78b4612c735
+b4dcaf14306cbbd6f79fb545126ad9635aad6170864e10e98543bb0663ae174a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+44262f7bdc4224383c8537a448d98f86a9dde443f433e3154ab795b603db1628
+a6379b8eb7b477b7149e706c33226c0f2dcc44d53678c7b49c94891603bbfed6
+6234bbe551933047a62e978bb76c9740cfcef27fd642c650e2d11bff4a452b89
+Creando contenedores high aleatorios...
+3014fc77e0c93913a92ca4c16d51f8284c5fd826c6d30998df30e4be60560a07
+0533d66c3bc76d80e5757e72d600b35ff2ddb43eeaf62f163d00b999cf7a9c1d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+c12ed2c9a3b392d39ccb402d58407632d2fefabdada5bd94454d58f0aad51a09
+93c42669613ad0276e64aa024287ba8b9031aae9cc0337c9f79b90e529623f24
+1368fd42af5b51e7c57bbe9d745559b272f75aaf3109d78d6acf6dc46e883c78
+Creando contenedores high aleatorios...
+c5f374184ae543cee731b917ce71a66fbe9d06592ae01deb5da0eddbaaece8f8
+da589ecaf4e33a145618046560ada264bc06c527d461d94cf681add2900065bb
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "f21d0a08aec43528b198f3687ead6255b4712e21bf6a94a09fcb041373f6be0f". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "a34e62ac91a9e6e72b164689977d43e9078abb84842138fa31dc080a466c9e89". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "8aa4ff9a32dbd8da340d9420d8c09da16563545be05dbd957dcb861d31cf1b04". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "3dda3f254f9742fe9e2924f46fc6d1bd89964c3d09aa6b79af898392462e913c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+e6b9a5d2bf2fcbb17a79e38f668917cb55440088b8bf17e6558d6279fa06f614
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+2ffea99505d68072e0b98da692128115d5ac810b33120298b55902ad8b1d585c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+0b10d02c0405c2713fe0ce8d9fed25ac5b3beabacd195c06efdeb1eafc7157ee
+d33394ffea5b932b4ab6f92272556cbc11de59ea513766083a8affe5301db09d
+Creando contenedores high aleatorios...
+534c1a33d8f290403c40b271399aea8e5296905bbbc229b4be9d4711e0c38c67
+1ef2b3d1c08faca3f70555683d484a57d7f9a442b0f1d1b7a42f01841b5c146d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+highcpu_1     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "2ffea99505d68072e0b98da692128115d5ac810b33120298b55902ad8b1d585c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "0b10d02c0405c2713fe0ce8d9fed25ac5b3beabacd195c06efdeb1eafc7157ee". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "d33394ffea5b932b4ab6f92272556cbc11de59ea513766083a8affe5301db09d". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+806b9db6ba32136b639c083479657cc25abcfaaef2ae35fa83f3c7dcb82c33b7
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+335e8722e8ce24faebc924075b991952120b13926d29d72cfc6fc3be782efd8b
+d4572b16f439fdb659505244e34ebc4c914cab0aaac32e114bca798cdc94a865
+36bbb86a96763d1996307bd1e3ee5f0955c6d157235385a7ad3dda99f4928cb4
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+2af291d25787db14b15d7ca00173992fec61ee2d38a1729fb797ee906e5ae28b
+Creando contenedores high aleatorios...
+900de05b4fcce57437cc72f489a05a14e6e66965cb70f2e19c12b6abb0c2965a
+6ec9ccc9775f47c9de51efcd2ed03c38648c9798330a38b53145c86887566600
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+highcpu_2     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "335e8722e8ce24faebc924075b991952120b13926d29d72cfc6fc3be782efd8b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "36bbb86a96763d1996307bd1e3ee5f0955c6d157235385a7ad3dda99f4928cb4". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "2af291d25787db14b15d7ca00173992fec61ee2d38a1729fb797ee906e5ae28b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "6ec9ccc9775f47c9de51efcd2ed03c38648c9798330a38b53145c86887566600". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "900de05b4fcce57437cc72f489a05a14e6e66965cb70f2e19c12b6abb0c2965a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up About a minute
+highram_1     python:3.12-alpine       Up About a minute
+low_3         alpine                   Up About a minute
+low_2         alpine                   Up About a minute
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+b78c0ddc542d9e5d67ff28d29fd0400b0aa4ce525ace665b3db72d75014dfb64
+e868684d2905017d25bf3d023cac86d9f8f832729fdbff8654635187ca641f24
+c0d0d70b750415aa5769ce56fdfe1d9d7aceda6d28e19655264e210414809525
+Creando contenedores high aleatorios...
+17fc05e66e4f9efec2e4b703193de10568b650259f823593399a7c8931458116
+41721f1673f63d502fe4de94c546dc40f41a960aab335a7ab9a5a50aba8f3909
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "b78c0ddc542d9e5d67ff28d29fd0400b0aa4ce525ace665b3db72d75014dfb64". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "e868684d2905017d25bf3d023cac86d9f8f832729fdbff8654635187ca641f24". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "c0d0d70b750415aa5769ce56fdfe1d9d7aceda6d28e19655264e210414809525". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "17fc05e66e4f9efec2e4b703193de10568b650259f823593399a7c8931458116". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "41721f1673f63d502fe4de94c546dc40f41a960aab335a7ab9a5a50aba8f3909". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up About a minute
+highcpu_1     alpine                   Up About a minute
+low_3         alpine                   Up About a minute
+low_2         alpine                   Up About a minute
+low_1         alpine                   Up About a minute
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+bce629e6820a91064089baa7caa8af76c9bafaf998b9db61765d0ea8c702d8db
+35ec3c960c4f42c8e5ecaccd99624105e2d0764a84cbd75ce06dcde87c718971
+d8f22af14d86a032568e2db5017f7d77605fd17af5ab11572d367a609d3133d4
+Creando contenedores high aleatorios...
+bcfd22cdf72d70ab076fb257872bec23296c5798183312ce5160a70043f34d7f
+6badaf5b689279359c580ef3de730439067d09992d7cf661f4cef783403ffd10
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "bce629e6820a91064089baa7caa8af76c9bafaf998b9db61765d0ea8c702d8db". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "35ec3c960c4f42c8e5ecaccd99624105e2d0764a84cbd75ce06dcde87c718971". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "d8f22af14d86a032568e2db5017f7d77605fd17af5ab11572d367a609d3133d4". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "bcfd22cdf72d70ab076fb257872bec23296c5798183312ce5160a70043f34d7f". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "6badaf5b689279359c580ef3de730439067d09992d7cf661f4cef783403ffd10". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up About a minute
+low_3         alpine                   Up 2 minutes
+low_2         alpine                   Up 2 minutes
+low_1         alpine                   Up 2 minutes
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+3698d29e68ae096c41e64ca61ac1641bde0b30a0b6e6afc04a3e1cc9250c0710
+87d3938c78d32889194c1bd87d0d39efcc276c19c0a046f0e09d4828a3583422
+d4e75975920fc765a39d7557579572c742dcb5c3e30275df21b88fe0d9a8508a
+Creando contenedores high aleatorios...
+c55eb9145d15ffc7670363ec1edb2a40facb1a6c6f582f77eec749293ee3222c
+ad76df924165d35c8ce533a3d7911da6980f0193b2f3517b847caa59f3b35c44
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+97885ab88c55a125df3f8e716195f5bd5360e614c3178e58f327dc51d048469d
+33e348f491bc93e05f112db173f3af345076ab81fb19c365a8dc8c76ee775f2e
+f3be24fd4554de4f295bcb8a5d10dd00e7178e209c2aa8eba9a1237ebc15b2a7
+Creando contenedores high aleatorios...
+abd298e600ec3d91b5621df45cb37804b6b2c48f3053986681d9fb4035376590
+01a414a871e1b437300c21469a247c2776584ef153098ca369888d38fc056f11
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+5e69a0aee3bd5b6cd3843943101e798bd32c56fb4b892e4a5fe6a421063d5479
+47f93d2f89ff68f39cbb3c01a863d2bbc988749252b1ba4745b922394c334476
+12a0874f1b5f4746c527f27e2e66bd75063f16ab9bded12d479828df622e2e1f
+Creando contenedores high aleatorios...
+73a0108067d54f69731fb0e64555c0c9a6cdcc1a873ec3dd53e4ea66f635643d
+0aa4bd4bb8947f5aee7ad63f491892d44ab2964a3da3b4c6d56ef523f1cdb29a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+672e5ef5623aec35a69f5e2094e6b00e630cbe552faeecfb2a0796ecb072ddf3
+b2ae8c157f57ab67f9165952f80ab4d79481ad1a3892f6cb571a267e47ef641d
+5243a331bdd42bd3c03bde48f36d2b4a35bfd88f4280ffac7140bff36a39e8b4
+Creando contenedores high aleatorios...
+e625ab269275d2f587968a09ab852474e8837de31146a5ad7d1040a3fc3f134a
+77dc2234273f8a9ca87a1296d6a1f9fc291edaa12b79814c7d586e6af3a5c6cc
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "6be238e10e5b83ea8e3edb5d4b188fe4e909929ca612ba2e1744d3305b5a8ed4". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "5c32731f7079c413d4ccdd992020ee80905c3f9084a460179f7fd702f2c359dd". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "0c090abd0a6864b20cf247b6fb25857016c93e79209adf2a40facfa2765caae6". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "34b39d4506ec19429d9561e522a4698673f41732952718482da7101b95afc21d". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "baa27a1ca8dc4fd54766e6d7f34df1eacf479685e81c11b2d5096aed29663a0f". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+low_1
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up About a minute
+highram_2     python:3.12-alpine       Up About a minute
+low_3         alpine                   Up About a minute
+low_2         alpine                   Up About a minute
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+1c3ec0e1969ac7484e0564511d47c475b50c27f7f475c16aa16f93f18fc51b0a
+c542ba2ee1a4a51b6bced6ba7262473b509c8c8f9041c8baf3355df5b7d138c8
+00b8d64e73b78ae375ef8c7439da53dc32f0b84e29f7d79ceed88a099459b832
+Creando contenedores high aleatorios...
+7d1b2946170b5975eb8b2827933bdc1d75273b2bdb5cf3e3138f429f3f16e808
+0850e4acf244509c3580f7fd2225665c5c4ab24c9a7192ebf906e362ffb8384c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "1c3ec0e1969ac7484e0564511d47c475b50c27f7f475c16aa16f93f18fc51b0a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "c542ba2ee1a4a51b6bced6ba7262473b509c8c8f9041c8baf3355df5b7d138c8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "00b8d64e73b78ae375ef8c7439da53dc32f0b84e29f7d79ceed88a099459b832". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+34c276bd995d89efb32c58c049d781a5c040bbc6999fc875328d23b227eadbba
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+fde864cf3c147bf641e0742e0fa58d90dd6b1bfa850c26c58ce0dd9667da618b
+23b3f5947e0c2d6fbd9ed475a57a77171b5ee0404432dbb11b56e762985c65f9
+de865223461a281878b6113500379b7425eee17c7e60bf28878c77653df75d65
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+7a57ec1a2a9487991c8a471a43336cb8defd3647350f9742219596a5baecea4e
+Creando contenedores high aleatorios...
+6e742031680183fa6a983a47c1b7ef5fb0a37fe0a59721db2431c6a8efa408d8
+ebabf67dd73be3df2e461adc08a69711e4457a7d1c707ac8a6f817ab7a9b665e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+highcpu_2     alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+highram_2     python:3.12-alpine       Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "fde864cf3c147bf641e0742e0fa58d90dd6b1bfa850c26c58ce0dd9667da618b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "de865223461a281878b6113500379b7425eee17c7e60bf28878c77653df75d65". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+low_1
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "7a57ec1a2a9487991c8a471a43336cb8defd3647350f9742219596a5baecea4e". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+ef2ec6f6df0aa55b62b9a3d701013a9f1462c99647194b5e9fc4ddb7e1c66bf1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+f76ff50f0590fa184f3bf8ce4ccf70ab8656e285f1c72bd14744b329f839adb5
+cd2ffe137313341c2867c7e982fc40024824eb2726a903515ba84f68bb4ecd48
+18411cc205424057c8440c97aa600554ff067086920d6cdae3974e8699b309f3
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+240ac441cdbc1bb5f533fa661be785baa6752e866d5c9b20120d7ffde04beb2b
+Creando contenedores high aleatorios...
+c59fafa35c7317300ce7699415dd4bf2bb26b43f45aca8e3ce617620f6e2b246
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "ef2ec6f6df0aa55b62b9a3d701013a9f1462c99647194b5e9fc4ddb7e1c66bf1". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+eaf86e67420b6f1cc0f16ae0d6f6d9db0d7dee36104c03d6ba399f81c65c64ce
+80f781de71516599cf93211888cca4d611450767457255c9f1893abb94fb918e
+4adaaa2cb375393291e34134ca9cc79d0a06c4e9ce6738e4b817f9ec5679a77e
+Creando contenedores high aleatorios...
+d462b46cb0816665c069e34744d5b592b7b7f979b60b38252b12fccb3b1ee146
+d86bf459079d021837b621f9fa488484c05db29eef254a8e0794d73449774e1c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 2 hours
+json_api      python:3.12-alpine       Up 2 hours
+valkey_so1    valkey/valkey:7.2        Up 2 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "5a3535f065477cb9b8d6c3e57ce7d22ab78ed40aaa8a482eb4056120a85fbe2a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "705c4569bdfb697960a8689e2f6814b0c8532f90495e608906bc983896e29324". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "d2ee1b1a16fdb4ade234394f86340fb2ed8a0165bb8e3d9d5f71e93235a851d6". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "a335287edaaf25cce13c70d391e558911737e6276de403c6626a2ef5aa5d3e01". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+64121238c24034072c765bfff7192dc4718b4124aeb9959bda134f1060061ab8
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+fa397e4768216ae4dedb18e10b1fe44c6f7056eac64a18ba90f2f46a6abfe855
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+2755ae5644c133c4ee285201926750ddcc9fffb3a54288bebe043664ba4869c4
+cd75846551fe4ca901078d150c422e18076775b287f48cfe66419a04f7e80457
+Creando contenedores high aleatorios...
+b19b7ef9bc4e5dce5ad3ef1a403fbdbe07d9ec6d476b74753886ded1681e0b65
+fc4eaf8fa5aab1a8af8e83edced3d87d286c3aaf1a91dd5e449df15df4f29e8b
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up 1 second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+highcpu_1     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "fa397e4768216ae4dedb18e10b1fe44c6f7056eac64a18ba90f2f46a6abfe855". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "2755ae5644c133c4ee285201926750ddcc9fffb3a54288bebe043664ba4869c4". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "cd75846551fe4ca901078d150c422e18076775b287f48cfe66419a04f7e80457". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "b19b7ef9bc4e5dce5ad3ef1a403fbdbe07d9ec6d476b74753886ded1681e0b65". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+edd9eff70f4888d1a052d81ec3a03c79ca6e8871cb6cea13a222be10569b380d
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+0c4e9770b83c58be9af5a19d1caf7db68410ce8e6a76ddea2b7a291f10d8b512
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+6394ecbfcb684e25b7e2290c17035f8b23f098530279eafbcef76dcddf161233
+2ccbc8cb87f08198ff905e1b2074fd37720f7f02d01fcd91abdac8f444476929
+Creando contenedores high aleatorios...
+0814b626ed9ca111958c5eafd772ad7df5868919e0d83ae507a7f96fad9f8abd
+e5cf8cd5d3b88e6075095c60cf78ab46c3ad6e3ced06e00b1fdc2df9bbc463e7
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_1     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "0c4e9770b83c58be9af5a19d1caf7db68410ce8e6a76ddea2b7a291f10d8b512". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "6394ecbfcb684e25b7e2290c17035f8b23f098530279eafbcef76dcddf161233". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "2ccbc8cb87f08198ff905e1b2074fd37720f7f02d01fcd91abdac8f444476929". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "e5cf8cd5d3b88e6075095c60cf78ab46c3ad6e3ced06e00b1fdc2df9bbc463e7". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+low_1
+328ca0cdf7869cc86b5ae4053026f339f7476934e901a7c3f674e20d5a821c46
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+6b7bd28d9c685aa490df2d08509bc6cad55206afcdf642319f98a238a589582e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+324ce63f4ca98c8a25c6af82486d67cec1b6cc93cc41427c0b91741cf3660ed4
+f672398ab49581c84257097902604246382b1341f1494765cc77ee45b2e88d29
+Creando contenedores high aleatorios...
+8e2335ee32219a76b194385b4ecfd93a173a6819058be5414f6f6351bb86a5d0
+26e33f8ed5a8c248bb648dfb69b76a0a3e53148ec4de514753c69562c078e027
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up 1 second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+highcpu_1     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "6b7bd28d9c685aa490df2d08509bc6cad55206afcdf642319f98a238a589582e". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "324ce63f4ca98c8a25c6af82486d67cec1b6cc93cc41427c0b91741cf3660ed4". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "f672398ab49581c84257097902604246382b1341f1494765cc77ee45b2e88d29". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "26e33f8ed5a8c248bb648dfb69b76a0a3e53148ec4de514753c69562c078e027". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+5225508bfa18784a3cc1e8e4e244e652e905ab2dea9b8d31ea52297abef69ed0
+low_1
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+30cf0fb9bbee77fe4b2d192b4500bb6bc77026004b2374322884062b770cfc00
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+9816e5567ceb839fb2d36df9f3c49aed21b9d258ed97dcb2ceb0cc9bd3d39a2b
+12df1ccdb2b4bbc0c0e841b7f5f8bf09cdbb8a345bd46f8b729c269ada078a41
+Creando contenedores high aleatorios...
+90d9b56b73bad7497ca3332eb586d3fc79282d76dc437c313acabc64d6ff479c
+3b626d9297da2e5ae34fcab92159ead7e7628b833e44081d3ddaf39c8ddd647c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+highram_1     python:3.12-alpine       Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "30cf0fb9bbee77fe4b2d192b4500bb6bc77026004b2374322884062b770cfc00". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "9816e5567ceb839fb2d36df9f3c49aed21b9d258ed97dcb2ceb0cc9bd3d39a2b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "12df1ccdb2b4bbc0c0e841b7f5f8bf09cdbb8a345bd46f8b729c269ada078a41". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "5225508bfa18784a3cc1e8e4e244e652e905ab2dea9b8d31ea52297abef69ed0". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+low_1
+d08cd496a0d3a971824db95aac84cd68b4d39d9fcd86373f6b5c814a36825d7c
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+01f05238bae26f1ecbe47d04961907efcb4d65ce559bd295bbc60ac1036f0d2f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+9ec778cd43688bc3e5e32f25addcb1608a5546fb7e6e6381cf02e7d0c64f4ac5
+b1e9e29fe734a22fe98e7d6cf18c161291267298d190f0a4efbe1795cedcd97b
+Creando contenedores high aleatorios...
+de6f6fa196af544e9d45f3167d3d7643dfe18b1f8622af78e89e3f3eb260b90c
+a4d7e6f07d69581ad04fa26c309366e36d8cedab730e52a023d1a7e23c0c8b5c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "01f05238bae26f1ecbe47d04961907efcb4d65ce559bd295bbc60ac1036f0d2f". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "9ec778cd43688bc3e5e32f25addcb1608a5546fb7e6e6381cf02e7d0c64f4ac5". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "b1e9e29fe734a22fe98e7d6cf18c161291267298d190f0a4efbe1795cedcd97b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+159261366e8eef65a56b316611eddf32f06247559c884025928bfd528bba24d1
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+c5672ac1f832a21ad4d466afb3a12fc04221ae93d5f2198488b4ad2b1b7c7bb1
+52ce5e6b01adc87c7525b5ee406989e499fd2a88bc21d8eb44672564460102eb
+316c9c591dc7e640d275d3079ca07725aff05fd6171949f110e85b23af77b37e
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+f728c77ad836fb675a8332f31a092e4cfb570ee3a48f06f64e887f3bfdf9c8bb
+Creando contenedores high aleatorios...
+a9944163afbedab96d1450e217374cab16c813e3146025bcc6da95cf0c744891
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "52ce5e6b01adc87c7525b5ee406989e499fd2a88bc21d8eb44672564460102eb". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "c5672ac1f832a21ad4d466afb3a12fc04221ae93d5f2198488b4ad2b1b7c7bb1". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "316c9c591dc7e640d275d3079ca07725aff05fd6171949f110e85b23af77b37e". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "f728c77ad836fb675a8332f31a092e4cfb570ee3a48f06f64e887f3bfdf9c8bb". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+2c6708c548a455b1d82cda2481e4cd18a23305a00c3f87ee338dc670c5198ffc
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+904adbb0324a7e8593e3ecfd747a862b03db7c64a0c36cedd16dc7b526297bd6
+3f22b32347c71d216060c43946d4eea2da29a763a237cbbfd43251d4effc05a4
+2fd06d0f7e9a82c95ea49fd1c0dc25724842cc129a079c7485aa0127bcf952b7
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+caaee0d882e818270dba1392608d2e3ca2d8de7d640af5677633da6530c4ae23
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "2c6708c548a455b1d82cda2481e4cd18a23305a00c3f87ee338dc670c5198ffc". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "3f22b32347c71d216060c43946d4eea2da29a763a237cbbfd43251d4effc05a4". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "904adbb0324a7e8593e3ecfd747a862b03db7c64a0c36cedd16dc7b526297bd6". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "2fd06d0f7e9a82c95ea49fd1c0dc25724842cc129a079c7485aa0127bcf952b7". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "caaee0d882e818270dba1392608d2e3ca2d8de7d640af5677633da6530c4ae23". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "2c6708c548a455b1d82cda2481e4cd18a23305a00c3f87ee338dc670c5198ffc". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+9589050c40446e81403339685a33d2800ad397106fd62fb3aba13b32df8eb64c
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+7f5b61872dd5da6abc32d051b477fd2a01d1723ca229b4cc34ee4a322cc29b63
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+75fd9176b10f854da5767783da357e8f176d020a73bb28190039f1ea8a2c3d67
+787079ed01f00c3014ddbb250b7978578916cb01134ab3ee1246ea3098bceedb
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "9589050c40446e81403339685a33d2800ad397106fd62fb3aba13b32df8eb64c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+b7e6c33e7b26529016624240582d51098ea894a84077822bc945338196233ddf
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "7f5b61872dd5da6abc32d051b477fd2a01d1723ca229b4cc34ee4a322cc29b63". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "75fd9176b10f854da5767783da357e8f176d020a73bb28190039f1ea8a2c3d67". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "787079ed01f00c3014ddbb250b7978578916cb01134ab3ee1246ea3098bceedb". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+0ae1c02c36907993d6fbe4d77f473c813af6a3e9ef1998ef62a294a0b695f5b2
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+1907cdfafbca7b52845fa97d6f870e49d724342b56dd2453462a34f480fe6775
+85273bf6b66c0a2e861ac3a007b6cce9bccb844f9e280d0e125c8306826f18e8
+6f0a7e26e378e28004ff0ab58d2e4600c7f5b3eb28a19ccba777ca4d805a5503
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+0e7bc976d0caddba757c5604e4ccaa78dfe6f524928d1095680782b0793236ec
+Creando contenedores high aleatorios...
+547240e3d066ceee8d36d52b620ed3f8a624d140834f64eba73ed55114d79497
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "85273bf6b66c0a2e861ac3a007b6cce9bccb844f9e280d0e125c8306826f18e8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up 1 second
+highcpu_2     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "1907cdfafbca7b52845fa97d6f870e49d724342b56dd2453462a34f480fe6775". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "6f0a7e26e378e28004ff0ab58d2e4600c7f5b3eb28a19ccba777ca4d805a5503". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "0e7bc976d0caddba757c5604e4ccaa78dfe6f524928d1095680782b0793236ec". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+8cde56d05aedf8196882a11c022b554069f2009611459c7663113c1958ae389d
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+28fef6a1ba8b2b42c9e7c880b9c65b34ba49c448bd8cecb011001ed72cea0bed
+79105fc5dd60ac3bbce090fea9719aa438c38bc723c836fd1f12e027f64ec21b
+8392a9bc75c6245b9503abbe9123014889bc965ff8a179f0f40876daef93e5c2
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+dfd86ff1055aed59bd30547a5b8168a259a7a258b36ce0b5c65c904c7a329b77
+Creando contenedores high aleatorios...
+647e1707c77d2240a8c8936f1ec87f37ed24d7e432311c4dd3552791a3ae1c0b
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "8cde56d05aedf8196882a11c022b554069f2009611459c7663113c1958ae389d". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up 1 second
+low_1         alpine                   Up 1 second
+highcpu_2     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "28fef6a1ba8b2b42c9e7c880b9c65b34ba49c448bd8cecb011001ed72cea0bed". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "8392a9bc75c6245b9503abbe9123014889bc965ff8a179f0f40876daef93e5c2". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "dfd86ff1055aed59bd30547a5b8168a259a7a258b36ce0b5c65c904c7a329b77". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "79105fc5dd60ac3bbce090fea9719aa438c38bc723c836fd1f12e027f64ec21b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+6ec4507b59aa47d7db762199102f94e3461c7d505a4b1efdfa901f2a5a09b1b8
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+dc7358e885a62d51d13ddbbe46202b08a739bfe9a099228782c9f7382d5a1b38
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+00e0147e8b1ca687809b40e530465462cac995b7f57480d83133705263edbb0a
+bcf13491f326e21050ffb96d17ec2c9b4d18819392a057e917c2240ef53819ee
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "6ec4507b59aa47d7db762199102f94e3461c7d505a4b1efdfa901f2a5a09b1b8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+7120ee912fa655816b5887d7f8c585d36d1188d391e96f80df49d19e4e6326ae
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "dc7358e885a62d51d13ddbbe46202b08a739bfe9a099228782c9f7382d5a1b38". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "00e0147e8b1ca687809b40e530465462cac995b7f57480d83133705263edbb0a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "bcf13491f326e21050ffb96d17ec2c9b4d18819392a057e917c2240ef53819ee". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "6ec4507b59aa47d7db762199102f94e3461c7d505a4b1efdfa901f2a5a09b1b8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+1283bd9f853fbbe7cb1ac72298c93c14689996dd1ebc21a832f0bb664ee87d6a
+low_1
+low_2
+low_3
+highcpu_1
+highcpu_2
+Creando contenedores de bajo consumo...
+158657115d423a88d08562a74b7fe1266829de3bccda48ab251f750f1199898f
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+6b8e96c03c8c0c3344066f9cb071d2d26dde3d62ce6b1a60e987b5ab13b3b428
+7e01687287485cda03904eeab07d1277b9d273fa2df0ad22d6ee15b8cd329a62
+Creando contenedores high aleatorios...
+24a1ce50e12dd885e45586938c83e5d3c4a53aee420fa63291ddd75782463dcc
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "1283bd9f853fbbe7cb1ac72298c93c14689996dd1ebc21a832f0bb664ee87d6a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "158657115d423a88d08562a74b7fe1266829de3bccda48ab251f750f1199898f". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "6b8e96c03c8c0c3344066f9cb071d2d26dde3d62ce6b1a60e987b5ab13b3b428". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "7e01687287485cda03904eeab07d1277b9d273fa2df0ad22d6ee15b8cd329a62". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "24a1ce50e12dd885e45586938c83e5d3c4a53aee420fa63291ddd75782463dcc". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+2811fda4024ec87c288c91c32c65774cd726dcebec4d89c2634999426af3f575
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+eeace3709fbaca8d71e78f30cd83415a2bd15f72504a22f9526357a5ed741fb6
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+a963d7b461b793639a0ac099bbb6f84c2a7b0f814ae1822d293e85aa316dfeb5
+be570bc340f663ccc0e2b5139effa139d590bfdfbbcf36f20e5b61cc374f6072
+Creando contenedores high aleatorios...
+fdd662d7b11260361a065346d4aeeb9f6cb7423d9b57e8e4ae54fc156ee56d86
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "2811fda4024ec87c288c91c32c65774cd726dcebec4d89c2634999426af3f575". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "eeace3709fbaca8d71e78f30cd83415a2bd15f72504a22f9526357a5ed741fb6". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "a963d7b461b793639a0ac099bbb6f84c2a7b0f814ae1822d293e85aa316dfeb5". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "be570bc340f663ccc0e2b5139effa139d590bfdfbbcf36f20e5b61cc374f6072". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "2811fda4024ec87c288c91c32c65774cd726dcebec4d89c2634999426af3f575". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "fdd662d7b11260361a065346d4aeeb9f6cb7423d9b57e8e4ae54fc156ee56d86". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+low_1
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up About a minute
+low_2         alpine                   Up 2 minutes
+highram_2     python:3.12-alpine       Up 2 minutes
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+low_2
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+2f0c00bd9fbdf6dbb03e549a19667a2e6df58c892014439d180cdd56fd9e60ac
+5a59e0acb82cc8eb96df78b4133f6d2654f5f33f00aa77ffb9ff0c0d842cf90f
+3d11e09c431cd39632040abc5841f5338a01dd889fe0a15a390cb0c5c70cca51
+Creando contenedores high aleatorios...
+cacb0ce97c8ec8360447e783580b335165b9bd3ec2b3c5234e81e4746679c01c
+b85eed06cca2d992c505ec143971a9849a2d8491078abcd3ab180d3154668cfc
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "2f0c00bd9fbdf6dbb03e549a19667a2e6df58c892014439d180cdd56fd9e60ac". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "5a59e0acb82cc8eb96df78b4133f6d2654f5f33f00aa77ffb9ff0c0d842cf90f". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "3d11e09c431cd39632040abc5841f5338a01dd889fe0a15a390cb0c5c70cca51". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+ab4a3a95d377d82fc61ea54f9bb246905134654a565476e58bdab7004f878312
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+080b4f78d570f87735da2e67f2a1cd0545b985544aeca93341425dab7f95ed44
+e55a9f673670605446aa47f44aab373b876d0b4fe1675f9d9de4cfc0b604162c
+830e3f339c0ef5b5f8c33b7874aad71deb12d17fe8f43466aec61e57bf37a21c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+b269dcb510f7000532edb6dc7015703552d5ea4539570be931fa363ac6e51fc7
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "ab4a3a95d377d82fc61ea54f9bb246905134654a565476e58bdab7004f878312". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "e55a9f673670605446aa47f44aab373b876d0b4fe1675f9d9de4cfc0b604162c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "080b4f78d570f87735da2e67f2a1cd0545b985544aeca93341425dab7f95ed44". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "830e3f339c0ef5b5f8c33b7874aad71deb12d17fe8f43466aec61e57bf37a21c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "b269dcb510f7000532edb6dc7015703552d5ea4539570be931fa363ac6e51fc7". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+9ead71efe2929f74d8d6a65356e54df5630083a2af11da87f707ac16626d4b1e
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+810f2235a545e965f90eadc3b8fe84e35fb8df9123ecf99f51764d4a1b97419c
+538b3f74117d58a2b918ea0ab63d680b11164b2c9153378d88a0f6ba6b1bf1b9
+7342e47a7626455d3cf6f6c811af0141aeeda231afad00f62d155d48df5a29db
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_2     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+2242a736774479989e564956e4d6edfae8ae4f419a217fd080c27dd75d7bfa67
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_2" is already in use by container "538b3f74117d58a2b918ea0ab63d680b11164b2c9153378d88a0f6ba6b1bf1b9". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+9cde4aefc54853c68bbd7fc0e093921d11d0ccea108c05efef62d9b566e663b1
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up 1 second
+highcpu_2     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+low_2
+Creando contenedores de bajo consumo...
+low_1
+low_3
+highcpu_2
+highram_2
+Creando contenedores de bajo consumo...
+8ccda20d2d9389fbc0a388b15b7df6d1d89ff1c5912f797395cdf99144bc4406
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "8ccda20d2d9389fbc0a388b15b7df6d1d89ff1c5912f797395cdf99144bc4406". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+9cc38a19f27565503b2f5f5075c409a86ff0589107ceaeefbec3ed9444f8ecf2
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "9cc38a19f27565503b2f5f5075c409a86ff0589107ceaeefbec3ed9444f8ecf2". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+6a2a66e16bff4903905fcd58b754e3aa0974ea669565c3b4d87997aafe6ca0e3
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "6a2a66e16bff4903905fcd58b754e3aa0974ea669565c3b4d87997aafe6ca0e3". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+fc164d2126fe2d303008d55018a2bb7a14db25591eb720d638f03848cc6a0f9c
+Creando contenedores high aleatorios...
+a73a9570c943f3e7a31ecbccf29fa0fa24a11126beddcf7d95c62d4ab2ef2df0
+c017dd9e7b28b90cfce429e53f4ee357aa17ea6c9fc8e6217b321ee591e2bd01
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+f79cc732bc3361de457659b94283055e9ed5ea05763050a62b62ac432353120a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+highram_2     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "8ccda20d2d9389fbc0a388b15b7df6d1d89ff1c5912f797395cdf99144bc4406". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "9cc38a19f27565503b2f5f5075c409a86ff0589107ceaeefbec3ed9444f8ecf2". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "6a2a66e16bff4903905fcd58b754e3aa0974ea669565c3b4d87997aafe6ca0e3". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+df6bc5488742f5bab7fb3ffdcbd72c6b130d63e3731e442fd53a228f4cadeee8
+low_1
+low_2
+low_3
+highram_1
+highram_2
+Creando contenedores de bajo consumo...
+5c45d2bb65e367f1ecd0e488a29eb3057166c7993c5db88889fa28e756cccd1b
+3b30b271a1c535c473aa6f3d33364cfe06eb9666e9267c1cf36c6facd3515d84
+46fd63c20084f35f821d08fda39a2b4811f43b7404b40a36bcba2efd0c980129
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+3ff948e1d84b84276895f7496b28cd4baf388f4617a58c7b473608f617277e52
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_2" is already in use by container "df6bc5488742f5bab7fb3ffdcbd72c6b130d63e3731e442fd53a228f4cadeee8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+cd11ca4b7a070507eb9f538e3bf3be8e56818c49a574bfd08f9ba363724edb83
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "5c45d2bb65e367f1ecd0e488a29eb3057166c7993c5db88889fa28e756cccd1b". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "46fd63c20084f35f821d08fda39a2b4811f43b7404b40a36bcba2efd0c980129". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "3ff948e1d84b84276895f7496b28cd4baf388f4617a58c7b473608f617277e52". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+d29c2505094b5056e7c067039d2b40bbcfe32f73e6489ecb462813e89149b9ff
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+1ab5ae16bfb4bab8e48e31369c4afca666a1150afbea66990ee2d5004f3f5348
+fd9e5ad508c06e8aa562c33201797c24e01637a90b81e11559c9b99169b6ad70
+0d406de8e8591ca5ea196b3fff872adbb10408798113626cd397a4aebaf89f6d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+d10dcddef617813c2a19eef5a83e94f8f0411a057bd1579d4a70375018b283d8
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "d29c2505094b5056e7c067039d2b40bbcfe32f73e6489ecb462813e89149b9ff". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+a26de33216a29d21ea9298a8c7c3cec3a32e7a28a9640d337aaa902694816c0a
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_1         alpine                   Up 1 second
+highcpu_1     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "1ab5ae16bfb4bab8e48e31369c4afca666a1150afbea66990ee2d5004f3f5348". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "0d406de8e8591ca5ea196b3fff872adbb10408798113626cd397a4aebaf89f6d". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "d10dcddef617813c2a19eef5a83e94f8f0411a057bd1579d4a70375018b283d8". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "a26de33216a29d21ea9298a8c7c3cec3a32e7a28a9640d337aaa902694816c0a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+1f150f16e25c05862abc2d71542213a2248851b525fe01eac7aa3578b4a42fdc
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+959b7c9f06fd8cbeb99914921324a3015978491ed119be1fc8cebe1c29b1917c
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+2cfb8d90dd6465ee74546cfccfff33003cf467be6829f38b18ab0eb7916cdb06
+c0012ffcec9ca222421a17777502e6bdfa1691ff24c9b5e4d1d2aa5e63484eab
+Creando contenedores high aleatorios...
+4bda58427b9326e89735560be6e0a5838653dd800943b2503c6610b4879f8a55
+docker: Error response from daemon: Conflict. The container name "/highcpu_1" is already in use by container "1f150f16e25c05862abc2d71542213a2248851b525fe01eac7aa3578b4a42fdc". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_1     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+Limpiando contenedores anteriores de prueba...
+Creando contenedores de bajo consumo...
+docker: Error response from daemon: Conflict. The container name "/low_1" is already in use by container "959b7c9f06fd8cbeb99914921324a3015978491ed119be1fc8cebe1c29b1917c". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_2" is already in use by container "2cfb8d90dd6465ee74546cfccfff33003cf467be6829f38b18ab0eb7916cdb06". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+docker: Error response from daemon: Conflict. The container name "/low_3" is already in use by container "c0012ffcec9ca222421a17777502e6bdfa1691ff24c9b5e4d1d2aa5e63484eab". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+Creando contenedores high aleatorios...
+e0ecc00f43a325d856b78116e1f3f516333582ad602268e13c29ee3387a5530f
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+696b1707cdb1bceca6eb0452b8ea0c97496a2e0589e4343fca6582561e1f63c7
+dc5e9255d849c7b35d0c8a1cef94e5ba9f77665a093e6290c2eee46ba458b78a
+952efd00112012ae99826caa35372fc1980e00409877769e84902b0bf49edef2
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+low_2         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_1         alpine                   Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+290d86983475d580e30a583a07ab88c1a1debf40c067511783fd6655a337f85c
+Creando contenedores high aleatorios...
+docker: Error response from daemon: Conflict. The container name "/highram_1" is already in use by container "dc5e9255d849c7b35d0c8a1cef94e5ba9f77665a093e6290c2eee46ba458b78a". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+1a02cbfde7e885b40edeba0e087f8c10d8dbbf6cf138fd366e8bf764b4d49f64
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_1     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up 1 second
+low_1         alpine                   Up 1 second
+highcpu_2     alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_1
+Creando contenedores de bajo consumo...
+3c93a04002f77ec0893eef5f4b461db1a6da73cf31d1628826289df532f245f5
+35f37c014ab62ac8f5cf36e41d46f87261df665109bdef7d1fea592480b63953
+216713d3971fbbc62852a869f7f2f1da51612f41ee1e9e772ba890b29efd4f2d
+Creando contenedores high aleatorios...
+2b97a9319ac826cf15016ffa1de9dfeac192c50a56c5d4307b6da7d6042f663f
+df8ee613ca16ce365f7a4a6e208307c148aedabcba15972c2db752b4b700237d
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highram_1     python:3.12-alpine       Up Less than a second
+highcpu_2     alpine                   Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up 1 second
+low_1         alpine                   Up 1 second
+grafana_so1   grafana/grafana:latest   Up 3 hours
+json_api      python:3.12-alpine       Up 3 hours
+valkey_so1    valkey/valkey:7.2        Up 3 hours
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_2
+highram_1
+Creando contenedores de bajo consumo...
+a5505fafe92a8d6200ca8ad5ebdf2b10191f25cd5066ab7a77fd3ce58ef8e9a5
+5eaf06551ece8df0a5822ee3fcf6dc1278f1e2966658cb36b53de4d94dba4b63
+77e0d60379103561e70eee224c8127469a35a0590f03690da740cbe9c198b331
+Creando contenedores high aleatorios...
+cfe047502311ee8b42496f3630bf3ce4b286d84ea17b6b6cd675d10e7f3b12f6
+c1b4e6924c73eec7eeb27e1d117d3c4bbb4e3d505f62388147e2c35734069d29
+
+Contenedores activos:
+NAMES         IMAGE                    STATUS
+highcpu_2     alpine                   Up Less than a second
+highram_1     python:3.12-alpine       Up Less than a second
+low_3         alpine                   Up Less than a second
+low_2         alpine                   Up Less than a second
+low_1         alpine                   Up Less than a second
+grafana_so1   grafana/grafana:latest   Up 55 seconds
+valkey_so1    valkey/valkey:7.2        Up 55 seconds
+json_api      python:3.12-alpine       Up 55 seconds
+Limpiando contenedores anteriores de prueba...
+low_1
+low_2
+low_3
+highcpu_1
+highram_2
+Creando contenedores de bajo consumo...
+047d39d489206149aa28b74490445dd30622f628e5108f678141bb768e72f319
+54b111dca33bc168eac9b72bf7a0c87ab4fef40be32df1d8787e2525b0ecbbee
+84e8699ce99a2bf7148a9638f60bb7ef72f475c004b2a5a89421420d74565abb
+Creando contenedores high aleatorios...
+b7300f314d6baa2a32bfd1e9a1c3817f2ea2d27d5d47b0d1dc0c373ee87e0be9
+063565a5cec8584e4526ad0c325e3d839c66495e887cb25da38d54f46e731cf7
+
+Contenedores activos:
+NAMES       IMAGE                STATUS
+highram_1   python:3.12-alpine   Up Less than a second
+highram_2   python:3.12-alpine   Up Less than a second
+low_3       alpine               Up Less than a second
+low_2       alpine               Up 1 second
+low_1       alpine               Up 1 second

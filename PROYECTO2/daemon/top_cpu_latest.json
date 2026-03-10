@@ -1,42 +1,42 @@
 [
   {
-    "pid": 250465,
+    "pid": 240821,
     "name": "sh",
-    "delta_cpu": 10010000000,
-    "rss_kb": 804,
+    "delta_cpu": 9922000000,
+    "rss_kb": 816,
     "vsz_kb": 1640,
     "mem_pct": 0
   },
   {
-    "pid": 3477,
+    "pid": 6154,
+    "name": "brave",
+    "delta_cpu": 3095000000,
+    "rss_kb": 489912,
+    "vsz_kb": 1459827128,
+    "mem_pct": 1
+  },
+  {
+    "pid": 6190,
+    "name": "brave",
+    "delta_cpu": 2559000000,
+    "rss_kb": 682548,
+    "vsz_kb": 1465042580,
+    "mem_pct": 2
+  },
+  {
+    "pid": 2999,
     "name": "gnome-shell",
-    "delta_cpu": 124000000,
-    "rss_kb": 422332,
-    "vsz_kb": 5672892,
+    "delta_cpu": 856000000,
+    "rss_kb": 420172,
+    "vsz_kb": 5242772,
     "mem_pct": 1
   },
   {
-    "pid": 225715,
+    "pid": 5800,
     "name": "brave",
-    "delta_cpu": 59000000,
-    "rss_kb": 540448,
-    "vsz_kb": 1461585596,
-    "mem_pct": 1
-  },
-  {
-    "pid": 6789,
-    "name": "code",
-    "delta_cpu": 36000000,
-    "rss_kb": 612008,
-    "vsz_kb": 1463245256,
-    "mem_pct": 1
-  },
-  {
-    "pid": 4627,
-    "name": "brave",
-    "delta_cpu": 24000000,
-    "rss_kb": 1157140,
-    "vsz_kb": 1459868348,
-    "mem_pct": 3
+    "delta_cpu": 611000000,
+    "rss_kb": 268848,
+    "vsz_kb": 51621500,
+    "mem_pct": 0
   }
 ]

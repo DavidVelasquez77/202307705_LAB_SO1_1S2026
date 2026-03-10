@@ -1,57 +1,57 @@
 [
   {
-    "pid": 4627,
-    "ppid": 4298,
-    "name": "brave",
-    "cmdline": "/opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4287 --enable-crash-reporter=29f5fda0-e02d-43c9-96a0-6b89d55e1843, --enable-distillability-service --",
-    "container_hint": "brave",
-    "vsz_kb": 1459868348,
-    "rss_kb": 1157140,
-    "mem_pct": 3,
-    "cpu_time": 5470384000000
-  },
-  {
-    "pid": 6789,
-    "ppid": 6692,
+    "pid": 5937,
+    "ppid": 5764,
     "name": "code",
     "cmdline": "/proc/self/exe --type=utility --utility-sub-type=node.mojom.NodeService --lang=es --service-sandbox-type=none --render-node-override=/dev/dri/renderD128 --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --crashpad-handler-pid",
     "container_hint": "code",
-    "vsz_kb": 1463245256,
-    "rss_kb": 612008,
-    "mem_pct": 1,
-    "cpu_time": 255498000000
+    "vsz_kb": 1480017732,
+    "rss_kb": 765764,
+    "mem_pct": 2,
+    "cpu_time": 144784000000
   },
   {
-    "pid": 7950,
-    "ppid": 3477,
+    "pid": 3878,
+    "ppid": 2999,
     "name": "warp-terminal",
     "cmdline": "/usr/bin/warp-terminal ",
     "container_hint": "warp-terminal",
-    "vsz_kb": 5145264,
-    "rss_kb": 590600,
-    "mem_pct": 1,
-    "cpu_time": 113124000000
+    "vsz_kb": 5309612,
+    "rss_kb": 764064,
+    "mem_pct": 2,
+    "cpu_time": 136434000000
   },
   {
-    "pid": 225715,
-    "ppid": 4298,
+    "pid": 6190,
+    "ppid": 5650,
     "name": "brave",
-    "cmdline": "/opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4287 --enable-crash-reporter=29f5fda0-e02d-43c9-96a0-6b89d55e1843, --enable-distillability-service --",
+    "cmdline": "/opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=5523 --enable-crash-reporter=29f5fda0-e02d-43c9-96a0-6b89d55e1843, --enable-distillability-service --",
     "container_hint": "brave",
-    "vsz_kb": 1461585596,
-    "rss_kb": 540448,
-    "mem_pct": 1,
-    "cpu_time": 137762000000
+    "vsz_kb": 1465042580,
+    "rss_kb": 682548,
+    "mem_pct": 2,
+    "cpu_time": 296575000000
   },
   {
-    "pid": 81163,
-    "ppid": 4298,
+    "pid": 5287,
+    "ppid": 5260,
     "name": "brave",
-    "cmdline": "/opt/brave.com/brave/brave --type=renderer --crashpad-handler-pid=4287 --enable-crash-reporter=29f5fda0-e02d-43c9-96a0-6b89d55e1843, --enable-distillability-service --",
+    "cmdline": "/opt/brave.com/brave/brave ",
     "container_hint": "brave",
-    "vsz_kb": 1465046256,
-    "rss_kb": 503652,
+    "vsz_kb": 51361904,
+    "rss_kb": 571072,
     "mem_pct": 1,
-    "cpu_time": 286688000000
+    "cpu_time": 392056000000
+  },
+  {
+    "pid": 5877,
+    "ppid": 4681,
+    "name": "code",
+    "cmdline": "/usr/share/code/code --type=zygote ",
+    "container_hint": "code",
+    "vsz_kb": 1463097012,
+    "rss_kb": 491660,
+    "mem_pct": 1,
+    "cpu_time": 268836000000
   }
 ]
