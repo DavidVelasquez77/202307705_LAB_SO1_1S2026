@@ -26,6 +26,17 @@ services:
     depends_on:
       - go-writer
 
+  go-consumer:
+    build:
+      context: ..
+      dockerfile: apps/go-consumer/Dockerfile
+    container_name: go-consumer
+    environment:
+      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
   rust-api:
     build:
       context: ..
