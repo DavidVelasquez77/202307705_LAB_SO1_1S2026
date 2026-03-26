@@ -6,8 +6,12 @@ services:
     container_name: go-writer
     environment:
       GRPC_PORT: "50051"
+      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
     ports:
       - "50051:50051"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy 
 
   go-ingest:
     build:
@@ -41,3 +45,8 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    healthcheck: 
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

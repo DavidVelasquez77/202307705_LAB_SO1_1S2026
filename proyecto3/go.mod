@@ -3,6 +3,7 @@ module github.com/DavidVelasquez77/202307705_LAB_SO1_1S2026/proyecto3
 go 1.24.0
 
 require (
+	github.com/rabbitmq/amqp091-go v1.10.0
 	google.golang.org/grpc v1.79.3
 	google.golang.org/protobuf v1.36.11
 )
