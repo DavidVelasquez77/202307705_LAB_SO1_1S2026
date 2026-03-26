@@ -34,7 +34,7 @@ func main() {
 		port = "50051"
 	}
 
-	listener, err := net.Listen("tcp", ":"+port)
+	listener, err := net.Listen("tcp", "0.0.0.0:"+port)
 	if err != nil {
 		log.Fatalf("No se pudo abrir el puerto %s: %v", port, err)
 	}
@@ -42,7 +42,7 @@ func main() {
 	grpcServer := grpc.NewServer()
 	wartweets.RegisterWarReportServiceServer(grpcServer, &server{})
 
-	log.Printf("go-writer escuchando en grpc://localhost:%s", port)
+	log.Printf("go-writer escuchando en grpc://0.0.0.0:%s", port)
 
 	if err := grpcServer.Serve(listener); err != nil {
 		log.Fatalf("Error al levantar go-writer: %v", err)

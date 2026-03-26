@@ -1,0 +1,43 @@
+services:
+  go-writer:
+    build:
+      context: ..
+      dockerfile: apps/go-writer/Dockerfile
+    container_name: go-writer
+    environment:
+      GRPC_PORT: "50051"
+    ports:
+      - "50051:50051"
+
+  go-ingest:
+    build:
+      context: ..
+      dockerfile: apps/go-ingest/Dockerfile
+    container_name: go-ingest
+    environment:
+      GO_INGEST_PORT: "8081"
+      GRPC_WRITER_ADDR: "go-writer:50051"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - go-writer
+
+  rust-api:
+    build:
+      context: ..
+      dockerfile: apps/rust-api/Dockerfile
+    container_name: rust-api
+    environment:
+      RUST_API_PORT: "8080"
+      GO_INGEST_URL: "http://go-ingest:8081/internal/report"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - go-ingest
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
