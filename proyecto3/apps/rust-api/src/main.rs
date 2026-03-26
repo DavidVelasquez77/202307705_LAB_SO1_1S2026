@@ -47,7 +47,8 @@ async fn main() {
 
     let app = Router::new()
         .route("/health", get(health))
-        .route("/ingest", post(ingest_report))
+        .route("/grpc-202307705", post(ingest_report))
+        .route("/ingest", post(ingest_report)) // opcional, solo para pruebas locales
         .with_state(state);
 
     let address = format!("0.0.0.0:{port}");
@@ -56,9 +57,10 @@ async fn main() {
         .expect("No se pudo iniciar el servidor Rust");
 
     println!("Rust API escuchando en http://{address}");
+
     axum::serve(listener, app)
         .await
-        .expect("Error al ejecutar el servidor");
+        .expect("Error al ejecutar el servidor Rust");
 }
 
 async fn health() -> impl IntoResponse {
@@ -108,12 +110,12 @@ async fn ingest_report(
             let body = resp
                 .text()
                 .await
-                .unwrap_or_else(|_| "No se pudo leer la respuesta del servicio Go".to_string());
+                .unwrap_or_else(|_| "No se pudo leer la respuesta de go-ingest".to_string());
 
             if !status.is_success() {
                 let response = ApiResponse {
                     status: "error".to_string(),
-                    message: "El servicio go-ingest respondió con error".to_string(),
+                    message: "go-ingest respondió con error".to_string(),
                     service: "rust-api".to_string(),
                     forwarded_to: Some(state.go_ingest_url.clone()),
                     downstream_status: Some(status_code),
@@ -125,7 +127,7 @@ async fn ingest_report(
 
             let response = ApiResponse {
                 status: "success".to_string(),
-                message: "Reporte recibido y reenviado correctamente a go-ingest".to_string(),
+                message: "Reporte recibido por Rust y reenviado correctamente".to_string(),
                 service: "rust-api".to_string(),
                 forwarded_to: Some(state.go_ingest_url.clone()),
                 downstream_status: Some(status_code),
@@ -154,17 +156,17 @@ fn validar_payload(payload: &WarReportPayload) -> Result<(), String> {
 
     if !paises_validos.contains(&payload.country.as_str()) {
         return Err(format!(
-            "El país '{}' no es válido. Valores permitidos: USA, RUS, CHN, ESP, GTM",
+            "El país '{}' no es válido. Permitidos: USA, RUS, CHN, ESP, GTM",
             payload.country
         ));
     }
 
-    if payload.warplanes_in_air < 0 {
-        return Err("warplanes_in_air no puede ser negativo".to_string());
+    if payload.warplanes_in_air < 0 || payload.warplanes_in_air > 50 {
+        return Err("warplanes_in_air debe estar entre 0 y 50".to_string());
     }
 
-    if payload.warships_in_water < 0 {
-        return Err("warships_in_water no puede ser negativo".to_string());
+    if payload.warships_in_water < 0 || payload.warships_in_water > 30 {
+        return Err("warships_in_water debe estar entre 0 y 30".to_string());
     }
 
     if payload.timestamp.is_empty() {
