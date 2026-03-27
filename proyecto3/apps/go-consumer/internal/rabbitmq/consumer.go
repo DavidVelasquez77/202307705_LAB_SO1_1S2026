@@ -103,7 +103,7 @@ func (c *Consumer) StartConsuming() error {
 	if err != nil {
 		return err
 	}
-
+	log.Println("AGGREGATES_V2_ACTIVO")
 	log.Printf("Consumidor y Valkey listos. Esperando mensajes en la cola '%s'...", c.queue.Name)
 
 	forever := make(chan struct{})
