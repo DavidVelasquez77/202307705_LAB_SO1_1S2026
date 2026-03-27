@@ -24,20 +24,22 @@ func main() {
 	var cons *rabbitmq.Consumer
 	var err error
 
-	for i := 1; i <= 5; i++ {
-		// Pasamos ambas URLs
+	for i := 1; i <= 8; i++ {
 		cons, err = rabbitmq.NewConsumer(rabbitURL, valkeyURL)
 		if err == nil {
 			break
 		}
-		log.Printf("Intento %d fallido. Reintentando en 3s... Error: %v", i, err)
+
+		log.Printf("Intento %d fallido al iniciar go-consumer. Reintentando en 3s... Error: %v", i, err)
 		time.Sleep(3 * time.Second)
 	}
 
 	if err != nil {
-		log.Fatalf("No se pudo iniciar el consumidor: %v", err)
+		log.Fatalf("No se pudo iniciar go-consumer después de varios intentos: %v", err)
 	}
 	defer cons.Close()
+
+	log.Println("go-consumer conectado a RabbitMQ y Valkey exitosamente")
 
 	if err := cons.StartConsuming(); err != nil {
 		log.Fatalf("Error al consumir mensajes: %v", err)
