@@ -39,6 +39,21 @@ services:
         condition: service_healthy
       valkey:
         condition: service_healthy
+        
+  go-stats-api:
+    build:
+      context: ..
+      dockerfile: apps/go-stats-api/Dockerfile
+    container_name: go-stats-api
+    environment:
+      VALKEY_URL: "redis://valkey:6379/0"
+      STATS_API_PORT: "8082"
+      ASSIGNED_COUNTRY: "CHN"
+    ports:
+      - "8082:8082"
+    depends_on:
+      valkey:
+        condition: service_healthy
 
   rust-api:
     build:
