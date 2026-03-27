@@ -34,12 +34,13 @@ services:
     environment:
       RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
       VALKEY_URL: "redis://valkey:6379/0"
+      ASSIGNED_COUNTRY: "CHN"
     depends_on:
       rabbitmq:
         condition: service_healthy
       valkey:
         condition: service_healthy
-        
+
   go-stats-api:
     build:
       context: ..

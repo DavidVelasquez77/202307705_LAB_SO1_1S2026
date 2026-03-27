@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 	"time"
 
@@ -20,14 +21,19 @@ type WarReportMessage struct {
 }
 
 type Consumer struct {
-	conn    *amqp.Connection
-	channel *amqp.Channel
-	queue   amqp.Queue
-	rdb     *redis.Client
+	conn            *amqp.Connection
+	channel         *amqp.Channel
+	queue           amqp.Queue
+	rdb             *redis.Client
+	assignedCountry string
 }
 
 func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
-	// Conexión a RabbitMQ
+	assignedCountry := os.Getenv("ASSIGNED_COUNTRY")
+	if assignedCountry == "" {
+		assignedCountry = "CHN"
+	}
+
 	conn, err := amqp.Dial(rabbitURL)
 	if err != nil {
 		return nil, err
@@ -53,7 +59,6 @@ func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
 		return nil, err
 	}
 
-	// Conexión a Valkey
 	opt, err := redis.ParseURL(valkeyURL)
 	if err != nil {
 		_ = ch.Close()
@@ -62,7 +67,6 @@ func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
 	}
 
 	rdb := redis.NewClient(opt)
-
 	if err := rdb.Ping(context.Background()).Err(); err != nil {
 		_ = rdb.Close()
 		_ = ch.Close()
@@ -71,10 +75,11 @@ func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
 	}
 
 	return &Consumer{
-		conn:    conn,
-		channel: ch,
-		queue:   q,
-		rdb:     rdb,
+		conn:            conn,
+		channel:         ch,
+		queue:           q,
+		rdb:             rdb,
+		assignedCountry: assignedCountry,
 	}, nil
 }
 
@@ -103,8 +108,12 @@ func (c *Consumer) StartConsuming() error {
 	if err != nil {
 		return err
 	}
-	log.Println("AGGREGATES_V2_ACTIVO")
-	log.Printf("Consumidor y Valkey listos. Esperando mensajes en la cola '%s'...", c.queue.Name)
+
+	log.Printf(
+		"Consumidor listo. Esperando mensajes en '%s'. País asignado para dashboard: %s",
+		c.queue.Name,
+		c.assignedCountry,
+	)
 
 	forever := make(chan struct{})
 
@@ -119,8 +128,7 @@ func (c *Consumer) StartConsuming() error {
 				continue
 			}
 
-			err := c.storeMessage(ctx, msg, string(d.Body))
-			if err != nil {
+			if err := c.storeMessage(ctx, msg, string(d.Body)); err != nil {
 				log.Printf("Error guardando en Valkey: %v", err)
 				_ = d.Nack(false, true)
 				continue
@@ -147,6 +155,9 @@ func (c *Consumer) StartConsuming() error {
 func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw string) error {
 	pipe := c.rdb.TxPipeline()
 
+	// Guardamos el país asignado como llave simple para Grafana
+	pipe.Set(ctx, "dashboard:assigned_country_name", c.assignedCountry, 0)
+
 	// Historial general y por país
 	pipe.LPush(ctx, "reports", raw)
 	pipe.LPush(ctx, "reports:country:"+msg.Country, raw)
@@ -155,15 +166,15 @@ func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw s
 	pipe.Incr(ctx, "stats:total_reports")
 	pipe.HIncrBy(ctx, "stats:reports_by_country", msg.Country, 1)
 
-	// Ranking por acumulado de aviones y barcos
+	// Rankings acumulados
 	pipe.ZIncrBy(ctx, "leaderboard:warplanes_by_country", float64(msg.WarplanesInAir), msg.Country)
 	pipe.ZIncrBy(ctx, "leaderboard:warships_by_country", float64(msg.WarshipsInWater), msg.Country)
 
-	// Histogramas para moda
+	// Histogramas
 	pipe.HIncrBy(ctx, "histogram:warplanes", fmt.Sprintf("%d", msg.WarplanesInAir), 1)
 	pipe.HIncrBy(ctx, "histogram:warships", fmt.Sprintf("%d", msg.WarshipsInWater), 1)
 
-	// Serie temporal por país
+	// Timeline por país
 	parsedTime, err := time.Parse(time.RFC3339, msg.Timestamp)
 	if err == nil {
 		pipe.ZAdd(ctx, "timeline:"+msg.Country, redis.Z{
@@ -172,13 +183,15 @@ func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw s
 		})
 	}
 
-	_, execErr := pipe.Exec(ctx)
-	if execErr != nil {
-		return execErr
+	if _, err := pipe.Exec(ctx); err != nil {
+		return err
 	}
 
-	// Máximos y mínimos globales
 	if err := c.updateMinMax(ctx, msg); err != nil {
+		return err
+	}
+
+	if err := c.updateDashboardKeys(ctx); err != nil {
 		return err
 	}
 
@@ -199,6 +212,82 @@ func (c *Consumer) updateMinMax(ctx context.Context, msg WarReportMessage) error
 		return err
 	}
 	return nil
+}
+
+func (c *Consumer) updateDashboardKeys(ctx context.Context) error {
+	pipe := c.rdb.TxPipeline()
+
+	// Espejo de totales y min/max en llaves simples
+	totalReports, _ := c.rdb.Get(ctx, "stats:total_reports").Int64()
+	assignedTotal, _ := c.rdb.HGet(ctx, "stats:reports_by_country", c.assignedCountry).Int64()
+	maxWarplanes, _ := c.rdb.Get(ctx, "stats:max_warplanes").Int64()
+	minWarplanes, _ := c.rdb.Get(ctx, "stats:min_warplanes").Int64()
+	maxWarships, _ := c.rdb.Get(ctx, "stats:max_warships").Int64()
+	minWarships, _ := c.rdb.Get(ctx, "stats:min_warships").Int64()
+
+	pipe.Set(ctx, "dashboard:total_reports", totalReports, 0)
+	pipe.Set(ctx, "dashboard:assigned_country_total_reports", assignedTotal, 0)
+	pipe.Set(ctx, "dashboard:max_warplanes", maxWarplanes, 0)
+	pipe.Set(ctx, "dashboard:min_warplanes", minWarplanes, 0)
+	pipe.Set(ctx, "dashboard:max_warships", maxWarships, 0)
+	pipe.Set(ctx, "dashboard:min_warships", minWarships, 0)
+
+	// Top países por aviones y barcos
+	topWarplanes, _ := c.rdb.ZRevRangeWithScores(ctx, "leaderboard:warplanes_by_country", 0, 0).Result()
+	if len(topWarplanes) > 0 {
+		if country, ok := topWarplanes[0].Member.(string); ok {
+			pipe.Set(ctx, "dashboard:top_warplanes_country", country, 0)
+			pipe.Set(ctx, "dashboard:top_warplanes_score", int64(topWarplanes[0].Score), 0)
+		}
+	}
+
+	topWarships, _ := c.rdb.ZRevRangeWithScores(ctx, "leaderboard:warships_by_country", 0, 0).Result()
+	if len(topWarships) > 0 {
+		if country, ok := topWarships[0].Member.(string); ok {
+			pipe.Set(ctx, "dashboard:top_warships_country", country, 0)
+			pipe.Set(ctx, "dashboard:top_warships_score", int64(topWarships[0].Score), 0)
+		}
+	}
+
+	// Moda
+	warplanesHist, _ := c.rdb.HGetAll(ctx, "histogram:warplanes").Result()
+	warshipsHist, _ := c.rdb.HGetAll(ctx, "histogram:warships").Result()
+
+	wpValue, wpCount := computeMode(warplanesHist)
+	wsValue, wsCount := computeMode(warshipsHist)
+
+	pipe.Set(ctx, "dashboard:mode_warplanes_value", wpValue, 0)
+	pipe.Set(ctx, "dashboard:mode_warplanes_count", wpCount, 0)
+	pipe.Set(ctx, "dashboard:mode_warships_value", wsValue, 0)
+	pipe.Set(ctx, "dashboard:mode_warships_count", wsCount, 0)
+
+	_, err := pipe.Exec(ctx)
+	return err
+}
+
+func computeMode(hist map[string]string) (int64, int64) {
+	type pair struct {
+		value int64
+		count int64
+	}
+
+	var best pair
+	first := true
+
+	for k, v := range hist {
+		value, err1 := strconv.ParseInt(k, 10, 64)
+		count, err2 := strconv.ParseInt(v, 10, 64)
+		if err1 != nil || err2 != nil {
+			continue
+		}
+
+		if first || count > best.count || (count == best.count && value < best.value) {
+			best = pair{value: value, count: count}
+			first = false
+		}
+	}
+
+	return best.value, best.count
 }
 
 func updateMax(ctx context.Context, rdb *redis.Client, key string, value int32) error {
