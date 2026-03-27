@@ -3,7 +3,9 @@ package rabbitmq
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
+	"strconv"
 	"time"
 
 	amqp "github.com/rabbitmq/amqp091-go"
@@ -25,6 +27,7 @@ type Consumer struct {
 }
 
 func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
+	// Conexión a RabbitMQ
 	conn, err := amqp.Dial(rabbitURL)
 	if err != nil {
 		return nil, err
@@ -50,6 +53,7 @@ func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
 		return nil, err
 	}
 
+	// Conexión a Valkey
 	opt, err := redis.ParseURL(valkeyURL)
 	if err != nil {
 		_ = ch.Close()
@@ -90,7 +94,7 @@ func (c *Consumer) StartConsuming() error {
 	msgs, err := c.channel.Consume(
 		c.queue.Name,
 		"",
-		false,
+		false, // ACK manual
 		false,
 		false,
 		false,
@@ -143,11 +147,23 @@ func (c *Consumer) StartConsuming() error {
 func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw string) error {
 	pipe := c.rdb.TxPipeline()
 
+	// Historial general y por país
 	pipe.LPush(ctx, "reports", raw)
 	pipe.LPush(ctx, "reports:country:"+msg.Country, raw)
+
+	// Conteos
 	pipe.Incr(ctx, "stats:total_reports")
 	pipe.HIncrBy(ctx, "stats:reports_by_country", msg.Country, 1)
 
+	// Ranking por acumulado de aviones y barcos
+	pipe.ZIncrBy(ctx, "leaderboard:warplanes_by_country", float64(msg.WarplanesInAir), msg.Country)
+	pipe.ZIncrBy(ctx, "leaderboard:warships_by_country", float64(msg.WarshipsInWater), msg.Country)
+
+	// Histogramas para moda
+	pipe.HIncrBy(ctx, "histogram:warplanes", fmt.Sprintf("%d", msg.WarplanesInAir), 1)
+	pipe.HIncrBy(ctx, "histogram:warships", fmt.Sprintf("%d", msg.WarshipsInWater), 1)
+
+	// Serie temporal por país
 	parsedTime, err := time.Parse(time.RFC3339, msg.Timestamp)
 	if err == nil {
 		pipe.ZAdd(ctx, "timeline:"+msg.Country, redis.Z{
@@ -157,5 +173,70 @@ func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw s
 	}
 
 	_, execErr := pipe.Exec(ctx)
-	return execErr
+	if execErr != nil {
+		return execErr
+	}
+
+	// Máximos y mínimos globales
+	if err := c.updateMinMax(ctx, msg); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *Consumer) updateMinMax(ctx context.Context, msg WarReportMessage) error {
+	if err := updateMax(ctx, c.rdb, "stats:max_warplanes", msg.WarplanesInAir); err != nil {
+		return err
+	}
+	if err := updateMin(ctx, c.rdb, "stats:min_warplanes", msg.WarplanesInAir); err != nil {
+		return err
+	}
+	if err := updateMax(ctx, c.rdb, "stats:max_warships", msg.WarshipsInWater); err != nil {
+		return err
+	}
+	if err := updateMin(ctx, c.rdb, "stats:min_warships", msg.WarshipsInWater); err != nil {
+		return err
+	}
+	return nil
+}
+
+func updateMax(ctx context.Context, rdb *redis.Client, key string, value int32) error {
+	current, err := rdb.Get(ctx, key).Result()
+	if err == redis.Nil {
+		return rdb.Set(ctx, key, value, 0).Err()
+	}
+	if err != nil {
+		return err
+	}
+
+	currentInt, convErr := strconv.Atoi(current)
+	if convErr != nil {
+		return convErr
+	}
+
+	if int(value) > currentInt {
+		return rdb.Set(ctx, key, value, 0).Err()
+	}
+	return nil
+}
+
+func updateMin(ctx context.Context, rdb *redis.Client, key string, value int32) error {
+	current, err := rdb.Get(ctx, key).Result()
+	if err == redis.Nil {
+		return rdb.Set(ctx, key, value, 0).Err()
+	}
+	if err != nil {
+		return err
+	}
+
+	currentInt, convErr := strconv.Atoi(current)
+	if convErr != nil {
+		return convErr
+	}
+
+	if int(value) < currentInt {
+		return rdb.Set(ctx, key, value, 0).Err()
+	}
+	return nil
 }
