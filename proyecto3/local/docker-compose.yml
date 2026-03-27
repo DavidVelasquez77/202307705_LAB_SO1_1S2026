@@ -33,9 +33,12 @@ services:
     container_name: go-consumer
     environment:
       RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
+      VALKEY_URL: "redis://valkey:6379/0"
     depends_on:
       rabbitmq:
         condition: service_healthy
+      valkey:
+        condition: service_started
 
   rust-api:
     build:
@@ -61,3 +64,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  valkey:         
+      image: valkey/valkey:7.2
+      container_name: valkey
+      ports:
+        - "6379:6379"

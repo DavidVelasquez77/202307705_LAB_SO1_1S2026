@@ -14,27 +14,30 @@ func main() {
 		rabbitURL = "amqp://guest:guest@localhost:5672/"
 	}
 
-	log.Println("Conectando go-consumer a RabbitMQ...")
+	valkeyURL := os.Getenv("VALKEY_URL")
+	if valkeyURL == "" {
+		valkeyURL = "redis://localhost:6379/0"
+	}
+
+	log.Println("Conectando go-consumer a RabbitMQ y Valkey...")
 
 	var cons *rabbitmq.Consumer
 	var err error
 
 	for i := 1; i <= 5; i++ {
-		cons, err = rabbitmq.NewConsumer(rabbitURL)
+		// Pasamos ambas URLs
+		cons, err = rabbitmq.NewConsumer(rabbitURL, valkeyURL)
 		if err == nil {
 			break
 		}
-
-		log.Printf("Intento %d fallido al conectar. Reintentando en 3s... Error: %v", i, err)
+		log.Printf("Intento %d fallido. Reintentando en 3s... Error: %v", i, err)
 		time.Sleep(3 * time.Second)
 	}
 
 	if err != nil {
-		log.Fatalf("No se pudo conectar a RabbitMQ después de 5 intentos: %v", err)
+		log.Fatalf("No se pudo iniciar el consumidor: %v", err)
 	}
 	defer cons.Close()
-
-	log.Println("go-consumer conectado a RabbitMQ exitosamente")
 
 	if err := cons.StartConsuming(); err != nil {
 		log.Fatalf("Error al consumir mensajes: %v", err)
