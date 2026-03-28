@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from locust import HttpUser, task, between
 
 class MilitaryReportUser(HttpUser):
-    # Pausa de apenas 0.1 a 0.5 segundos entre cada disparo (para meter presión)
+    
     wait_time = between(0.1, 0.5)
 
     @task
@@ -20,7 +20,6 @@ class MilitaryReportUser(HttpUser):
 
         headers = {'Content-Type': 'application/json'}
         
-        # Apuntamos al Gateway en Rust con tu ruta
         with self.client.post("/grpc-202307705", data=json.dumps(payload), headers=headers, catch_response=True) as response:
             if response.status_code == 200:
                 response.success()

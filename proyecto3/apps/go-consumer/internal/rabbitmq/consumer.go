@@ -177,9 +177,17 @@ func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw s
 	// Timeline por país
 	parsedTime, err := time.Parse(time.RFC3339, msg.Timestamp)
 	if err == nil {
-		pipe.ZAdd(ctx, "timeline:"+msg.Country, redis.Z{
-			Score:  float64(parsedTime.Unix()),
-			Member: raw,
+		unixMs := parsedTime.UnixMilli()
+
+		pipe.XAdd(ctx, &redis.XAddArgs{
+			Stream: fmt.Sprintf("stream:timeline:%s", msg.Country),
+			ID:     "*",
+			Values: map[string]interface{}{
+				"timestamp":         unixMs,
+				"country":           msg.Country,
+				"warplanes_in_air":  msg.WarplanesInAir,
+				"warships_in_water": msg.WarshipsInWater,
+			},
 		})
 	}
 

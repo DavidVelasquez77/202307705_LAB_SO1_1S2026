@@ -41,21 +41,6 @@ services:
       valkey:
         condition: service_healthy
 
-  go-stats-api:
-    build:
-      context: ..
-      dockerfile: apps/go-stats-api/Dockerfile
-    container_name: go-stats-api
-    environment:
-      VALKEY_URL: "redis://valkey:6379/0"
-      STATS_API_PORT: "8082"
-      ASSIGNED_COUNTRY: "CHN"
-    ports:
-      - "8082:8082"
-    depends_on:
-      valkey:
-        condition: service_healthy
-
   rust-api:
     build:
       context: ..
@@ -94,5 +79,21 @@ services:
       timeout: 5s
       retries: 5
 
+  grafana:
+      image: grafana/grafana:latest
+      container_name: grafana
+      ports:
+        - "3000:3000"
+      environment:
+        GF_SECURITY_ADMIN_USER: "admin"
+        GF_SECURITY_ADMIN_PASSWORD: "admin123"
+        GF_PLUGINS_PREINSTALL: "redis-datasource"
+      volumes:
+        - grafana_data_p3:/var/lib/grafana
+      depends_on:
+        valkey:
+          condition: service_healthy
+
 volumes:
   valkey_data:
+  grafana_data_p3:
