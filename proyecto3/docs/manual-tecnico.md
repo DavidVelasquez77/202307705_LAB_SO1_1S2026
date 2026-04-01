@@ -841,6 +841,20 @@ oras pull 136.113.143.168:5000/proyecto3/config:v1 --insecure -u miusuario -p mi
 cat config-artifact.json
 ```
 
+### 29.7 PROBAR CON LOCUST 
+
+Mientras Locust le está dando con todo en una pestaña, abrí otra pestaña en tu Cloud Shell y ejecutá este comando para ver cómo reacciona tu clúster en tiempo real
+```bash
+kubectl get hpa rust-api -n proyecto3 -w
+```
+
+### 29.8 SI SE TRABA GRAFANA EJECUTAR CUANDO SE QUEDE AHI CARGANDO :
+```bash
+gcloud compute firewall-rules create allow-grafana-nodeport \
+    --allow tcp:32000 \
+    --description="Permitir trafico entrante a Grafana NodePort" \
+    --direction=INGRESS
+```
 ###  Tips para el momento de la verdad
 
 - Si una VM no responde: tirale un `kubectl describe vmi <nombre> -n proyecto3`. A veces el auxiliar es impaciente, y ahí podés mostrarle que el sistema está en estado `Provisioning` o `Running`.
