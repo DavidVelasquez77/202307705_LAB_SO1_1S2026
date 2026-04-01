@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-api
+  namespace: proyecto3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rust-api
+  template:
+    metadata:
+      labels:
+        app: rust-api
+    spec:
+      containers:
+        - name: rust-api
+          image: 136.113.143.168:5000/proyecto3/rust-api:dev
+          imagePullPolicy: Always
+          env:
+            - name: RUST_API_PORT
+              value: "8080"
+            - name: GO_INGEST_URL
+              value: "http://go-ingest.proyecto3.svc.cluster.local:8081/internal/report"
+          ports:
+            - name: http
+              containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rust-api
+  namespace: proyecto3
+spec:
+  selector:
+    app: rust-api
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
