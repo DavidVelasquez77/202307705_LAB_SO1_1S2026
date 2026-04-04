@@ -179,6 +179,58 @@ Uso: Este archivo contiene metadatos del estudiante y parámetros de configuraci
 - Locust (para pruebas de carga locales y/o futuras)
 - Redis Data Source Plugin para Grafana
 
+## 5. Implementación de Mensajería Asíncrona (Dapr Pub/Sub)
+
+En esta sección se detalla la integración de Dapr (Distributed Application Runtime) para gestionar el flujo de datos asíncrono, permitiendo un desacoplamiento total entre los servicios de ingestión y los de persistencia.
+
+### 5.1 El Patrón Sidecar (Arquitectura Dapr)
+
+La arquitectura se basa en el Sidecar Pattern. Cada microservicio (`go-dapr-publisher` y `go-dapr-subscriber`) corre junto a un proceso independiente llamado `daprd`.
+
+- **Abstracción de infraestructura:** El código en Go no contiene lógica de conexión para RabbitMQ. En su lugar, se comunica localmente con su sidecar de Dapr.
+- **Facilidad de mantenimiento:** Si se decidiera cambiar RabbitMQ por Kafka o Google Pub/Sub, solo se modificaría el archivo YAML de configuración de Dapr, sin tocar una sola línea de código fuente.
+
+### 5.2 Arquitectura del Flujo de Datos
+
+El flujo utiliza el patrón Publish/Subscribe para manejar ráfagas masivas de datos sin saturar el flujo síncrono (gRPC).
+
+- **Rust API:** Recibe el reporte y actúa como gateway, repartiendo el tráfico.
+- **Go Dapr Publisher:** Recibe la petición HTTP de Rust y le entrega el mensaje a su sidecar local.
+- **Dapr Sidecar (Producer):** Publica el evento en el topic `war-reports` de RabbitMQ.
+- **RabbitMQ:** Actúa como el motor de mensajería (Message Broker), garantizando la entrega de los mensajes.
+- **Dapr Sidecar (Consumer):** Recibe el mensaje desde la cola y lo “empuja” hacia el Subscriber.
+- **Go Dapr Subscriber:** Procesa el evento final y lo persiste en la base de datos Valkey (KubeVirt).
+
+### 5.3 Configuración del Componente (YAML)
+
+Se definió un componente de tipo `pubsub.rabbitmq` que actúa como el puente hacia el broker interno del clúster.
+
+- **Nombre del recurso:** `rabbitmq-pubsub`
+- **Endpoint del broker:** `payload-rabbitmq.proyecto3.svc.cluster.local:5672`
+- **Persistencia:** La cola se configuró como `durable: true` para evitar pérdida de datos ante fallos del broker.
+
+### 5.4 Optimización de Concurrencia y Rendimiento
+
+Durante las pruebas de estrés con Locust, se detectó una degradación por fatiga de conexiones gRPC. Para solventarlo, se aplicó una mejora de nivel profesional en el código del Publisher:
+
+- **Reutilización de conexión (Singleton):** Se implementó un cliente global de Dapr (`dapr.Client`) inicializado únicamente al arranque del pod.
+- **Justificación:** Esto eliminó la sobrecarga del handshake gRPC por cada reporte recibido, permitiendo pasar de una saturación temprana a un flujo constante de 119 mensajes por segundo sin errores.
+
+### 5.5 Evidencia de Rendimiento (RabbitMQ)
+
+En la siguiente captura se observa el comportamiento del sistema bajo una carga de 500 usuarios concurrentes. Se destaca que la tasa de entrada (`incoming`) es idéntica a la de procesamiento (`ack`), demostrando un sistema perfectamente balanceado:
+
+![alt text](image-6.png)
+
+**Figura 5.1:** Monitor de RabbitMQ mostrando un flujo de 119 msg/s gestionado por Dapr.
+
+### 5.6 Verificación Matrix (Unificación de Flujos)
+
+El sistema logra unificar los reportes provenientes de gRPC y Dapr en un solo punto de persistencia. La verificación se realiza mediante el monitoreo de logs combinados, donde se evidencia la llegada de eventos de ambos consumidores en tiempo real:
+
+![alt text](image-7.png)
+**Figura 5.2:** Logs intercalados de `go-consumer` (gRPC) y `go-dapr-subscriber` (Dapr).
+
 ## 5. Infraestructura utilizada
 
 ### 5.1 Proyecto en GCP

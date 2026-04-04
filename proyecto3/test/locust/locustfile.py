@@ -20,8 +20,13 @@ class MilitaryReportUser(HttpUser):
 
         headers = {'Content-Type': 'application/json'}
         
-        with self.client.post("/grpc-202307705", data=json.dumps(payload), headers=headers, catch_response=True) as response:
+        # Elegir aleatoriamente entre la ruta original y la nueva de Dapr
+        rutas = ["/grpc-202307705", "/dapr-202307705"]
+        ruta_actual = random.choice(rutas)
+        
+        with self.client.post(ruta_actual, data=json.dumps(payload), headers=headers, catch_response=True) as response:
             if response.status_code == 200:
                 response.success()
             else:
-                response.failure(f"Fallo con código: {response.status_code}")
+                # Ahora el reporte de error dirá exactamente en cuál ruta falló
+                response.failure(f"Fallo en {ruta_actual} con código: {response.status_code}")

@@ -14,6 +14,7 @@ use tokio::net::TcpListener;
 struct AppState {
     client: Client,
     go_ingest_url: String,
+    dapr_publisher_url: String, // NUEVO: URL para el flujo de Dapr
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -39,16 +40,22 @@ async fn main() {
     let port = env::var("RUST_API_PORT").unwrap_or_else(|_| "8080".to_string());
     let go_ingest_url = env::var("GO_INGEST_URL")
         .unwrap_or_else(|_| "http://localhost:8081/internal/report".to_string());
+    
+    // NUEVO: Definir a dónde mandar el tráfico de Dapr
+    let dapr_publisher_url = env::var("DAPR_PUBLISHER_URL")
+        .unwrap_or_else(|_| "http://go-dapr-publisher.proyecto3.svc.cluster.local:8082/publish".to_string());
 
     let state = Arc::new(AppState {
         client: Client::new(),
         go_ingest_url,
+        dapr_publisher_url,
     });
 
     let app = Router::new()
         .route("/health", get(health))
         .route("/grpc-202307705", post(ingest_report))
         .route("/ingest", post(ingest_report)) // opcional, solo para pruebas locales
+        .route("/dapr-202307705", post(forward_to_dapr)) // NUEVA RUTA DAPR
         .with_state(state);
 
     let address = format!("0.0.0.0:{port}");
@@ -76,6 +83,7 @@ async fn health() -> impl IntoResponse {
     (StatusCode::OK, Json(response))
 }
 
+// Handler original gRPC
 async fn ingest_report(
     State(state): State<Arc<AppState>>,
     Json(mut payload): Json<WarReportPayload>,
@@ -92,7 +100,6 @@ async fn ingest_report(
             downstream_status: None,
             downstream_body: None,
         };
-
         return (StatusCode::BAD_REQUEST, Json(response)).into_response();
     }
 
@@ -121,19 +128,17 @@ async fn ingest_report(
                     downstream_status: Some(status_code),
                     downstream_body: Some(body),
                 };
-
                 return (StatusCode::BAD_GATEWAY, Json(response)).into_response();
             }
 
             let response = ApiResponse {
                 status: "success".to_string(),
-                message: "Reporte recibido por Rust y reenviado correctamente".to_string(),
+                message: "Reporte recibido por Rust y reenviado correctamente por gRPC".to_string(),
                 service: "rust-api".to_string(),
                 forwarded_to: Some(state.go_ingest_url.clone()),
                 downstream_status: Some(status_code),
                 downstream_body: Some(body),
             };
-
             (StatusCode::OK, Json(response)).into_response()
         }
         Err(error) => {
@@ -145,12 +150,86 @@ async fn ingest_report(
                 downstream_status: None,
                 downstream_body: None,
             };
-
             (StatusCode::BAD_GATEWAY, Json(response)).into_response()
         }
     }
 }
 
+// NUEVO HANDLER: Flujo Dapr
+async fn forward_to_dapr(
+    State(state): State<Arc<AppState>>,
+    Json(mut payload): Json<WarReportPayload>,
+) -> impl IntoResponse {
+    // 1. Limpieza y Validación (reutilizamos tu lógica)
+    payload.country = payload.country.trim().to_uppercase();
+    payload.timestamp = payload.timestamp.trim().to_string();
+
+    if let Err(error_message) = validar_payload(&payload) {
+        let response = ApiResponse {
+            status: "error".to_string(),
+            message: error_message,
+            service: "rust-api".to_string(),
+            forwarded_to: None,
+            downstream_status: None,
+            downstream_body: None,
+        };
+        return (StatusCode::BAD_REQUEST, Json(response)).into_response();
+    }
+
+    // 2. Enviar a Dapr Publisher
+    let result = state
+        .client
+        .post(&state.dapr_publisher_url)
+        .json(&payload)
+        .send()
+        .await;
+
+    match result {
+        Ok(resp) => {
+            let status = resp.status();
+            let status_code = status.as_u16();
+            let body = resp
+                .text()
+                .await
+                .unwrap_or_else(|_| "No se pudo leer la respuesta del Dapr Publisher".to_string());
+
+            if !status.is_success() {
+                let response = ApiResponse {
+                    status: "error".to_string(),
+                    message: "Dapr Publisher respondió con error".to_string(),
+                    service: "rust-api".to_string(),
+                    forwarded_to: Some(state.dapr_publisher_url.clone()),
+                    downstream_status: Some(status_code),
+                    downstream_body: Some(body),
+                };
+                return (StatusCode::BAD_GATEWAY, Json(response)).into_response();
+            }
+
+            let response = ApiResponse {
+                status: "success".to_string(),
+                message: "Reporte recibido por Rust y reenviado correctamente vía Dapr".to_string(),
+                service: "rust-api".to_string(),
+                forwarded_to: Some(state.dapr_publisher_url.clone()),
+                downstream_status: Some(status_code),
+                downstream_body: Some(body),
+            };
+            (StatusCode::OK, Json(response)).into_response()
+        }
+        Err(error) => {
+            let response = ApiResponse {
+                status: "error".to_string(),
+                message: format!("No se pudo conectar con Dapr Publisher: {error}"),
+                service: "rust-api".to_string(),
+                forwarded_to: Some(state.dapr_publisher_url.clone()),
+                downstream_status: None,
+                downstream_body: None,
+            };
+            (StatusCode::BAD_GATEWAY, Json(response)).into_response()
+        }
+    }
+}
+
+// Función de validación original
 fn validar_payload(payload: &WarReportPayload) -> Result<(), String> {
     let paises_validos = ["USA", "RUS", "CHN", "ESP", "GTM"];
 

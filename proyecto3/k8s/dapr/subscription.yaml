@@ -1,0 +1,12 @@
+apiVersion: dapr.io/v2alpha1
+kind: Subscription
+metadata:
+  name: war-reports-subscription
+  namespace: proyecto3
+spec:
+  pubsubname: rabbitmq-pubsub
+  topic: war-reports
+  routes:
+    default: /events/war-reports
+scopes:
+  - go-dapr-subscriber
