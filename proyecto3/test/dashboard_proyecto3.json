@@ -41,7 +41,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-viridis"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -109,7 +109,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-cividis"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -177,7 +177,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-YlRd"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -245,7 +245,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-RdYlGr"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -313,7 +313,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-plasma"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -381,7 +381,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-BlPu"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -450,7 +450,7 @@
         "defaults": {
           "color": {
             "fixedColor": "dark-blue",
-            "mode": "continuous-BlYlRd"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -536,7 +536,7 @@
         "defaults": {
           "color": {
             "fixedColor": "semi-dark-green",
-            "mode": "continuous-BlPu"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -759,7 +759,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-RdYlGr"
+            "mode": "palette-classic"
           },
           "custom": {
             "axisBorderShow": false,

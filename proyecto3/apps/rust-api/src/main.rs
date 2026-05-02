@@ -88,6 +88,12 @@ async fn ingest_report(
     State(state): State<Arc<AppState>>,
     Json(mut payload): Json<WarReportPayload>,
 ) -> impl IntoResponse {
+    
+    // ==========================================
+    // LÍNEA AGREGADA: Esto imprimirá el JSON en la terminal de Kubernetes
+    println!("Recibido JSON (Ruta gRPC): {:#?}", payload);
+    // ==========================================
+
     payload.country = payload.country.trim().to_uppercase();
     payload.timestamp = payload.timestamp.trim().to_string();
 
@@ -160,6 +166,12 @@ async fn forward_to_dapr(
     State(state): State<Arc<AppState>>,
     Json(mut payload): Json<WarReportPayload>,
 ) -> impl IntoResponse {
+    
+    // ==========================================
+    // LÍNEA AGREGADA: Esto imprimirá el JSON en la terminal de Kubernetes
+    println!("Recibido JSON (Ruta Dapr): {:#?}", payload);
+    // ==========================================
+
     // 1. Limpieza y Validación (reutilizamos tu lógica)
     payload.country = payload.country.trim().to_uppercase();
     payload.timestamp = payload.timestamp.trim().to_string();
