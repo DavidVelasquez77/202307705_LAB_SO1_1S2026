@@ -4,7 +4,7 @@ metadata:
   name: go-ingest
   namespace: proyecto3
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: go-ingest
@@ -13,18 +13,41 @@ spec:
       labels:
         app: go-ingest
     spec:
+      imagePullSecrets:
+      - name: zot-login
       containers:
-        - name: go-ingest
+        - name: go-api-rest
           image: 136.113.143.168:5000/proyecto3/go-ingest:dev
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
           env:
             - name: GO_INGEST_PORT
               value: "8081"
             - name: GRPC_WRITER_ADDR
-              value: "go-writer.proyecto3.svc.cluster.local:50051"
+              value: "go-writer.proyecto3.svc.cluster.local:50051" 
           ports:
-            - name: http
-              containerPort: 8081
+            - containerPort: 8081
+        - name: grpc-client
+          image: 136.113.143.168:5000/proyecto3/go-ingest:dev
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          env:
+            - name: GO_INGEST_PORT
+              value: "8082" 
+            - name: GRPC_WRITER_ADDR
+              value: "go-writer.proyecto3.svc.cluster.local:50051"
 ---
 apiVersion: v1
 kind: Service

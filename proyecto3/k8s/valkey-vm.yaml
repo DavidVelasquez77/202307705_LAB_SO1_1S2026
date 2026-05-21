@@ -1,0 +1,60 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: valkey-vm
+  namespace: proyecto3
+spec:
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: valkey-vm
+    spec:
+      terminationGracePeriodSeconds: 0
+      domain:
+        cpu:
+          cores: 2
+        resources:
+          requests:
+            memory: 3Gi
+        devices:
+          disks:
+            - name: containerdisk
+              disk:
+                bus: virtio
+            - name: cloudinitdisk
+              disk:
+                bus: virtio
+          interfaces:
+            - name: default
+              masquerade: {}
+              ports:
+                - name: valkey
+                  port: 6379
+                  protocol: TCP
+      networks:
+        - name: default
+          pod: {}
+      volumes:
+        - name: containerdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:latest
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd: { expire: False }
+              ssh_pwauth: true
+
+              package_update: true
+              packages:
+                - valkey
+
+              runcmd:
+                - systemctl disable --now firewalld || true
+                - sed -i 's/^bind .*/bind 0.0.0.0/' /etc/valkey/valkey.conf || true
+                - sed -i 's/^protected-mode .*/protected-mode no/' /etc/valkey/valkey.conf || true
+                - systemctl enable valkey
+                - systemctl restart valkey

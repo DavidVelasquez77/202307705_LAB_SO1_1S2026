@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-vm
+  namespace: proyecto3
+spec:
+  selector:
+    kubevirt.io/vm: grafana-vm
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+    - name: ssh
+      port: 22
+      targetPort: 22
+      protocol: TCP
+  type: ClusterIP

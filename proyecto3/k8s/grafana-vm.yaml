@@ -1,0 +1,75 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: grafana-vm
+  namespace: proyecto3
+spec:
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: grafana-vm
+        app: grafana-vm
+    spec:
+      terminationGracePeriodSeconds: 0
+      domain:
+        cpu:
+          cores: 2
+        resources:
+          requests:
+            memory: 3Gi
+        devices:
+          disks:
+            - name: containerdisk
+              disk:
+                bus: virtio
+            - name: cloudinitdisk
+              disk:
+                bus: virtio
+          interfaces:
+            - name: default
+              masquerade: {}
+              ports:
+                - name: grafana
+                  port: 3000
+                  protocol: TCP
+                - name: ssh
+                  port: 22
+                  protocol: TCP
+      networks:
+        - name: default
+          pod: {}
+      volumes:
+        - name: containerdisk
+          containerDisk:
+            image: quay.io/containerdisks/fedora:latest
+        - name: cloudinitdisk
+          cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              user: fedora
+              password: fedora
+              chpasswd: { expire: False }
+              ssh_pwauth: true
+
+              package_update: true
+
+              write_files:
+                - path: /etc/yum.repos.d/grafana.repo
+                  permissions: '0644'
+                  content: |
+                    [grafana]
+                    name=grafana
+                    baseurl=https://rpm.grafana.com
+                    repo_gpgcheck=1
+                    enabled=1
+                    gpgcheck=1
+                    gpgkey=https://rpm.grafana.com/gpg.key
+                    sslverify=1
+                    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+
+              runcmd:
+                - systemctl disable --now firewalld || true
+                - dnf install -y grafana
+                - systemctl enable grafana-server
+                - systemctl start grafana-server

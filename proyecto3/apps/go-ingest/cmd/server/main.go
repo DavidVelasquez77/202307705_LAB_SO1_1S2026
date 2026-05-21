@@ -30,6 +30,12 @@ type APIResponse struct {
 	GRPCResponse string `json:"grpc_response,omitempty"`
 }
 
+type grpcClient struct {
+	target string
+	conn   *grpc.ClientConn
+	client wartweets.WarReportServiceClient
+}
+
 func main() {
 	httpPort := os.Getenv("GO_INGEST_PORT")
 	if httpPort == "" {
@@ -40,6 +46,12 @@ func main() {
 	if grpcTarget == "" {
 		grpcTarget = "localhost:50051"
 	}
+
+	grpcConn, err := newGRPCClient(grpcTarget)
+	if err != nil {
+		log.Fatalf("No se pudo preparar cliente gRPC hacia %s: %v", grpcTarget, err)
+	}
+	defer grpcConn.conn.Close()
 
 	mux := http.NewServeMux()
 
@@ -93,7 +105,7 @@ func main() {
 			return
 		}
 
-		grpcResp, err := sendToGRPC(grpcTarget, &wartweets.WarReportRequest{
+		grpcResp, err := sendToGRPC(grpcConn, &wartweets.WarReportRequest{
 			Country:          countryEnum,
 			WarplanesInAir:   payload.WarplanesInAir,
 			WarshipsInWater:  payload.WarshipsInWater,
@@ -104,7 +116,7 @@ func main() {
 				Status:     "error",
 				Message:    "Error enviando reporte por gRPC: " + err.Error(),
 				Service:    "go-ingest",
-				GRPCTarget: grpcTarget,
+				GRPCTarget: grpcConn.target,
 			})
 			return
 		}
@@ -113,7 +125,7 @@ func main() {
 			Status:       "success",
 			Message:      "Reporte recibido por HTTP y enviado por gRPC",
 			Service:      "go-ingest",
-			GRPCTarget:   grpcTarget,
+			GRPCTarget:   grpcConn.target,
 			GRPCResponse: grpcResp.GetStatus(),
 		})
 	})
@@ -125,7 +137,7 @@ func main() {
 	}
 
 	log.Printf("go-ingest escuchando en http://localhost:%s", httpPort)
-	log.Printf("go-ingest enviará reportes a gRPC target: %s", grpcTarget)
+	log.Printf("go-ingest enviará reportes a gRPC target: %s", grpcConn.target)
 
 	if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 		log.Fatalf("No se pudo iniciar go-ingest: %v", err)
@@ -174,24 +186,40 @@ func mapCountryToEnum(country string) (wartweets.Countries, error) {
 	}
 }
 
-func sendToGRPC(target string, req *wartweets.WarReportRequest) (*wartweets.WarReportResponse, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+func newGRPCClient(target string) (*grpcClient, error) {
+	var conn *grpc.ClientConn
+	var err error
+
+	for i := 1; i <= 8; i++ {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		conn, err = grpc.DialContext(
+			ctx,
+			target,
+			grpc.WithTransportCredentials(insecure.NewCredentials()),
+			grpc.WithBlock(),
+		)
+		cancel()
+
+		if err == nil {
+			return &grpcClient{
+				target: target,
+				conn:   conn,
+				client: wartweets.NewWarReportServiceClient(conn),
+			}, nil
+		}
+
+		log.Printf("Intento %d fallido al conectar cliente gRPC hacia %s. Reintentando en 2s... Error: %v", i, target, err)
+		time.Sleep(2 * time.Second)
+	}
+
+	return nil, err
+}
+
+func sendToGRPC(gc *grpcClient, req *wartweets.WarReportRequest) (*wartweets.WarReportResponse, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	conn, err := grpc.DialContext(
-		ctx,
-		target,
-		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithBlock(),
-	)
-	if err != nil {
-		return nil, err
-	}
-	defer conn.Close()
-
-	client := wartweets.NewWarReportServiceClient(conn)
-
-	return client.SendReport(ctx, req)
+	return gc.client.SendReport(ctx, req)
 }
 
 func writeJSON(w http.ResponseWriter, statusCode int, body any) {

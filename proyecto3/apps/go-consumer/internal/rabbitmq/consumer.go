@@ -26,6 +26,7 @@ type Consumer struct {
 	queue           amqp.Queue
 	rdb             *redis.Client
 	assignedCountry string
+	processDelay    time.Duration
 }
 
 func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
@@ -33,6 +34,8 @@ func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
 	if assignedCountry == "" {
 		assignedCountry = "CHN"
 	}
+
+	processDelay := parseProcessDelay(os.Getenv("CONSUMER_PROCESS_DELAY_MS"))
 
 	conn, err := amqp.Dial(rabbitURL)
 	if err != nil {
@@ -74,12 +77,20 @@ func NewConsumer(rabbitURL string, valkeyURL string) (*Consumer, error) {
 		return nil, err
 	}
 
+	if err := ch.Qos(1, 0, false); err != nil {
+		_ = rdb.Close()
+		_ = ch.Close()
+		_ = conn.Close()
+		return nil, err
+	}
+
 	return &Consumer{
 		conn:            conn,
 		channel:         ch,
 		queue:           q,
 		rdb:             rdb,
 		assignedCountry: assignedCountry,
+		processDelay:    processDelay,
 	}, nil
 }
 
@@ -110,9 +121,10 @@ func (c *Consumer) StartConsuming() error {
 	}
 
 	log.Printf(
-		"Consumidor listo. Esperando mensajes en '%s'. País asignado para dashboard: %s",
+		"Consumidor listo. Esperando mensajes en '%s'. País asignado para dashboard: %s. Delay por mensaje: %s",
 		c.queue.Name,
 		c.assignedCountry,
+		c.processDelay,
 	)
 
 	forever := make(chan struct{})
@@ -120,6 +132,10 @@ func (c *Consumer) StartConsuming() error {
 	go func() {
 		for d := range msgs {
 			ctx := context.Background()
+
+			if c.processDelay > 0 {
+				time.Sleep(c.processDelay)
+			}
 
 			var msg WarReportMessage
 			if err := json.Unmarshal(d.Body, &msg); err != nil {
@@ -150,6 +166,20 @@ func (c *Consumer) StartConsuming() error {
 
 	<-forever
 	return nil
+}
+
+func parseProcessDelay(raw string) time.Duration {
+	if raw == "" {
+		return 0
+	}
+
+	ms, err := strconv.Atoi(raw)
+	if err != nil || ms < 0 {
+		log.Printf("CONSUMER_PROCESS_DELAY_MS inválido (%q), usando 0ms", raw)
+		return 0
+	}
+
+	return time.Duration(ms) * time.Millisecond
 }
 
 func (c *Consumer) storeMessage(ctx context.Context, msg WarReportMessage, raw string) error {

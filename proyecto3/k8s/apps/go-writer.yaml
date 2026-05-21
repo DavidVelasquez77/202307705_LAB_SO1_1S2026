@@ -4,7 +4,7 @@ metadata:
   name: go-writer
   namespace: proyecto3
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: go-writer
@@ -13,10 +13,19 @@ spec:
       labels:
         app: go-writer
     spec:
+      imagePullSecrets:
+      - name: zot-login
       containers:
-        - name: go-writer
+        - name: grpc-server
           image: 136.113.143.168:5000/proyecto3/go-writer:dev
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
           env:
             - name: GRPC_PORT
               value: "50051"
@@ -25,6 +34,21 @@ spec:
           ports:
             - name: grpc
               containerPort: 50051
+        - name: rabbitmq-writer
+          image: 136.113.143.168:5000/proyecto3/go-writer:dev
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          env:
+            - name: GRPC_PORT
+              value: "50052" 
+            - name: RABBITMQ_URL
+              value: "amqp://guest:guest@rabbitmq.proyecto3.svc.cluster.local:5672/"
 ---
 apiVersion: v1
 kind: Service

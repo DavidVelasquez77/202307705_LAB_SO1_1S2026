@@ -1,0 +1,9 @@
+registryHosts:
+- server: "136.113.143.168:5000"
+  hosts:
+  - host: "136.113.143.168:5000"
+    capabilities:
+    - HOST_CAPABILITY_PULL
+    - HOST_CAPABILITY_RESOLVE
+    ca:
+    - gcpSecretManagerSecretUri: "projects/50584738488/secrets/zot-ca-cert/versions/latest"

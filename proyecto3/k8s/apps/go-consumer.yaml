@@ -4,7 +4,7 @@ metadata:
   name: go-consumer
   namespace: proyecto3
 spec:
-  replicas: 0
+  replicas: 2
   selector:
     matchLabels:
       app: go-consumer
@@ -13,14 +13,23 @@ spec:
       labels:
         app: go-consumer
     spec:
+      imagePullSecrets:
+      - name: zot-login
       containers:
         - name: go-consumer
           image: 136.113.143.168:5000/proyecto3/go-consumer:dev
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "300m"
           env:
             - name: RABBITMQ_URL
               value: "amqp://guest:guest@rabbitmq.proyecto3.svc.cluster.local:5672/"
             - name: VALKEY_URL
-              value: "redis://VALKEY_VM_SERVICE_AQUI:6379/0"
+              value: "redis://valkey-vm.proyecto3.svc.cluster.local:6379/0"
             - name: ASSIGNED_COUNTRY
               value: "CHN"

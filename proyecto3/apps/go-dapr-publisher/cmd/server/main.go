@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"time"
 
 	dapr "github.com/dapr/go-sdk/client"
 )
@@ -20,13 +21,18 @@ type WarReport struct {
 var daprClient dapr.Client
 
 func main() {
-	// 2. Iniciamos el cliente de Dapr UNA SOLA VEZ al arrancar
-	client, err := dapr.NewClient()
+	// En local el sidecar puede tardar unos segundos en estar listo.
+	client, err := newDaprClientWithRetry(20, time.Second)
 	if err != nil {
 		log.Fatalf("Error iniciando el cliente de Dapr: %v", err)
 	}
 	daprClient = client
 	defer daprClient.Close()
+
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"status":"ok"}`))
+	})
 
 	http.HandleFunc("/publish", func(w http.ResponseWriter, r *http.Request) {
 		var payload WarReport
@@ -52,4 +58,21 @@ func main() {
 
 	log.Println("Publisher Dapr escuchando en :8082")
 	log.Fatal(http.ListenAndServe(":8082", nil))
+}
+
+func newDaprClientWithRetry(maxAttempts int, delay time.Duration) (dapr.Client, error) {
+	var lastErr error
+
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		client, err := dapr.NewClient()
+		if err == nil {
+			return client, nil
+		}
+
+		lastErr = err
+		log.Printf("Esperando sidecar de Dapr (%d/%d): %v", attempt, maxAttempts, err)
+		time.Sleep(delay)
+	}
+
+	return nil, lastErr
 }

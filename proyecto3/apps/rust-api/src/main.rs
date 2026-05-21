@@ -7,7 +7,8 @@ use axum::{
 };
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use std::{env, sync::Arc};
+use std::{env, time::Duration};
+use std::sync::Arc;
 use tokio::net::TcpListener;
 
 #[derive(Clone)]
@@ -46,7 +47,12 @@ async fn main() {
         .unwrap_or_else(|_| "http://go-dapr-publisher.proyecto3.svc.cluster.local:8082/publish".to_string());
 
     let state = Arc::new(AppState {
-        client: Client::new(),
+        client: Client::builder()
+            .pool_max_idle_per_host(100)
+            .connect_timeout(Duration::from_secs(3))
+            .timeout(Duration::from_secs(15))
+            .build()
+            .expect("No se pudo crear el cliente HTTP"),
         go_ingest_url,
         dapr_publisher_url,
     });
@@ -89,11 +95,6 @@ async fn ingest_report(
     Json(mut payload): Json<WarReportPayload>,
 ) -> impl IntoResponse {
     
-    // ==========================================
-    // LÍNEA AGREGADA: Esto imprimirá el JSON en la terminal de Kubernetes
-    println!("Recibido JSON (Ruta gRPC): {:#?}", payload);
-    // ==========================================
-
     payload.country = payload.country.trim().to_uppercase();
     payload.timestamp = payload.timestamp.trim().to_string();
 
@@ -167,11 +168,6 @@ async fn forward_to_dapr(
     Json(mut payload): Json<WarReportPayload>,
 ) -> impl IntoResponse {
     
-    // ==========================================
-    // LÍNEA AGREGADA: Esto imprimirá el JSON en la terminal de Kubernetes
-    println!("Recibido JSON (Ruta Dapr): {:#?}", payload);
-    // ==========================================
-
     // 1. Limpieza y Validación (reutilizamos tu lógica)
     payload.country = payload.country.trim().to_uppercase();
     payload.timestamp = payload.timestamp.trim().to_string();

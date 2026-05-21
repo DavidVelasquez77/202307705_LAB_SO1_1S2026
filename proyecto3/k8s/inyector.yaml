@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-cert-injector
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: node-cert-injector
+  template:
+    metadata:
+      labels:
+        name: node-cert-injector
+    spec:
+      hostPID: true
+      hostNetwork: true
+      containers:
+      - name: cert-injector
+        image: busybox
+        securityContext:
+          privileged: true
+        command: ["sh", "-c"]
+        args:
+        - |
+          # 1. Carpeta de confianza para la IP de Zot
+          DIR="/etc/containerd/certs.d/136.113.143.168:5000"
+          mkdir -p $DIR
+          cp /certs/zot-ca.crt $DIR/ca.crt
+          
+          # 2. Copia al almacén global del nodo
+          cp /certs/zot-ca.crt /etc/ssl/certs/zot-ca.pem
+          
+          # 3. Reinicio de containerd desde el host real
+          echo "Inyectando certificado y reiniciando motor..."
+          nsenter -t 1 -m -u -n -i systemctl restart containerd
+          
+          echo "Proceso completado con éxito."
+          sleep infinity
+        volumeMounts:
+        - name: cert-storage
+          mountPath: /certs
+        - name: host-etc-containerd
+          mountPath: /etc/containerd
+        - name: host-ssl
+          mountPath: /etc/ssl/certs
+      volumes:
+      - name: cert-storage
+        secret:
+          secretName: zot-ca-cert-files
+      - name: host-etc-containerd
+        hostPath:
+          path: /etc/containerd
+      - name: host-ssl
+        hostPath:
+          path: /etc/ssl/certs

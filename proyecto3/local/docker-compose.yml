@@ -4,9 +4,11 @@ services:
       context: ..
       dockerfile: apps/go-writer/Dockerfile
     container_name: go-writer
+    env_file:
+      - .env
     environment:
-      GRPC_PORT: "50051"
-      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
+      GRPC_PORT: ${GRPC_PORT}
+      RABBITMQ_URL: ${RABBITMQ_URL}
     ports:
       - "50051:50051"
     depends_on:
@@ -18,23 +20,29 @@ services:
       context: ..
       dockerfile: apps/go-ingest/Dockerfile
     container_name: go-ingest
+    env_file:
+      - .env
     environment:
-      GO_INGEST_PORT: "8081"
-      GRPC_WRITER_ADDR: "go-writer:50051"
+      GO_INGEST_PORT: ${GO_INGEST_PORT}
+      GRPC_WRITER_ADDR: ${GRPC_WRITER_ADDR}
     ports:
       - "8081:8081"
     depends_on:
-      - go-writer
+      go-writer:
+        condition: service_started
 
   go-consumer:
     build:
       context: ..
       dockerfile: apps/go-consumer/Dockerfile
     container_name: go-consumer
+    env_file:
+      - .env
     environment:
-      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
-      VALKEY_URL: "redis://valkey:6379/0"
-      ASSIGNED_COUNTRY: "CHN"
+      RABBITMQ_URL: ${RABBITMQ_URL}
+      VALKEY_URL: ${VALKEY_URL}
+      ASSIGNED_COUNTRY: ${ASSIGNED_COUNTRY}
+      CONSUMER_PROCESS_DELAY_MS: ${CONSUMER_PROCESS_DELAY_MS}
     depends_on:
       rabbitmq:
         condition: service_healthy
@@ -46,13 +54,114 @@ services:
       context: ..
       dockerfile: apps/rust-api/Dockerfile
     container_name: rust-api
+    env_file:
+      - .env
     environment:
-      RUST_API_PORT: "8080"
-      GO_INGEST_URL: "http://go-ingest:8081/internal/report"
+      RUST_API_PORT: ${RUST_API_PORT}
+      GO_INGEST_URL: ${GO_INGEST_URL}
+      DAPR_PUBLISHER_URL: ${DAPR_PUBLISHER_URL}
     ports:
       - "8080:8080"
     depends_on:
-      - go-ingest
+      go-ingest:
+        condition: service_started
+      go-dapr-publisher:
+        condition: service_started
+
+  go-stats-api:
+    build:
+      context: ..
+      dockerfile: apps/go-stats-api/Dockerfile
+    container_name: go-stats-api
+    env_file:
+      - .env
+    environment:
+      STATS_API_PORT: ${STATS_API_PORT}
+      VALKEY_URL: ${VALKEY_URL}
+      ASSIGNED_COUNTRY: ${ASSIGNED_COUNTRY}
+    ports:
+      - "8084:8082"
+    depends_on:
+      valkey:
+        condition: service_healthy
+
+  go-dapr-publisher:
+    build:
+      context: ..
+      dockerfile: apps/go-dapr-publisher/Dockerfile
+    container_name: go-dapr-publisher
+    restart: unless-stopped
+    ports:
+      - "8082:8082"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  go-dapr-publisher-dapr:
+    image: daprio/daprd:latest
+    container_name: go-dapr-publisher-dapr
+    command:
+      - "./daprd"
+      - "--app-id"
+      - "go-dapr-publisher"
+      - "--app-port"
+      - "8082"
+      - "--dapr-http-port"
+      - "3500"
+      - "--dapr-grpc-port"
+      - "50001"
+      - "--resources-path"
+      - "/components"
+    volumes:
+      - ./dapr/components:/components
+    network_mode: "service:go-dapr-publisher"
+    depends_on:
+      go-dapr-publisher:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+
+  go-dapr-subscriber:
+    build:
+      context: ..
+      dockerfile: apps/go-dapr-subscriber/Dockerfile
+    container_name: go-dapr-subscriber
+    env_file:
+      - .env
+    environment:
+      VALKEY_URL: ${VALKEY_URL}
+      DAPR_SUBSCRIBER_PROCESS_DELAY_MS: ${DAPR_SUBSCRIBER_PROCESS_DELAY_MS}
+    ports:
+      - "8083:8083"
+    depends_on:
+      valkey:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  go-dapr-subscriber-dapr:
+    image: daprio/daprd:latest
+    container_name: go-dapr-subscriber-dapr
+    command:
+      - "./daprd"
+      - "--app-id"
+      - "go-dapr-subscriber"
+      - "--app-port"
+      - "8083"
+      - "--dapr-http-port"
+      - "3500"
+      - "--dapr-grpc-port"
+      - "50001"
+      - "--resources-path"
+      - "/components"
+    volumes:
+      - ./dapr/components:/components
+    network_mode: "service:go-dapr-subscriber"
+    depends_on:
+      go-dapr-subscriber:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -80,19 +189,19 @@ services:
       retries: 5
 
   grafana:
-      image: grafana/grafana:latest
-      container_name: grafana
-      ports:
-        - "3000:3000"
-      environment:
-        GF_SECURITY_ADMIN_USER: "admin"
-        GF_SECURITY_ADMIN_PASSWORD: "admin123"
-        GF_PLUGINS_PREINSTALL: "redis-datasource"
-      volumes:
-        - grafana_data_p3:/var/lib/grafana
-      depends_on:
-        valkey:
-          condition: service_healthy
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin123"
+      GF_PLUGINS_PREINSTALL: "redis-datasource"
+    volumes:
+      - grafana_data_p3:/var/lib/grafana
+    depends_on:
+      valkey:
+        condition: service_healthy
 
 volumes:
   valkey_data:

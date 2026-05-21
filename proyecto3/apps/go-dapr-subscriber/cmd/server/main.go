@@ -23,6 +23,7 @@ type CloudEvent struct {
 }
 
 var rdb *redis.Client
+var processDelay time.Duration
 
 func main() {
 	valkeyURL := os.Getenv("VALKEY_URL")
@@ -31,8 +32,18 @@ func main() {
 	}
 	opt, _ := redis.ParseURL(valkeyURL)
 	rdb = redis.NewClient(opt)
+	processDelay = parseProcessDelay(os.Getenv("DAPR_SUBSCRIBER_PROCESS_DELAY_MS"))
+
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`{"status":"ok"}`))
+	})
 
 	http.HandleFunc("/events/war-reports", func(w http.ResponseWriter, r *http.Request) {
+		if processDelay > 0 {
+			time.Sleep(processDelay)
+		}
+
 		var evt CloudEvent
 		if err := json.NewDecoder(r.Body).Decode(&evt); err != nil {
 			http.Error(w, "bad request", 400)
@@ -60,4 +71,22 @@ func main() {
 
 	log.Println("Subscriber Dapr escuchando en :8083")
 	log.Fatal(http.ListenAndServe(":8083", nil))
+}
+
+func parseProcessDelay(raw string) time.Duration {
+	if raw == "" {
+		return 0
+	}
+
+	ms, err := time.ParseDuration(raw + "ms")
+	if err != nil {
+		log.Printf("DAPR_SUBSCRIBER_PROCESS_DELAY_MS inválido (%q), usando 0ms", raw)
+		return 0
+	}
+
+	if ms < 0 {
+		return 0
+	}
+
+	return ms
 }

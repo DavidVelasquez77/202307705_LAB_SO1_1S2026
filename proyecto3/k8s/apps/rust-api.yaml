@@ -13,10 +13,19 @@ spec:
       labels:
         app: rust-api
     spec:
+      imagePullSecrets:
+      - name: zot-login
       containers:
         - name: rust-api
           image: 136.113.143.168:5000/proyecto3/rust-api:dev
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "300m"
           env:
             - name: RUST_API_PORT
               value: "8080"
@@ -39,3 +48,17 @@ spec:
       port: 8080
       targetPort: 8080
   type: ClusterIP
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: rust-api
+  namespace: proyecto3
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: rust-api
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 30
